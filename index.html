@@ -9,87 +9,128 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0D1117; /* Fondo principal muy oscuro, casi negro */
-            color: #E6EDF3; /* Texto principal claro, blanco hueso */
-            scroll-behavior: smooth; /* Para el scroll suave nativo */
+            background-color: #0D1117; 
+            color: #E6EDF3; 
+            scroll-behavior: smooth; 
         }
         .navbar-bg {
-            background-color: rgba(13, 17, 23, 0.85); /* Fondo del navbar con transparencia */
+            background-color: rgba(13, 17, 23, 0.85); 
             backdrop-filter: blur(10px);
         }
         .hero-bg-gradient {
-            /* Degradado sutil y elegante con tonos oscuros y un toque de color del logo */
-            background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%); /* Gris oscuro -> Gris medio oscuro -> Toque púrpura oscuro */
+            background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%); 
         }
         .service-card {
-            background-color: #161B22; /* Fondo de tarjetas de servicio, un gris ligeramente más claro */
-            border: 1px solid #30363D; /* Borde sutil gris oscuro */
+            background-color: #161B22; 
+            border: 1px solid #30363D; 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 0.75rem; /* Bordes más redondeados */
+            border-radius: 0.75rem; 
         }
         .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2); /* Sombra con acento púrpura sutil */
+            box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2); 
         }
         .cta-button {
-            /* Botón de llamada a la acción con un color principal elegante del logo */
-            background-color: #6E44FF; /* Un púrpura/índigo vibrante pero elegante */
+            background-color: #6E44FF; 
             color: #FFFFFF;
             font-weight: 600;
-            padding: 0.875rem 2rem; /* 14px 32px */
-            border-radius: 0.5rem; /* 8px */
+            padding: 0.875rem 2rem; 
+            border-radius: 0.5rem; 
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .cta-button:hover {
-            background-color: #5A32E0; /* Púrpura más oscuro */
+            background-color: #5A32E0; 
             transform: scale(1.03);
             box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
         }
-        /* La clase .accent-text se mantiene por si se usa en otros lugares, pero para el hero se usa el gradiente */
         .accent-text {
             color: #825EFF; 
         }
         .secondary-accent-text {
-            /* Un segundo color de acento, más sutil, quizás un azulado del logo */
-            color: #58A6FF; /* Azul claro de GitHub, puede funcionar bien */
+            color: #58A6FF; 
         }
         .section-title {
-            color: #C9D1D9; /* Un gris claro para títulos de sección */
+            color: #C9D1D9; 
         }
         .form-input {
             background-color: #0D1117;
             border: 1px solid #30363D;
             color: #E6EDF3;
-            border-radius: 0.375rem; /* 6px */
+            border-radius: 0.375rem; 
         }
         .form-input:focus {
             border-color: #6E44FF;
-            ring: 1;
-            ring-color: #6E44FF; /* Tailwind no tiene ring-color, esto es conceptual */
             outline: 2px solid transparent;
             outline-offset: 2px;
-            --tw-ring-color: #6E44FF; /* Para simular el focus ring de Tailwind */
+            --tw-ring-color: #6E44FF; 
             box-shadow: 0 0 0 2px var(--tw-ring-color);
         }
         .footer-bg {
-            background-color: #010409; /* Fondo del footer aún más oscuro */
+            background-color: #010409; 
             border-top: 1px solid #30363D;
         }
         .benefit-icon {
-            font-size: 2.5rem; /* 40px */
+            font-size: 2.5rem; 
             margin-bottom: 1rem;
         }
+        
+        .service-image-container { 
+            width: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 1.5rem;
+            padding: 0.5rem; /* Pequeño padding alrededor de la imagen */
+        }
+        .service-image-container img {
+            /* La imagen ocupará el ancho del contenedor, hasta un máximo. Altura automática para mantener proporción */
+            width: 100%;
+            max-width: 280px; /* Ajusta este valor si quieres las imágenes de servicio más grandes o pequeñas */
+            height: auto; 
+            object-fit: contain; 
+            display: block; 
+            border-radius: 0.5rem; 
+        }
+
+        .hero-image-container {
+            width: 100%;
+            overflow: hidden; 
+            border-radius: 0.75rem; 
+            aspect-ratio: 1024 / 670; /* Relación de aspecto de tu imagen hero recortada */
+            max-height: 600px; /* Altura máxima para el hero */
+        }
+        .hero-image-container img{
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; /* Debería encajar bien si el aspect-ratio es correcto */
+        }
+
+        .about-us-image-container {
+            width: 100%;
+            max-width: 450px; /* Limitar el tamaño máximo de la imagen cuadrada */
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden; 
+            border-radius: 0.75rem; 
+            aspect-ratio: 1 / 1; /* Para imagen cuadrada */
+        }
+        .about-us-image-container img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; /* Para una imagen cuadrada en un contenedor cuadrado, cover está bien */
+        }
+
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="navbar-bg shadow-md fixed w-full z-50 top-0">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-20 sm:h-24"> 
                 <div class="flex items-center">
-                    <a href="#inicio" class="flex-shrink-0">
-                        <img src="https://placehold.co/140x35/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold" alt="Optinex Logo" class="h-8 w-auto">
-                        </a>
+                    <a href="#inicio" class="flex-shrink-0 p-1 sm:p-2">
+                        <img src="imagenes/logo_optinex_navbar.jpg" alt="Optinex Logo" class="w-36 sm:w-44 md:w-48 h-auto" onerror="this.onerror=null;this.src='https://placehold.co/192x64/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold';this.alt='Logo Optinex no disponible';">
+                    </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
@@ -117,11 +158,10 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-24 md:pt-32 pb-16 md:pb-24 hero-bg-gradient text-white">
+    <section id="inicio" class="pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 hero-bg-gradient text-white"> 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight section-title">
-                Transforma tu Negocio con <br class="sm:hidden">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Inteligencia Artificial</span>
+                Transforma tu Negocio con <br class="sm:hidden"><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Inteligencia Artificial</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
                 En Optinex, creamos soluciones de IA a medida que automatizan procesos, optimizan la eficiencia y potencian el crecimiento de tu empresa.
@@ -129,9 +169,9 @@
             <a href="#servicios" class="cta-button inline-block">
                 Descubre Nuestras Soluciones
             </a>
-            <div class="mt-12 md:mt-16">
-                <img src="https://placehold.co/800x450/161B22/E6EDF3?text=Equipo+Optinex+IA&font=inter" alt="[Imagen del Equipo Optinex IA]" class="mx-auto rounded-lg shadow-2xl max-w-full sm:max-w-3xl w-full object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/800x450/161B22/E6EDF3?text=Imagen+no+disponible&font=inter';">
+            <div class="mt-12 md:mt-16 hero-image-container mx-auto max-w-4xl">
+                <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA" class="shadow-2xl"
+                onerror="this.onerror=null;this.src='https://placehold.co/1024x670/161B22/E6EDF3?text=Hero+1024x670&font=inter';this.alt='Imagen Hero no disponible';">
             </div>
         </div>
     </section>
@@ -143,28 +183,28 @@
                 Automatización inteligente diseñada para las necesidades específicas de tu sector.
             </p>
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="flex justify-center mb-6">
-                        <img src="https://placehold.co/400x300/161B22/6E44FF?text=Opticlinic+IA&font=inter" alt="[Imagen de Opticlinic IA]" class="rounded-lg w-full max-w-md h-auto object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/161B22/FFFFFF?text=Imagen+Opticlinic&font=inter';">
+                <div class="service-card p-6 md:p-8 shadow-lg flex flex-col">
+                    <div class="service-image-container">
+                        <img src="imagenes/imagen_opticlinic.jpg" alt="Opticlinic IA"
+                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic&font=inter';this.alt='Imagen Opticlinic no disponible';">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPCLINIC</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed flex-grow">
                         Agentes IA para la gestión de reservas en clínicas y para profesionales independientes. Optimiza la agenda, reduce no-shows y mejora la experiencia del paciente con atención automatizada 24/7.
                     </p>
-                    <a href="#contacto" class="cta-button text-sm inline-block">Más Información</a>
+                    <a href="#contacto" class="cta-button text-sm inline-block mt-auto self-start">Más Información</a>
                 </div>
 
-                <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="flex justify-center mb-6">
-                        <img src="https://placehold.co/400x300/161B22/58A6FF?text=Optiresto+IA&font=inter" alt="[Imagen de Optiresto IA]" class="rounded-lg w-full max-w-md h-auto object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/161B22/FFFFFF?text=Imagen+Optiresto&font=inter';">
+                <div class="service-card p-6 md:p-8 shadow-lg flex flex-col">
+                    <div class="service-image-container">
+                        <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/58A6FF?text=Optiresto&font=inter';this.alt='Imagen Optiresto no disponible';">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTIRESTO</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed flex-grow">
                         Soluciones de IA para el sector gastronómico. Automatiza la toma de reservas de mesas por mensajes o llamadas, gestiona pedidos y optimiza la operación de tu restaurante, bar o cafetería.
                     </p>
-                    <a href="#contacto" class="cta-button text-sm inline-block">Más Información</a>
+                    <a href="#contacto" class="cta-button text-sm inline-block mt-auto self-start">Más Información</a>
                 </div>
             </div>
         </div>
@@ -183,9 +223,9 @@
                     </p>
                     <a href="#contacto" class="cta-button inline-block">Hablemos de tu Proyecto</a>
                 </div>
-                <div class="md:w-1/2 mt-8 md:mt-0">
-                     <img src="https://placehold.co/600x450/0D1117/6E44FF?text=Soluciones+IA+Optinex&font=inter" alt="[Imagen de Soluciones IA Optinex]" class="rounded-lg shadow-2xl w-full object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/600x450/0D1117/FFFFFF?text=Imagen+Sobre+Nosotros&font=inter';">
+                <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container"> 
+                    <img src="imagenes/imagen_sobre_nosotros.jpg" alt="Soluciones IA Optinex" class="shadow-2xl"
+                    onerror="this.onerror=null;this.src='https://placehold.co/450x450/0D1117/6E44FF?text=Sobre+Nosotros&font=inter';this.alt='Imagen Sobre Nosotros no disponible';">
                 </div>
             </div>
         </div>
@@ -244,8 +284,8 @@
 
     <footer class="footer-bg py-10 text-center">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <a href="#inicio">
-                 <img src="https://placehold.co/130x30/010409/6E44FF?text=OPTINEX&font=inter&fontweight=semibold" alt="Optinex Logo Footer" class="h-7 mx-auto mb-6">
+            <a href="#inicio" class="inline-block p-1 sm:p-2">
+                <img src="imagenes/logo_optinex_footer.jpg" alt="Optinex Logo Footer" class="w-40 sm:w-44 md:w-48 h-auto mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/192x64/010409/6E44FF?text=OPTINEX&font=inter&fontweight=semibold';this.alt='Logo Optinex Footer no disponible';">
             </a>
             <p class="text-gray-400 text-sm">
                 &copy; <span id="currentYear"></span> Optinex. Todos los derechos reservados.
@@ -260,7 +300,8 @@
                 <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors duration-300" aria-label="Instagram">
                      <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.03998C9.17441 2.03998 8.80416 2.05223 7.73561 2.10073C6.72811 2.14673 5.98336 2.31598 5.33886 2.56423C4.65736 2.82673 4.06186 3.20098 3.48886 3.77398C2.91586 4.34698 2.54161 4.94248 2.27911 5.62423C2.03086 5.93098 1.86161 6.37673 1.81561 7.08423C1.76711 7.81873 1.75486 8.18898 1.75486 11C1.75486 13.8255 1.76711 14.1957 1.81561 14.9247C1.86161 15.6322 2.03086 16.0725 2.27911 16.3792C2.54161 17.061 2.91586 17.6565 3.48886 18.2295C4.06186 18.8025 4.65736 19.1767 5.33886 19.4392C5.98336 19.6875 6.72811 19.8567 7.73561 19.9027C8.80416 19.9512 9.17441 19.9635 12 19.9635C14.8256 19.9635 15.1958 19.9512 16.2644 19.9027C17.2719 19.8567 18.0166 19.6875 18.6611 19.4392C19.3426 19.1767 19.9381 18.8025 20.5111 18.2295C21.0841 17.6565 21.4584 17.061 21.7209 16.3792C21.9691 16.0725 22.1384 15.6322 22.1844 14.9247C22.2329 14.1957 22.2451 13.8255 22.2451 11C22.2451 8.18898 22.2329 7.81873 22.1844 7.08423C22.1384 6.37673 21.9691 5.93098 21.7209 5.62423C21.4584 4.94248 21.0841 4.34698 20.5111 3.77398C19.9381 3.20098 19.3426 2.82673 18.6611 2.56423C18.0166 2.31598 17.2719 2.14673 16.2644 2.10073C15.1958 2.05223 14.8256 2.03998 12 2.03998ZM12 3.71398C14.7691 3.71398 15.1161 3.72448 16.1596 3.77148C17.0671 3.81448 17.6326 3.97423 18.0384 4.13623C18.5011 4.32298 18.8476 4.54498 19.2264 4.92373C19.6051 5.30248 19.8271 5.64898 20.0139 6.11173C20.1759 6.51748 20.3356 7.08298 20.3786 7.99048C20.4256 9.03398 20.4361 9.38098 20.4361 12.15C20.4361 14.919 20.4256 15.266 20.3786 16.3095C20.3356 17.217 20.1759 17.7825 20.0139 18.1882C19.8271 18.651 19.6051 18.9975 19.2264 19.3762C18.8476 19.755 18.5011 19.977 18.0384 20.1637C17.6326 20.3257 17.0671 20.4855 16.1596 20.5285C15.1161 20.5755 14.7691 20.586 12 20.586C9.23086 20.586 8.88386 20.5755 7.84036 20.5285C6.93286 20.4855 6.36736 20.3257 5.96161 20.1637C5.49886 19.977 5.15236 19.755 4.77361 19.3762C4.39486 18.9975 4.17286 18.651 3.98611 18.1882C3.82411 17.7825 3.66436 17.217 3.62136 16.3095C3.57436 15.266 3.56386 14.919 3.56386 12.15C3.56386 9.38098 3.57436 9.03398 3.62136 7.99048C3.66436 7.08298 3.82411 6.51748 3.98611 6.11173C4.17286 5.64898 4.39486 5.30248 4.77361 4.92373C5.15236 4.54498 5.49886 4.32298 5.96161 4.13623C6.36736 3.97423 6.93286 3.81448 7.84036 3.77148C8.88386 3.72448 9.23086 3.71398 12 3.71398ZM12 7.11148C9.28936 7.11148 7.00036 9.34123 7.00036 12.15C7.00036 14.9587 9.28936 17.1885 12 17.1885C14.7106 17.1885 16.9996 14.9587 16.9996 12.15C16.9996 9.34123 14.7106 7.11148 12 7.11148ZM12 15.516C10.1119 15.516 8.56386 13.9972 8.56386 12.15C8.56386 10.3027 10.1119 8.78398 12 8.78398C13.8881 8.78398 15.4361 10.3027 15.4361 12.15C15.4361 13.9972 13.8881 15.516 12 15.516ZM17.3066 7.69348C17.3066 8.24548 16.8656 8.68648 16.3136 8.68648C15.7616 8.68648 15.3206 8.24548 15.3206 7.69348C15.3206 7.14148 15.7616 6.70048 16.3136 6.70048C16.8656 6.70048 17.3066 7.14148 17.3066 7.69348Z" /></svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors duration-300" aria-label="LinkedIn"> <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors duration-300" aria-label="LinkedIn">
+                    <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
             </div>
         </div>
@@ -270,7 +311,7 @@
         // Toggle del menú móvil
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a'); // Enlaces dentro del menú móvil
+        const navLinks = document.querySelectorAll('#mobile-menu a'); 
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -294,14 +335,12 @@
 
                 if (targetElement) {
                     let navbarHeight = 0;
-                    const navbar = document.querySelector('nav'); // Selector más específico si es necesario
+                    const navbar = document.querySelector('nav'); 
                     if (navbar && getComputedStyle(navbar).position === 'fixed') {
                          navbarHeight = navbar.offsetHeight;
                     }
                    
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    // Suma el pageYOffset actual para obtener la posición absoluta del elemento en la página
-                    // Luego resta la altura del navbar para que no quede oculto
                     const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
         
                     window.scrollTo({
