@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optinex - Automatización Inteligente para tu Negocio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117; /* Fondo principal muy oscuro, casi negro */
+            color: #E6EDF3; /* Texto principal claro, blanco hueso */
+            scroll-behavior: smooth; /* Para el scroll suave nativo */
+        }
+        .navbar-bg {
+            background-color: rgba(13, 17, 23, 0.85); /* Fondo del navbar con transparencia */
+            backdrop-filter: blur(10px);
+        }
+        .hero-bg-gradient {
+            /* Degradado sutil y elegante con tonos oscuros y un toque de color del logo */
+            background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%); /* Gris oscuro -> Gris medio oscuro -> Toque púrpura oscuro */
+        }
+        .service-card {
+            background-color: #161B22; /* Fondo de tarjetas de servicio, un gris ligeramente más claro */
+            border: 1px solid #30363D; /* Borde sutil gris oscuro */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem; /* Bordes más redondeados */
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2); /* Sombra con acento púrpura sutil */
+        }
+        .cta-button {
+            /* Botón de llamada a la acción con un color principal elegante del logo */
+            background-color: #6E44FF; /* Un púrpura/índigo vibrante pero elegante */
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 0.875rem 2rem; /* 14px 32px */
+            border-radius: 0.5rem; /* 8px */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #5A32E0; /* Púrpura más oscuro */
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
+        }
+        /* La clase .accent-text se mantiene por si se usa en otros lugares, pero para el hero se usa el gradiente */
+        .accent-text {
+            color: #825EFF; 
+        }
+        .secondary-accent-text {
+            /* Un segundo color de acento, más sutil, quizás un azulado del logo */
+            color: #58A6FF; /* Azul claro de GitHub, puede funcionar bien */
+        }
+        .section-title {
+            color: #C9D1D9; /* Un gris claro para títulos de sección */
+        }
+        .form-input {
+            background-color: #0D1117;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+            border-radius: 0.375rem; /* 6px */
+        }
+        .form-input:focus {
+            border-color: #6E44FF;
+            ring: 1;
+            ring-color: #6E44FF; /* Tailwind no tiene ring-color, esto es conceptual */
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-color: #6E44FF; /* Para simular el focus ring de Tailwind */
+            box-shadow: 0 0 0 2px var(--tw-ring-color);
+        }
+        .footer-bg {
+            background-color: #010409; /* Fondo del footer aún más oscuro */
+            border-top: 1px solid #30363D;
+        }
+        .benefit-icon {
+            font-size: 2.5rem; /* 40px */
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="navbar-bg shadow-md fixed w-full z-50 top-0">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#inicio" class="flex-shrink-0">
+                        <img src="https://placehold.co/140x35/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold" alt="Optinex Logo" class="h-8 w-auto">
+                        </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Servicios</a>
+                    <a href="#sobre-nosotros" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre Nosotros</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                <a href="#servicios" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                <a href="#sobre-nosotros" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre Nosotros</a>
+                <a href="#contacto" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="pt-24 md:pt-32 pb-16 md:pb-24 hero-bg-gradient text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight section-title">
+                Transforma tu Negocio con <br class="sm:hidden">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Inteligencia Artificial</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                En Optinex, creamos soluciones de IA a medida que automatizan procesos, optimizan la eficiencia y potencian el crecimiento de tu empresa.
+            </p>
+            <a href="#servicios" class="cta-button inline-block">
+                Descubre Nuestras Soluciones
+            </a>
+            <div class="mt-12 md:mt-16">
+                <img src="https://placehold.co/800x450/161B22/E6EDF3?text=Equipo+Optinex+IA&font=inter" alt="[Imagen del Equipo Optinex IA]" class="mx-auto rounded-lg shadow-2xl max-w-full sm:max-w-3xl w-full object-cover"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x450/161B22/E6EDF3?text=Imagen+no+disponible&font=inter';">
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-16 md:py-24 bg-0D1117">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 section-title">Nuestros Agentes de IA <span class="secondary-accent-text">Especializados</span></h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-2xl mx-auto text-lg">
+                Automatización inteligente diseñada para las necesidades específicas de tu sector.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/400x300/161B22/6E44FF?text=Opticlinic+IA&font=inter" alt="[Imagen de Opticlinic IA]" class="rounded-lg w-full max-w-md h-auto object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/161B22/FFFFFF?text=Imagen+Opticlinic&font=inter';">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">OPCLINIC</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Agentes IA para la gestión de reservas en clínicas y para profesionales independientes. Optimiza la agenda, reduce no-shows y mejora la experiencia del paciente con atención automatizada 24/7.
+                    </p>
+                    <a href="#contacto" class="cta-button text-sm inline-block">Más Información</a>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/400x300/161B22/58A6FF?text=Optiresto+IA&font=inter" alt="[Imagen de Optiresto IA]" class="rounded-lg w-full max-w-md h-auto object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/161B22/FFFFFF?text=Imagen+Optiresto&font=inter';">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">OPTIRESTO</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Soluciones de IA para el sector gastronómico. Automatiza la toma de reservas de mesas por mensajes o llamadas, gestiona pedidos y optimiza la operación de tu restaurante, bar o cafetería.
+                    </p>
+                    <a href="#contacto" class="cta-button text-sm inline-block">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="py-16 md:py-24 bg-161B22">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-5 section-title">Somos Optinex: <br class="sm:hidden">Tu Socio en <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Innovación Tecnológica</span></h2>
+                    <p class="text-gray-300 mb-5 text-lg leading-relaxed">
+                        Optinex es más que agentes especializados; somos una agencia integral de soluciones tecnológicas impulsadas por Inteligencia Artificial.
+                    </p>
+                    <p class="text-gray-300 mb-8 text-base leading-relaxed">
+                        Diseñamos e implementamos estructuras completas de IA para empresas de todos los tamaños y sectores. Desde la consultoría inicial hasta el desarrollo y mantenimiento, te acompañamos en cada paso de tu transformación digital. Nuestro objetivo es poner la tecnología más avanzada a tu disposición para que alcances resultados extraordinarios.
+                    </p>
+                    <a href="#contacto" class="cta-button inline-block">Hablemos de tu Proyecto</a>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                     <img src="https://placehold.co/600x450/0D1117/6E44FF?text=Soluciones+IA+Optinex&font=inter" alt="[Imagen de Soluciones IA Optinex]" class="rounded-lg shadow-2xl w-full object-cover"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x450/0D1117/FFFFFF?text=Imagen+Sobre+Nosotros&font=inter';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-0D1117">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 md:mb-16 section-title">¿Por Qué Elegir <span class="accent-text">Optinex</span>?</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 text-center">
+                <div class="p-6 md:p-8 service-card">
+                    <div class="benefit-icon text-purple-400">⚙️</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-100">Eficiencia Mejorada</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Automatiza tareas repetitivas y optimiza tus flujos de trabajo para una mayor productividad.</p>
+                </div>
+                <div class="p-6 md:p-8 service-card">
+                    <div class="benefit-icon text-pink-400">💡</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-100">Innovación Constante</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Accede a las últimas tecnologías de IA para mantener tu negocio a la vanguardia.</p>
+                </div>
+                <div class="p-6 md:p-8 service-card">
+                    <div class="benefit-icon text-orange-400">📈</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-100">Crecimiento Escalable</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Soluciones que se adaptan y crecen con tu empresa, impulsando tu expansión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-16 md:py-24 bg-161B22">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">Contáctanos</h2>
+            <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
+                ¿Listo para llevar tu negocio al siguiente nivel con IA? Completa el formulario o envíanos un correo.
+            </p>
+            <form class="max-w-xl mx-auto bg-0D1117 p-6 md:p-8 rounded-lg shadow-xl border border-30363D">
+                <div class="mb-5">
+                    <label for="name" class="block text-gray-300 font-medium mb-2 text-sm">Nombre Completo</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="Tu Nombre">
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="tu@email.com">
+                </div>
+                <div class="mb-8">
+                    <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="cta-button w-full sm:w-auto">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-bg py-10 text-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="#inicio">
+                 <img src="https://placehold.co/130x30/010409/6E44FF?text=OPTINEX&font=inter&fontweight=semibold" alt="Optinex Logo Footer" class="h-7 mx-auto mb-6">
+            </a>
+            <p class="text-gray-400 text-sm">
+                &copy; <span id="currentYear"></span> Optinex. Todos los derechos reservados.
+            </p>
+            <p class="text-gray-500 text-xs mt-2">
+                Soluciones de Inteligencia Artificial para Empresas. Rosario, Argentina.
+            </p>
+            <div class="mt-6 space-x-5">
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300" aria-label="Facebook">
+                    <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors duration-300" aria-label="Instagram">
+                     <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.03998C9.17441 2.03998 8.80416 2.05223 7.73561 2.10073C6.72811 2.14673 5.98336 2.31598 5.33886 2.56423C4.65736 2.82673 4.06186 3.20098 3.48886 3.77398C2.91586 4.34698 2.54161 4.94248 2.27911 5.62423C2.03086 5.93098 1.86161 6.37673 1.81561 7.08423C1.76711 7.81873 1.75486 8.18898 1.75486 11C1.75486 13.8255 1.76711 14.1957 1.81561 14.9247C1.86161 15.6322 2.03086 16.0725 2.27911 16.3792C2.54161 17.061 2.91586 17.6565 3.48886 18.2295C4.06186 18.8025 4.65736 19.1767 5.33886 19.4392C5.98336 19.6875 6.72811 19.8567 7.73561 19.9027C8.80416 19.9512 9.17441 19.9635 12 19.9635C14.8256 19.9635 15.1958 19.9512 16.2644 19.9027C17.2719 19.8567 18.0166 19.6875 18.6611 19.4392C19.3426 19.1767 19.9381 18.8025 20.5111 18.2295C21.0841 17.6565 21.4584 17.061 21.7209 16.3792C21.9691 16.0725 22.1384 15.6322 22.1844 14.9247C22.2329 14.1957 22.2451 13.8255 22.2451 11C22.2451 8.18898 22.2329 7.81873 22.1844 7.08423C22.1384 6.37673 21.9691 5.93098 21.7209 5.62423C21.4584 4.94248 21.0841 4.34698 20.5111 3.77398C19.9381 3.20098 19.3426 2.82673 18.6611 2.56423C18.0166 2.31598 17.2719 2.14673 16.2644 2.10073C15.1958 2.05223 14.8256 2.03998 12 2.03998ZM12 3.71398C14.7691 3.71398 15.1161 3.72448 16.1596 3.77148C17.0671 3.81448 17.6326 3.97423 18.0384 4.13623C18.5011 4.32298 18.8476 4.54498 19.2264 4.92373C19.6051 5.30248 19.8271 5.64898 20.0139 6.11173C20.1759 6.51748 20.3356 7.08298 20.3786 7.99048C20.4256 9.03398 20.4361 9.38098 20.4361 12.15C20.4361 14.919 20.4256 15.266 20.3786 16.3095C20.3356 17.217 20.1759 17.7825 20.0139 18.1882C19.8271 18.651 19.6051 18.9975 19.2264 19.3762C18.8476 19.755 18.5011 19.977 18.0384 20.1637C17.6326 20.3257 17.0671 20.4855 16.1596 20.5285C15.1161 20.5755 14.7691 20.586 12 20.586C9.23086 20.586 8.88386 20.5755 7.84036 20.5285C6.93286 20.4855 6.36736 20.3257 5.96161 20.1637C5.49886 19.977 5.15236 19.755 4.77361 19.3762C4.39486 18.9975 4.17286 18.651 3.98611 18.1882C3.82411 17.7825 3.66436 17.217 3.62136 16.3095C3.57436 15.266 3.56386 14.919 3.56386 12.15C3.56386 9.38098 3.57436 9.03398 3.62136 7.99048C3.66436 7.08298 3.82411 6.51748 3.98611 6.11173C4.17286 5.64898 4.39486 5.30248 4.77361 4.92373C5.15236 4.54498 5.49886 4.32298 5.96161 4.13623C6.36736 3.97423 6.93286 3.81448 7.84036 3.77148C8.88386 3.72448 9.23086 3.71398 12 3.71398ZM12 7.11148C9.28936 7.11148 7.00036 9.34123 7.00036 12.15C7.00036 14.9587 9.28936 17.1885 12 17.1885C14.7106 17.1885 16.9996 14.9587 16.9996 12.15C16.9996 9.34123 14.7106 7.11148 12 7.11148ZM12 15.516C10.1119 15.516 8.56386 13.9972 8.56386 12.15C8.56386 10.3027 10.1119 8.78398 12 8.78398C13.8881 8.78398 15.4361 10.3027 15.4361 12.15C15.4361 13.9972 13.8881 15.516 12 15.516ZM17.3066 7.69348C17.3066 8.24548 16.8656 8.68648 16.3136 8.68648C15.7616 8.68648 15.3206 8.24548 15.3206 7.69348C15.3206 7.14148 15.7616 6.70048 16.3136 6.70048C16.8656 6.70048 17.3066 7.14148 17.3066 7.69348Z" /></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors duration-300" aria-label="LinkedIn"> <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle del menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a'); // Enlaces dentro del menú móvil
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú móvil al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Scroll suave para enlaces ancla, considerando la altura del navbar fijo
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    let navbarHeight = 0;
+                    const navbar = document.querySelector('nav'); // Selector más específico si es necesario
+                    if (navbar && getComputedStyle(navbar).position === 'fixed') {
+                         navbarHeight = navbar.offsetHeight;
+                    }
+                   
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    // Suma el pageYOffset actual para obtener la posición absoluta del elemento en la página
+                    // Luego resta la altura del navbar para que no quede oculto
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Establece el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
