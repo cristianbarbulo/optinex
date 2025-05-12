@@ -17,120 +17,139 @@
     <meta name="twitter:title" content="Optinex - Automatización Inteligente para tu Negocio" />
     <meta name="twitter:description" content="Soluciones de IA a medida para potenciar el crecimiento de tu empresa." />
     <meta name="twitter:image" content="https://optinex.vercel.app/imagenes/logo_optinex_footer.jpg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0D1117; 
-            color: #E6EDF3; 
-            scroll-behavior: smooth; 
+            background-color: #0D1117;
+            color: #E6EDF3;
+            scroll-behavior: smooth;
         }
         .navbar-bg {
-            background-color: rgba(13, 17, 23, 0.85); 
+            background-color: rgba(13, 17, 23, 0.85);
             backdrop-filter: blur(10px);
         }
         .hero-bg-gradient {
-            background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%); 
+            background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%);
         }
         .service-card {
-            background-color: #161B22; 
-            border: 1px solid #30363D; 
+            background-color: #161B22;
+            border: 1px solid #30363D;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 0.75rem; 
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
         }
         .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2); 
+            box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2);
         }
         .cta-button {
-            background-color: #6E44FF; 
+            background-color: #6E44FF;
             color: #FFFFFF;
             font-weight: 600;
-            padding: 0.875rem 2rem; 
-            border-radius: 0.5rem; 
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+             display: inline-block;
+             align-self: flex-start;
+             margin-top: auto;
         }
         .cta-button:hover {
-            background-color: #5A32E0; 
+            background-color: #5A32E0;
             transform: scale(1.03);
             box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
         }
         .accent-text {
-            color: #825EFF; 
+            color: #825EFF;
         }
         .secondary-accent-text {
-            color: #58A6FF; 
+            color: #58A6FF;
         }
         .section-title {
-            color: #C9D1D9; 
+            color: #C9D1D9;
         }
         .form-input {
             background-color: #0D1117;
             border: 1px solid #30363D;
             color: #E6EDF3;
-            border-radius: 0.375rem; 
+            border-radius: 0.375rem;
+            width: 100%;
+            padding: 0.625rem 1rem;
+        }
+         .form-input::placeholder {
+             color: #48515b;
         }
         .form-input:focus {
             border-color: #6E44FF;
             outline: 2px solid transparent;
             outline-offset: 2px;
-            --tw-ring-color: #6E44FF; 
+            --tw-ring-color: #6E44FF;
             box-shadow: 0 0 0 2px var(--tw-ring-color);
         }
         .footer-bg {
-            background-color: #010409; 
+            background-color: #010409;
             border-top: 1px solid #30363D;
         }
         .benefit-icon {
-            font-size: 2.5rem; 
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        
-        .service-image-container { 
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+
+        /* --- Estilos de Imagen de Servicio REVERTIDOS al original --- */
+        .service-image-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
             padding: 0.5rem; /* Pequeño padding alrededor de la imagen */
+             /* Quitamos min-height y background-color añadidos previamente */
         }
         .service-image-container img {
-            /* La imagen ocupará el ancho del contenedor, hasta un máximo. Altura automática para mantener proporción */
             width: 100%;
-            max-width: 280px; /* Ajusta este valor si quieres las imágenes de servicio más grandes o pequeñas */
-            height: auto; 
-            object-fit: contain; 
-            display: block; 
-            border-radius: 0.5rem; 
+            max-width: 280px; /* Mantenido de tu código original */
+            height: auto; /* Mantenido de tu código original */
+             /* Quitamos max-height añadido previamente */
+            object-fit: contain;
+            display: block;
+            border-radius: 0.5rem;
         }
+        /* --- Fin de estilos revertidos --- */
 
         .hero-image-container {
             width: 100%;
-            overflow: hidden; 
-            border-radius: 0.75rem; 
-            aspect-ratio: 1024 / 670; /* Relación de aspecto de tu imagen hero recortada */
-            max-height: 600px; /* Altura máxima para el hero */
+            overflow: hidden;
+            border-radius: 0.75rem;
+            aspect-ratio: 1024 / 670;
+            max-height: 600px;
+             background-color: #161B22;
         }
         .hero-image-container img{
             width: 100%;
-            height: 100%; 
-            object-fit: cover; /* Debería encajar bien si el aspect-ratio es correcto */
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-us-image-container {
             width: 100%;
-            max-width: 450px; /* Limitar el tamaño máximo de la imagen cuadrada */
+            max-width: 450px;
             margin-left: auto;
             margin-right: auto;
-            overflow: hidden; 
-            border-radius: 0.75rem; 
-            aspect-ratio: 1 / 1; /* Para imagen cuadrada */
+            overflow: hidden;
+            border-radius: 0.75rem;
+            aspect-ratio: 1 / 1;
+             background-color: #161B22;
         }
         .about-us-image-container img {
             width: 100%;
-            height: 100%; 
-            object-fit: cover; /* Para una imagen cuadrada en un contenedor cuadrado, cover está bien */
+            height: 100%;
+            object-fit: cover;
+        }
+         .service-card p {
+            flex-grow: 1;
         }
 
     </style>
@@ -139,7 +158,7 @@
 
     <nav class="navbar-bg shadow-md fixed w-full z-50 top-0">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 sm:h-24"> 
+            <div class="flex items-center justify-between h-20 sm:h-24">
                 <div class="flex items-center">
                     <a href="#inicio" class="flex-shrink-0 p-1 sm:p-2">
                         <img src="imagenes/logo_optinex_navbar.jpg" alt="Optinex Logo" class="w-36 sm:w-44 md:w-48 h-auto" onerror="this.onerror=null;this.src='https://placehold.co/192x64/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold';this.alt='Logo Optinex no disponible';">
@@ -152,7 +171,7 @@
                     <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md">
                         <span class="sr-only">Abrir menú principal</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -171,7 +190,7 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 hero-bg-gradient text-white"> 
+    <section id="inicio" class="pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 hero-bg-gradient text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight section-title">
                 Transforma tu Negocio con <br class="sm:hidden"><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Inteligencia Artificial</span>
@@ -179,8 +198,7 @@
             <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
                 En Optinex, creamos soluciones de IA a medida que automatizan procesos, optimizan la eficiencia y potencian el crecimiento de tu empresa.
             </p>
-            <a href="#servicios" class="cta-button inline-block">
-                Descubre Nuestras Soluciones
+            <a href="#servicios" class="cta-button"> Descubre Nuestras Soluciones
             </a>
             <div class="mt-12 md:mt-16 hero-image-container mx-auto max-w-4xl">
                 <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA" class="shadow-2xl"
@@ -193,34 +211,57 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 section-title">Nuestros Agentes de IA <span class="secondary-accent-text">Especializados</span></h2>
             <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-2xl mx-auto text-lg">
-                Automatización inteligente diseñada para las necesidades específicas de tu sector.
+                Automatización inteligente diseñada para las necesidades específicas de tu sector y proyectos a medida.
             </p>
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                <div class="service-card p-6 md:p-8 shadow-lg flex flex-col">
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
                     <div class="service-image-container">
                         <img src="imagenes/imagen_opticlinic.jpg" alt="Opticlinic IA"
-                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic&font=inter';this.alt='Imagen Opticlinic no disponible';">
-                    </div>
+                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic&font=inter';this.alt='Imagen Opticlinic no disponible';"> </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPCLINIC</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed flex-grow">
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
                         Agentes IA para la gestión de reservas en clínicas y para profesionales independientes. Optimiza la agenda, reduce no-shows y mejora la experiencia del paciente con atención automatizada 24/7.
                     </p>
-                    <a href="#contacto" class="cta-button text-sm inline-block mt-auto self-start">Más Información</a>
+                    <a href="#contacto" class="cta-button text-sm">Más Información</a>
                 </div>
 
-                <div class="service-card p-6 md:p-8 shadow-lg flex flex-col">
+                <div class="service-card p-6 md:p-8 shadow-lg">
                     <div class="service-image-container">
-                        <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA" 
+                        <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA"
                         onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/58A6FF?text=Optiresto&font=inter';this.alt='Imagen Optiresto no disponible';">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTIRESTO</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed flex-grow">
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
                         Soluciones de IA para el sector gastronómico. Automatiza la toma de reservas de mesas por mensajes o llamadas, gestiona pedidos y optimiza la operación de tu restaurante, bar o cafetería.
                     </p>
-                    <a href="#contacto" class="cta-button text-sm inline-block mt-auto self-start">Más Información</a>
+                    <a href="#contacto" class="cta-button text-sm">Más Información</a>
                 </div>
-            </div>
-        </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="service-image-container">
+                        <img src="imagenes/imagen_contactanos.jpg" alt="Optinex Proyectos IA a medida"
+                             onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/825EFF?text=Proyectos&font=inter';this.alt='Imagen Proyectos a medida no disponible';">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">OPTINEX PROYECTOS</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        ¿Tienes una idea de automatización? ¡La hacemos realidad! Escuchamos tu proyecto, lo analizamos a fondo y te ofrecemos una solución de IA personalizada. Presupuestamos con claridad y definimos plazos de entrega realistas. Nos encantan los desafíos: tráenos tu proyecto más ambicioso.
+                    </p>
+                    <a href="#contacto" class="cta-button text-sm">Cotiza tu Proyecto</a>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="service-image-container">
+                        <img src="imagenes/optinex_digital.jpg" alt="Optinex Web Automatización Digital con IA"
+                             onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Optinex+Web&font=inter';this.alt='Imagen Optinex Web no disponible';">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">OPTINEX WEB</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Multiplica tu presencia online y atrae más clientes con IA. Generamos contenido SEO profesional y automatizado (artículos, posts para redes, noticias) que posiciona tu marca. Optimizamos tus campañas de Ads para maximizar clics y conversiones. Implementamos embudos de venta inteligentes y mejoramos la comunicación interna. Obtén reportes claros y opera con la eficiencia de las grandes empresas.
+                    </p>
+                    <a href="#contacto" class="cta-button text-sm">Impulsa tu Web</a>
+                </div>
+            </div> </div>
     </section>
 
     <section id="sobre-nosotros" class="py-16 md:py-24 bg-161B22">
@@ -234,9 +275,9 @@
                     <p class="text-gray-300 mb-8 text-base leading-relaxed">
                         Diseñamos e implementamos estructuras completas de IA para empresas de todos los tamaños y sectores. Desde la consultoría inicial hasta el desarrollo y mantenimiento, te acompañamos en cada paso de tu transformación digital. Nuestro objetivo es poner la tecnología más avanzada a tu disposición para que alcances resultados extraordinarios.
                     </p>
-                    <a href="#contacto" class="cta-button inline-block">Hablemos de tu Proyecto</a>
+                    <a href="#contacto" class="cta-button">Hablemos de tu Proyecto</a>
                 </div>
-                <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container"> 
+                <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container">
                     <img src="imagenes/imagen_sobre_nosotros.jpg" alt="Soluciones IA Optinex" class="shadow-2xl"
                     onerror="this.onerror=null;this.src='https://placehold.co/450x450/0D1117/6E44FF?text=Sobre+Nosotros&font=inter';this.alt='Imagen Sobre Nosotros no disponible';">
                 </div>
@@ -276,22 +317,22 @@
             <form id="contactForm" class="max-w-xl mx-auto bg-0D1117 p-6 md:p-8 rounded-lg shadow-xl border border-30363D">
                 <div class="mb-5">
                     <label for="name" class="block text-gray-300 font-medium mb-2 text-sm">Nombre Completo</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="Tu Nombre" required>
+                    <input type="text" id="name" name="name" class="form-input placeholder-gray-500" placeholder="Tu Nombre" required>
                 </div>
                 <div class="mb-5">
                     <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="tu@email.com" required>
+                    <input type="email" id="email" name="email" class="form-input placeholder-gray-500" placeholder="tu@email.com" required>
                 </div>
                 <div class="mb-5">
                     <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Teléfono WhatsApp</label>
-                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="Ej: +54 9 341 1234567">
+                    <input type="tel" id="phone" name="phone" class="form-input placeholder-gray-500" placeholder="Ej: +54 9 341 1234567">
                 </div>
                 <div class="mb-8">
                     <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2.5 form-input placeholder-gray-500" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+                    <textarea id="message" name="message" rows="5" class="form-input placeholder-gray-500" placeholder="¿Cómo podemos ayudarte?" required></textarea>
                 </div>
                 <div class="text-center">
-                    <p id="formStatus" class="mb-4 text-sm"></p>
+                    <p id="formStatus" class="mb-4 text-sm h-5"></p>
                     <button type="submit" class="cta-button w-full sm:w-auto">
                         Enviar Mensaje
                     </button>
@@ -329,108 +370,101 @@
         // Toggle del menú móvil
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a'); 
+        const navLinks = document.querySelectorAll('#mobile-menu a');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Cierra el menú móvil al hacer clic en un enlace
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuButton.innerHTML = isOpen
+                    ? `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`
+                    : `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
             });
-        });
-        
-        // Scroll suave para enlaces ancla, considerando la altura del navbar fijo
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                         mobileMenuButton.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
+                    }
+                });
+            });
+        } else {
+             console.error("No se encontró el botón del menú móvil o el menú.");
+        }
+
+
+        // Scroll suave para enlaces ancla
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                 const targetId = this.getAttribute('href');
+                 if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    let navbarHeight = 0;
-                    const navbar = document.querySelector('nav'); 
-                    if (navbar && getComputedStyle(navbar).position === 'fixed') {
-                         navbarHeight = navbar.offsetHeight;
+                    if (targetElement) {
+                        let navbarHeight = 0;
+                        const navbar = document.querySelector('nav');
+                        if (navbar && getComputedStyle(navbar).position === 'fixed') {
+                            navbarHeight = navbar.offsetHeight;
+                        }
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
-                   
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-        
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                 }
             });
         });
 
-        // Establece el año actual en el footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Año actual en el footer
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+             currentYearElement.textContent = new Date().getFullYear();
+        }
 
-        // --- NUEVO SCRIPT PARA EL FORMULARIO DE CONTACTO ---
+
+        // --- SCRIPT PARA EL FORMULARIO DE CONTACTO ---
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
-        // Asegurarse de que el botón de envío se selecciona correctamente dentro del formulario
         const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
-
-        if (contactForm && submitButton) { // Verifica que ambos elementos existan
+        if (contactForm && formStatus && submitButton) {
             contactForm.addEventListener('submit', async function(event) {
-                event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
-
-                // URL del Webhook de Make.com proporcionada por el usuario
+                event.preventDefault();
                 const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
-
-                // Mostrar mensaje de "Enviando..." y deshabilitar botón
                 formStatus.textContent = 'Enviando mensaje...';
-                formStatus.className = 'mb-4 text-sm text-gray-300'; // Estilo de texto por defecto
+                formStatus.className = 'mb-4 text-sm text-gray-300 h-5';
                 submitButton.disabled = true;
-                submitButton.style.opacity = '0.7'; // Indicar visualmente que está deshabilitado
-
+                submitButton.classList.add('opacity-70', 'cursor-not-allowed');
                 const formData = new FormData(contactForm);
-                
-                // Envío como FormData (Make.com lo maneja bien)
-                const fetchOptions = {
-                    method: 'POST',
-                    body: formData 
-                };
+                const fetchOptions = { method: 'POST', body: formData };
 
                 try {
                     const response = await fetch(webhookUrl, fetchOptions);
-
-                    if (response.ok) { // Make.com usualmente responde con status 200 y "Accepted"
+                    const responseText = await response.text();
+                    if (response.ok && responseText === 'Accepted') {
                         formStatus.textContent = '¡Mensaje enviado con éxito!';
-                        formStatus.className = 'mb-4 text-sm text-green-400'; // Color verde para éxito
-                        contactForm.reset(); // Limpia el formulario
+                        formStatus.className = 'mb-4 text-sm text-green-400 h-5';
+                        contactForm.reset();
+                        setTimeout(() => { formStatus.textContent = ''; formStatus.className = 'mb-4 text-sm h-5'; }, 5000);
                     } else {
-                        // Si Make.com responde con un error o la red falla
-                        const responseText = await response.text(); 
                         console.error('Error del webhook:', response.status, responseText);
-                        formStatus.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo más tarde.';
-                        formStatus.className = 'mb-4 text-sm text-red-400'; // Color rojo para error
+                        formStatus.textContent = 'Error al enviar. Intenta de nuevo.';
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5';
                     }
                 } catch (error) {
                     console.error('Error en el envío del formulario:', error);
-                    formStatus.textContent = 'Error de conexión. Por favor, revisa tu conexión a internet e intenta de nuevo.';
-                    formStatus.className = 'mb-4 text-sm text-red-400'; // Color rojo para error de red
+                    formStatus.textContent = 'Error de conexión. Revisa internet.';
+                    formStatus.className = 'mb-4 text-sm text-red-400 h-5';
                 } finally {
-                    // Rehabilitar el botón después del intento de envío
                     submitButton.disabled = false;
-                    submitButton.style.opacity = '1';
+                     submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
                 }
             });
         } else {
-            if (!contactForm) {
-                console.error("Elemento de formulario con id 'contactForm' no encontrado.");
-            }
-            if (!submitButton && contactForm) { // Solo muestra este error si el formulario existe pero el botón no
-                console.error("Botón de envío (submit) no encontrado dentro del formulario 'contactForm'.");
-            }
+            if (!contactForm) console.error("Elemento de formulario con id 'contactForm' no encontrado.");
+            if (!formStatus) console.error("Elemento para mostrar estado con id 'formStatus' no encontrado.");
+            if (!submitButton && contactForm) console.error("Botón de envío (submit) no encontrado dentro del formulario 'contactForm'.");
         }
     </script>
 
