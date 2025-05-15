@@ -324,7 +324,9 @@
 
     <section id="contacto" class="py-16 md:py-24 bg-161B22">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">Contáctanos</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">
+    ¡No gastes más tiempo ni plata! Completá el formulario y empezá a usar sistemas simples, potentes y accesibles.
+</h2>
             <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
                 ¿Listo para llevar tu negocio al siguiente nivel con IA? Completa el formulario o envíanos un correo.
             </p>
@@ -481,6 +483,14 @@
             if (!submitButton && contactForm) console.error("Botón de envío (submit) no encontrado dentro del formulario 'contactForm'.");
         }
     </script>
-
+<script>
+    // Scroll automático al formulario de contacto al cargar la página
+    window.addEventListener('load', () => {
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
 </body>
 </html>
