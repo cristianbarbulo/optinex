@@ -482,15 +482,25 @@
             if (!formStatus) console.error("Elemento para mostrar estado con id 'formStatus' no encontrado.");
             if (!submitButton && contactForm) console.error("Botón de envío (submit) no encontrado dentro del formulario 'contactForm'.");
         }
-    </script>
-<script>
-    // Scroll automático al texto "¡No gastes más tiempo ni plata!" al cargar la página
+        </script>  
+        <script>
+    // Scroll automático al formulario al cargar la página
     window.addEventListener('load', () => {
-        const targetElement = document.querySelector('h2.section-title');
-        if (targetElement && targetElement.textContent.includes('¡No gastes más tiempo ni plata!')) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+        const targetElement = document.querySelector('#contacto'); // Selecciona la sección completa del formulario
+        if (targetElement) {
+            const navbarHeight = document.querySelector('nav')?.offsetHeight || 0; // Altura de la barra de navegación
+            const offset = 20; // Ajusta este valor para dejar más espacio arriba
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - navbarHeight - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            console.error("No se encontró el elemento con el ID 'contacto'.");
         }
     });
-</script>
+</script>       
 </body>
 </html>
