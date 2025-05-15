@@ -484,11 +484,11 @@
         }
     </script>
 <script>
-    // Scroll automático al formulario de contacto al cargar la página
+    // Scroll automático al texto "¡No gastes más tiempo ni plata!" al cargar la página
     window.addEventListener('load', () => {
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.scrollIntoView({ behavior: 'smooth' });
+        const targetElement = document.querySelector('h2.section-title');
+        if (targetElement && targetElement.textContent.includes('¡No gastes más tiempo ni plata!')) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
         }
     });
 </script>
