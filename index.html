@@ -439,51 +439,98 @@
         }
 
 
-        // --- SCRIPT PARA EL FORMULARIO DE CONTACTO ---
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-        const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+      // --- SCRIPT PARA EL FORMULARIO DE CONTACTO CON RECAPTCHA v3 ---
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
-        if (contactForm && formStatus && submitButton) {
-            contactForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
-                formStatus.textContent = 'Enviando mensaje...';
-                formStatus.className = 'mb-4 text-sm text-gray-300 h-5';
-                submitButton.disabled = true;
-                submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+    if (contactForm && formStatus && submitButton) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Previene el envío normal del formulario para manejarlo con JS
+
+            // Actualizar estado y deshabilitar botón
+            formStatus.textContent = 'Verificando y enviando mensaje...';
+            formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; // Asegúrate que estas clases CSS existen y son correctas
+            submitButton.disabled = true;
+            submitButton.classList.add('opacity-70', 'cursor-not-allowed'); // Asegúrate que estas clases CSS existen
+
+            try {
+                // 1. Ejecutar reCAPTCHA y obtener el token
+                console.log("reCAPTCHA: Iniciando ejecución...");
+                const token = await new Promise((resolve, reject) => {
+                    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
+                        console.error("reCAPTCHA: La API de grecaptcha no está cargada. Asegúrate de que el script de la API de reCAPTCHA esté incluido y cargado correctamente.");
+                        reject(new Error("API de reCAPTCHA no disponible."));
+                        return;
+                    }
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' })
+                            .then(resolve)
+                            .catch(error => {
+                                console.error("reCAPTCHA: Error al ejecutar:", error);
+                                reject(error);
+                            });
+                    });
+                });
+                console.log("reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
+
+                // 2. Preparar los datos del formulario, incluyendo el token de reCAPTCHA
                 const formData = new FormData(contactForm);
+                formData.append('g-recaptcha-response', token); // Añadimos el token de reCAPTCHA
+
+                // 3. Enviar los datos al webhook
+                const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
                 const fetchOptions = { method: 'POST', body: formData };
 
-                try {
-                    const response = await fetch(webhookUrl, fetchOptions);
-                    const responseText = await response.text();
-                    if (response.ok && responseText === 'Accepted') {
-                        formStatus.textContent = '¡Mensaje enviado con éxito!';
-                        formStatus.className = 'mb-4 text-sm text-green-400 h-5';
-                        contactForm.reset();
-                        setTimeout(() => { formStatus.textContent = ''; formStatus.className = 'mb-4 text-sm h-5'; }, 5000);
-                    } else {
-                        console.error('Error del webhook:', response.status, responseText);
-                        formStatus.textContent = 'Error al enviar. Intenta de nuevo.';
-                        formStatus.className = 'mb-4 text-sm text-red-400 h-5';
-                    }
-                } catch (error) {
-                    console.error('Error en el envío del formulario:', error);
-                    formStatus.textContent = 'Error de conexión. Revisa internet.';
-                    formStatus.className = 'mb-4 text-sm text-red-400 h-5';
-                } finally {
-                    submitButton.disabled = false;
-                     submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                console.log("Formulario: Enviando datos al webhook...");
+                const response = await fetch(webhookUrl, fetchOptions);
+                const responseText = await response.text(); // O response.json() si Make.com devuelve JSON
+                console.log("Formulario: Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
+
+                // 4. Procesar la respuesta del webhook
+                // TU WEBHOOK (MAKE.COM) DEBE VALIDAR EL TOKEN DE RECAPTCHA ANTES DE DEVOLVER "Accepted"
+                if (response.ok && responseText === 'Accepted') {
+                    formStatus.textContent = '¡Mensaje enviado con éxito!';
+                    formStatus.className = 'mb-4 text-sm text-green-400 h-5'; // Asegúrate que estas clases CSS existen
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                        formStatus.className = 'mb-4 text-sm h-5'; // Clase neutral para el mensaje
+                    }, 5000);
+                } else {
+                    // Aquí podrías tener una lógica más específica si Make.com te devuelve por qué falló (ej. fallo de reCAPTCHA)
+                    formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
+                    formStatus.className = 'mb-4 text-sm text-red-400 h-5'; // Asegúrate que estas clases CSS existen
+                    console.error('Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
                 }
-            });
-        } else {
-            if (!contactForm) console.error("Elemento de formulario con id 'contactForm' no encontrado.");
-            if (!formStatus) console.error("Elemento para mostrar estado con id 'formStatus' no encontrado.");
-            if (!submitButton && contactForm) console.error("Botón de envío (submit) no encontrado dentro del formulario 'contactForm'.");
-        }
-        </script>  
-        <script>
+
+            } catch (error) {
+                console.error('Error general en el proceso de envío o reCAPTCHA:', error);
+                if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
+                     formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
+                } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
+                    formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
+                }
+                else {
+                     formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                }
+                formStatus.className = 'mb-4 text-sm text-red-400 h-5'; // Asegúrate que estas clases CSS existen
+            } finally {
+                // Habilitar el botón nuevamente
+                submitButton.disabled = false;
+                submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                console.log("Formulario: Proceso finalizado, botón rehabilitado.");
+            }
+        });
+    } else {
+        // Estos console.error te ayudarán a depurar si los elementos no se encuentran
+        if (!contactForm) console.error("Error crítico: Elemento de formulario con id 'contactForm' no encontrado al cargar la página.");
+        if (!formStatus) console.error("Error crítico: Elemento para mostrar estado con id 'formStatus' no encontrado al cargar la página.");
+        if (contactForm && !submitButton) console.error("Error crítico: Botón de envío (submit) no encontrado dentro del formulario 'contactForm' al cargar la página.");
+    }
+});
+
     // Scroll automático al formulario al cargar la página
     window.addEventListener('load', () => {
         const targetElement = document.querySelector('#contacto'); // Selecciona la sección completa del formulario
@@ -501,6 +548,7 @@
             console.error("No se encontró el elemento con el ID 'contacto'.");
         }
     });
-</script>       
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>       
 </body>
 </html>
