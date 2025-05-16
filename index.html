@@ -29,14 +29,19 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Optinex - Automatización Inteligente para tu Negocio" />
     <meta name="twitter:description" content="Soluciones de IA a medida para potenciar el crecimiento de tu empresa." />
-    <meta name="twitter:image" content="https://www.optinexia.com/imagenes/logo_optinex_footer.jpg" /> <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="twitter:image" content="https://www.optinexia.com/imagenes/logo_optinex_footer.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0D1117;
             color: #E6EDF3;
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth;  Considera si aún lo necesitas o si el JS lo maneja completamente */
         }
         .navbar-bg {
             background-color: rgba(13, 17, 23, 0.85);
@@ -61,26 +66,23 @@
             background-color: #6E44FF;
             color: #FFFFFF;
             font-weight: 600;
-            padding: 0.75rem 1.5rem; /* Ajustado para dos botones */
+            padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: inline-block;
-            text-align: center; /* Asegura texto centrado en botones */
-            /* align-self: flex-start; Ya no es necesario si el contenedor de botones maneja la alineación */
-            /* margin-top: auto; Se manejará en el contenedor de botones */
+            text-align: center;
         }
         .cta-button:hover {
             background-color: #5A32E0;
             transform: scale(1.03);
             box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
         }
-        /* Estilo para el botón secundario de Demo */
         .demo-button {
             background-color: transparent;
-            color: #825EFF; /* Color de acento */
+            color: #825EFF;
             border: 2px solid #825EFF;
             font-weight: 600;
-            padding: 0.75rem 1.5rem; /* Igual que cta-button */
+            padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: inline-block;
@@ -93,20 +95,14 @@
             box-shadow: 0 6px 12px rgba(130, 94, 255, 0.3);
         }
         .service-buttons-container {
-            margin-top: auto; /* Empuja los botones hacia abajo */
+            margin-top: auto;
             display: flex;
-            gap: 0.75rem; /* Espacio entre botones */
-            flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas si es necesario */
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
-        .accent-text {
-            color: #825EFF;
-        }
-        .secondary-accent-text {
-            color: #58A6FF;
-        }
-        .section-title {
-            color: #C9D1D9;
-        }
+        .accent-text { color: #825EFF; }
+        .secondary-accent-text { color: #58A6FF; }
+        .section-title { color: #C9D1D9; }
         .form-input {
             background-color: #0D1117;
             border: 1px solid #30363D;
@@ -115,9 +111,7 @@
             width: 100%;
             padding: 0.625rem 1rem;
         }
-        .form-input::placeholder {
-            color: #48515b;
-        }
+        .form-input::placeholder { color: #48515b; }
         .form-input:focus {
             border-color: #6E44FF;
             outline: 2px solid transparent;
@@ -129,22 +123,19 @@
             background-color: #010409;
             border-top: 1px solid #30363D;
         }
-        .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         .service-image-container {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            padding: 0.5rem; 
+            padding: 0.5rem;
         }
         .service-image-container img {
             width: 100%;
-            max-width: 280px; 
-            height: auto; 
+            max-width: 280px;
+            height: auto;
             object-fit: contain;
             display: block;
             border-radius: 0.5rem;
@@ -157,11 +148,7 @@
             max-height: 600px;
             background-color: #161B22;
         }
-        .hero-image-container img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .hero-image-container img{ width: 100%; height: 100%; object-fit: cover; }
         .about-us-image-container {
             width: 100%;
             max-width: 450px;
@@ -172,63 +159,49 @@
             aspect-ratio: 1 / 1;
             background-color: #161B22;
         }
-        .about-us-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .service-card p {
-            flex-grow: 1; /* Permite que el texto ocupe el espacio y empuje los botones hacia abajo */
-        }
-
-        /* Estilos para el dropdown de Servicios */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+        .about-us-image-container img { width: 100%; height: 100%; object-fit: cover; }
+        .service-card p { flex-grow: 1; }
+        .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #161B22; /* Mismo color que service-card */
+            background-color: #161B22;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            border-radius: 0.5rem; /* Esquinas redondeadas */
-            border: 1px solid #30363D; /* Borde sutil */
-            padding: 0.5rem 0; /* Padding vertical */
-            top: 100%; /* Posicionar debajo del enlace "Servicios" */
+            border-radius: 0.5rem;
+            border: 1px solid #30363D;
+            padding: 0.5rem 0;
+            top: 100%;
             left: 0;
         }
         .dropdown-content a {
-            color: #C9D1D9; /* Color de texto del navbar */
-            padding: 0.75rem 1rem; /* Padding de los items */
+            color: #C9D1D9;
+            padding: 0.75rem 1rem;
             text-decoration: none;
             display: block;
             font-size: 0.875rem; /* text-sm */
             transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .dropdown-content a:hover {
-            background-color: #30363D; /* Color de hover */
-            color: #FFFFFF;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Para añadir una flecha al lado de Servicios (opcional) */
-        .services-link-container {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem; /* Espacio entre "Servicios" y la flecha */
-        }
-        .services-link-container svg {
-            width: 0.75rem; /* 12px */
-            height: 0.75rem;
-            transition: transform 0.2s ease-in-out;
-        }
-        .dropdown:hover .services-link-container svg {
-            transform: rotate(180deg);
-        }
+        .dropdown-content a:hover { background-color: #30363D; color: #FFFFFF; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .services-link-container { display: flex; align-items: center; gap: 0.25rem; }
+        .services-link-container svg { width: 0.75rem; height: 0.75rem; transition: transform 0.2s ease-in-out; }
+        .dropdown:hover .services-link-container svg { transform: rotate(180deg); }
 
+        /* Estilos adicionales para intl-tel-input si es necesario para que se vea bien con tu tema oscuro */
+        .iti { width: 100%; } /* Asegurar que el contenedor de intl-tel-input ocupe el ancho completo */
+        .iti__country-list {
+            background-color: #161B22; /* Color de fondo del desplegable */
+            border: 1px solid #30363D;
+            color: #E6EDF3; /* Color del texto en el desplegable */
+        }
+        .iti__country-list .iti__country:hover, .iti__country-list .iti__active {
+            background-color: #30363D; /* Color de hover/activo en el desplegable */
+        }
+        .iti__dial-code {
+            color: #825EFF; /* Color del código de país */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -242,7 +215,6 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
-                    
                     <div class="dropdown">
                         <a href="#servicios" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium services-link-container">
                             Servicios
@@ -250,7 +222,7 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="opticlinic.html">OPTICLINIC</a>
-                            </div>
+                        </div>
                     </div>
                     <a href="#sobre-nosotros" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre Nosotros</a>
                     <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
@@ -258,9 +230,7 @@
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md">
                         <span class="sr-only">Abrir menú principal</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
                     </button>
                 </div>
             </div>
@@ -284,11 +254,9 @@
             <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
                 En Optinex, creamos soluciones de IA a medida que automatizan procesos, optimizan la eficiencia y potencian el crecimiento de tu empresa.
             </p>
-            <a href="#servicios" class="cta-button"> Descubre Nuestras Soluciones
-            </a>
+            <a href="#servicios" class="cta-button"> Descubre Nuestras Soluciones </a>
             <div class="mt-12 md:mt-16 hero-image-container mx-auto max-w-4xl">
-                <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA" class="shadow-2xl"
-                onerror="this.onerror=null;this.src='https://placehold.co/1024x670/161B22/E6EDF3?text=Hero+1024x670&font=inter';this.alt='Imagen Hero no disponible';">
+                <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA" class="shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/1024x670/161B22/E6EDF3?text=Hero+1024x670&font=inter';this.alt='Imagen Hero no disponible';">
             </div>
         </div>
     </section>
@@ -300,63 +268,31 @@
                 Automatización inteligente diseñada para las necesidades específicas de tu sector y proyectos a medida.
             </p>
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-
                 <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="service-image-container">
-                        <img src="imagenes/imagen_opticlinic.jpg" alt="Opticlinic IA"
-                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic&font=inter';this.alt='Imagen Opticlinic no disponible';"> </div>
+                    <div class="service-image-container"> <img src="imagenes/imagen_opticlinic.jpg" alt="Opticlinic IA" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic&font=inter';this.alt='Imagen Opticlinic no disponible';"> </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTICLINIC</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
-                        Agentes IA para la gestión de reservas en clínicas y para profesionales independientes. Optimiza la agenda, reduce no-shows y mejora la experiencia del paciente con atención automatizada 24/7.
-                    </p>
-                    <div class="service-buttons-container">
-                        <a href="#contacto" class="cta-button text-sm">Más Información</a>
-                        <a href="opticlinic.html" class="demo-button text-sm">¡Ver Demo en Acción!</a>
-                    </div>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed"> Agentes IA para la gestión de reservas en clínicas y para profesionales independientes. Optimiza la agenda, reduce no-shows y mejora la experiencia del paciente con atención automatizada 24/7. </p>
+                    <div class="service-buttons-container"> <a href="#contacto" class="cta-button text-sm">Más Información</a> <a href="opticlinic.html" class="demo-button text-sm">¡Ver Demo en Acción!</a> </div>
                 </div>
-
                 <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="service-image-container">
-                        <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA"
-                        onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/58A6FF?text=Optiresto&font=inter';this.alt='Imagen Optiresto no disponible';">
-                    </div>
+                    <div class="service-image-container"> <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/58A6FF?text=Optiresto&font=inter';this.alt='Imagen Optiresto no disponible';"> </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTIRESTO</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
-                        Soluciones de IA para el sector gastronómico. Automatiza la toma de reservas de mesas por mensajes o llamadas, gestiona pedidos y optimiza la operación de tu restaurante, bar o cafetería.
-                    </p>
-                     <div class="service-buttons-container">
-                        <a href="#contacto" class="cta-button text-sm">Más Información</a>
-                        </div>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed"> Soluciones de IA para el sector gastronómico. Automatiza la toma de reservas de mesas por mensajes o llamadas, gestiona pedidos y optimiza la operación de tu restaurante, bar o cafetería. </p>
+                    <div class="service-buttons-container"> <a href="#contacto" class="cta-button text-sm">Más Información</a> </div>
                 </div>
-
                 <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="service-image-container">
-                        <img src="imagenes/imagen_contactanos.jpg" alt="Optinex Proyectos IA a medida"
-                             onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/825EFF?text=Proyectos&font=inter';this.alt='Imagen Proyectos a medida no disponible';">
-                    </div>
+                    <div class="service-image-container"> <img src="imagenes/imagen_contactanos.jpg" alt="Optinex Proyectos IA a medida" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/825EFF?text=Proyectos&font=inter';this.alt='Imagen Proyectos a medida no disponible';"> </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTINEX PROYECTOS</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
-                        ¿Tienes una idea de automatización? ¡La hacemos realidad! Escuchamos tu proyecto, lo analizamos a fondo y te ofrecemos una solución de IA personalizada. Presupuestamos con claridad y definimos plazos de entrega realistas. Nos encantan los desafíos: tráenos tu proyecto más ambicioso.
-                    </p>
-                     <div class="service-buttons-container">
-                        <a href="#contacto" class="cta-button text-sm">Cotiza tu Proyecto</a>
-                    </div>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed"> ¿Tienes una idea de automatización? ¡La hacemos realidad! Escuchamos tu proyecto, lo analizamos a fondo y te ofrecemos una solución de IA personalizada. Presupuestamos con claridad y definimos plazos de entrega realistas. Nos encantan los desafíos: tráenos tu proyecto más ambicioso. </p>
+                    <div class="service-buttons-container"> <a href="#contacto" class="cta-button text-sm">Cotiza tu Proyecto</a> </div>
                 </div>
-
                 <div class="service-card p-6 md:p-8 shadow-lg">
-                    <div class="service-image-container">
-                        <img src="imagenes/optinex_digital.jpg" alt="Optinex Web Automatización Digital con IA"
-                             onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Optinex+Web&font=inter';this.alt='Imagen Optinex Web no disponible';">
-                    </div>
+                    <div class="service-image-container"> <img src="imagenes/optinex_digital.jpg" alt="Optinex Web Automatización Digital con IA" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Optinex+Web&font=inter';this.alt='Imagen Optinex Web no disponible';"> </div>
                     <h3 class="text-2xl font-semibold mb-3 accent-text">OPTINEX WEB</h3>
-                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
-                        Multiplica tu presencia online y atrae más clientes con IA. Generamos contenido SEO profesional y automatizado (artículos, posts para redes, noticias) que posiciona tu marca. Optimizamos tus campañas de Ads para maximizar clics y conversiones. Implementamos embudos de venta inteligentes y mejoramos la comunicación interna. Obtén reportes claros y opera con la eficiencia de las grandes empresas.
-                    </p>
-                    <div class="service-buttons-container">
-                        <a href="#contacto" class="cta-button text-sm">Impulsa tu Web</a>
-                    </div>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed"> Multiplica tu presencia online y atrae más clientes con IA. Generamos contenido SEO profesional y automatizado (artículos, posts para redes, noticias) que posiciona tu marca. Optimizamos tus campañas de Ads para maximizar clics y conversiones. Implementamos embudos de venta inteligentes y mejoramos la comunicación interna. Obtén reportes claros y opera con la eficiencia de las grandes empresas. </p>
+                    <div class="service-buttons-container"> <a href="#contacto" class="cta-button text-sm">Impulsa tu Web</a> </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </section>
 
@@ -365,18 +301,11 @@
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="md:w-1/2">
                     <h2 class="text-3xl sm:text-4xl font-bold mb-5 section-title">Somos Optinex: <br class="sm:hidden">Tu Socio en <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Innovación Tecnológica</span></h2>
-                    <p class="text-gray-300 mb-5 text-lg leading-relaxed">
-                        Optinex es más que agentes especializados; somos una agencia integral de soluciones tecnológicas impulsadas por Inteligencia Artificial.
-                    </p>
-                    <p class="text-gray-300 mb-8 text-base leading-relaxed">
-                        Diseñamos e implementamos estructuras completas de IA para empresas de todos los tamaños y sectores. Desde la consultoría inicial hasta el desarrollo y mantenimiento, te acompañamos en cada paso de tu transformación digital. Nuestro objetivo es poner la tecnología más avanzada a tu disposición para que alcances resultados extraordinarios.
-                    </p>
+                    <p class="text-gray-300 mb-5 text-lg leading-relaxed"> Optinex es más que agentes especializados; somos una agencia integral de soluciones tecnológicas impulsadas por Inteligencia Artificial. </p>
+                    <p class="text-gray-300 mb-8 text-base leading-relaxed"> Diseñamos e implementamos estructuras completas de IA para empresas de todos los tamaños y sectores. Desde la consultoría inicial hasta el desarrollo y mantenimiento, te acompañamos en cada paso de tu transformación digital. Nuestro objetivo es poner la tecnología más avanzada a tu disposición para que alcances resultados extraordinarios. </p>
                     <a href="#contacto" class="cta-button">Hablemos de tu Proyecto</a>
                 </div>
-                <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container">
-                    <img src="imagenes/imagen_sobre_nosotros.jpg" alt="Soluciones IA Optinex" class="shadow-2xl"
-                    onerror="this.onerror=null;this.src='https://placehold.co/450x450/0D1117/6E44FF?text=Sobre+Nosotros&font=inter';this.alt='Imagen Sobre Nosotros no disponible';">
-                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container"> <img src="imagenes/imagen_sobre_nosotros.jpg" alt="Soluciones IA Optinex" class="shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/450x450/0D1117/6E44FF?text=Sobre+Nosotros&font=inter';this.alt='Imagen Sobre Nosotros no disponible';"> </div>
             </div>
         </div>
     </section>
@@ -407,8 +336,8 @@
     <section id="contacto" class="py-16 md:py-24 bg-161B22">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">
-    ¡No gastes más tiempo ni plata! Completá el formulario y empezá a usar sistemas simples, potentes y accesibles.
-</h2>
+            ¡No gastes más tiempo ni plata! Completá el formulario y empezá a usar sistemas simples, potentes y accesibles.
+            </h2>
             <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
                 ¿Listo para llevar tu negocio al siguiente nivel con IA? Completa el formulario o envíanos un correo.
             </p>
@@ -421,9 +350,11 @@
                     <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
                     <input type="email" id="email" name="email" class="form-input placeholder-gray-500" placeholder="tu@email.com" required>
                 </div>
+
                 <div class="mb-5">
-                    <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Teléfono WhatsApp</label>
-                    <input type="tel" id="phone" name="phone" class="form-input placeholder-gray-500" placeholder="Ej: +54 9 341 1234567">
+                    <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-input w-full" required>
+                    <p class="text-xs text-gray-400 mt-1">Selecciona tu país e ingresa tu número. Debe tener WhatsApp activo.</p>
                 </div>
                 <div class="mb-8">
                     <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Mensaje</label>
@@ -465,13 +396,11 @@
     </footer>
 
     <script>
-        // Toggle del menú móvil
+        // Toggle del menú móvil (sin cambios)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a, .dropdown-content a'); // Incluir enlaces del dropdown para cerrar el menú móvil
-        const desktopNavLinks = document.querySelectorAll('.hidden.md\\:flex a:not(.dropdown a)'); // Enlaces del navbar de escritorio, excluyendo el dropdown mismo
-        const dropdownToggle = document.querySelector('.dropdown > a'); // El enlace "Servicios" que abre el dropdown
-
+        const navLinks = document.querySelectorAll('#mobile-menu a, .dropdown-content a');
+        // ... (resto del código del menú móvil sin cambios) ...
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
@@ -480,12 +409,9 @@
                     ? `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`
                     : `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
             });
-
-            // Cerrar menú móvil al hacer clic en un enlace del menú móvil
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenu.classList.contains('hidden')) {
-                        // Solo cerrar si es un enlace de ancla en la misma página o un enlace a otra página
                         if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').includes('.html')) {
                             mobileMenu.classList.add('hidden');
                             mobileMenuButton.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
@@ -494,20 +420,19 @@
                 });
             });
         } else {
-             console.error("No se encontró el botón del menú móvil o el menú.");
+            console.error("No se encontró el botón del menú móvil o el menú.");
         }
         
-        // Scroll suave para enlaces ancla
+        // Scroll suave para enlaces ancla (sin cambios)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
-                // Asegurarse de que es un ancla real y no solo "#"
                 if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        e.preventDefault(); // Prevenir el comportamiento por defecto solo si el elemento existe
+                        e.preventDefault(); 
                         let navbarHeight = 0;
-                        const navbar = document.querySelector('nav.navbar-bg'); // Selector más específico
+                        const navbar = document.querySelector('nav.navbar-bg'); 
                         if (navbar && getComputedStyle(navbar).position === 'fixed') {
                             navbarHeight = navbar.offsetHeight;
                         }
@@ -515,100 +440,169 @@
                         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     } else {
-                        // Si el elemento no existe en la página actual, permitir el comportamiento por defecto
-                        // (útil si el ancla es para otra página, aunque aquí no debería ser el caso para anclas puras)
                         console.warn(`Elemento ancla '${targetId}' no encontrado en esta página.`);
                     }
                 }
             });
         });
 
-        // Año actual en el footer
+        // Año actual en el footer (sin cambios)
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
         }
 
-    // --- SCRIPT PARA EL FORMULARIO DE CONTACTO CON RECAPTCHA v3 ---
-    // (Este script no se modifica, se asume que funciona correctamente)
-    document.addEventListener('DOMContentLoaded', function () {
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-        const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+        // --- SCRIPT PARA EL FORMULARIO DE CONTACTO CON RECAPTCHA v3 ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
-        if (contactForm && formStatus && submitButton) {
-            contactForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                formStatus.textContent = 'Verificando y enviando mensaje...';
-                formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; 
-                submitButton.disabled = true;
-                submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
-                try {
-                    console.log("reCAPTCHA: Iniciando ejecución...");
-                    const token = await new Promise((resolve, reject) => {
-                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
-                            console.error("reCAPTCHA: La API de grecaptcha no está cargada.");
-                            reject(new Error("API de reCAPTCHA no disponible."));
-                            return;
-                        }
-                        grecaptcha.ready(function() {
-                            grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' })
-                                .then(resolve)
-                                .catch(error => {
-                                    console.error("reCAPTCHA: Error al ejecutar:", error);
-                                    reject(error);
-                                });
-                        });
-                    });
-                    console.log("reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
-                    const formData = new FormData(contactForm);
-                    formData.append('g-recaptcha-response', token); 
-                    const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
-                    const fetchOptions = { method: 'POST', body: formData };
-                    console.log("Formulario: Enviando datos al webhook...");
-                    const response = await fetch(webhookUrl, fetchOptions);
-                    const responseText = await response.text(); 
-                    console.log("Formulario: Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
-                    if (response.ok && responseText === 'Accepted') {
-                        formStatus.textContent = '¡Mensaje enviado con éxito!';
-                        formStatus.className = 'mb-4 text-sm text-green-400 h-5'; 
-                        contactForm.reset();
-                        setTimeout(() => {
-                            formStatus.textContent = '';
-                            formStatus.className = 'mb-4 text-sm h-5'; 
-                        }, 5000);
-                    } else {
-                        formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
-                        formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
-                        console.error('Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
+            // --- PASO 3: INICIALIZACIÓN DE intl-tel-input ---
+            const phoneInputField = document.getElementById('phone');
+            let phoneInputInstance = null; 
+
+            if (phoneInputField) {
+                phoneInputInstance = window.intlTelInput(phoneInputField, {
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js",
+                    initialCountry: "ar", 
+                    preferredCountries: ["ar", "uy", "py", "cl", "br", "es", "us", "mx"], 
+                    separateDialCode: true, 
+                    autoPlaceholder: "aggressive", 
+                    nationalMode: false 
+                });
+
+                // Función para limpiar errores de teléfono al interactuar con el campo
+                function clearPhoneError() {
+                    if (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono')) {
+                         formStatus.textContent = '';
+                         formStatus.className = 'mb-4 text-sm h-5'; 
                     }
-                } catch (error) {
-                    console.error('Error general en el proceso de envío o reCAPTCHA:', error);
-                    if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
-                        formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
-                    } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
-                        formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
-                    }
-                    else {
-                        formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
-                    }
-                    formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
-                } finally {
-                    submitButton.disabled = false;
-                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
-                    console.log("Formulario: Proceso finalizado, botón rehabilitado.");
                 }
-            });
-        } else {
-            if (!contactForm) console.error("Error crítico: Elemento de formulario con id 'contactForm' no encontrado.");
-            if (!formStatus) console.error("Error crítico: Elemento para mostrar estado con id 'formStatus' no encontrado.");
-            if (contactForm && !submitButton) console.error("Error crítico: Botón de envío no encontrado en 'contactForm'.");
-        }
-    });
+                phoneInputField.addEventListener('countrychange', clearPhoneError);
+                phoneInputField.addEventListener('input', clearPhoneError);
+            }
+            // --- FIN PASO 3: INICIALIZACIÓN ---
 
-    // Scroll automático al formulario al cargar la página SI la URL tiene #contacto
-    window.addEventListener('load', () => {
-         {
+            if (contactForm && formStatus && submitButton) {
+                contactForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    // --- PASO 3: VALIDACIÓN DEL TELÉFONO CON intl-tel-input ---
+                    if (phoneInputInstance && !phoneInputInstance.isValidNumber()) {
+                        let errorMsg = "Por favor, ingresa un número de WhatsApp válido para el país seleccionado.";
+                        const errorCode = phoneInputInstance.getValidationError();
+                        
+                        // Asegurarse que intlTelInputUtils esté disponible
+                        if (typeof intlTelInputUtils !== 'undefined' && errorCode !== 0) { 
+                            switch (errorCode) {
+                                case intlTelInputUtils.validationError.IS_POSSIBLE_LOCAL_ONLY: // Corregido
+                                    errorMsg = "El número parece ser local, por favor incluye el código de área si aplica.";
+                                    break;
+                                case intlTelInputUtils.validationError.INVALID_COUNTRY_CODE:
+                                    errorMsg = "El código de país no es válido. Por favor, selecciona uno de la lista.";
+                                    break;
+                                case intlTelInputUtils.validationError.TOO_SHORT:
+                                    errorMsg = "El número de teléfono es demasiado corto.";
+                                    break;
+                                case intlTelInputUtils.validationError.TOO_LONG:
+                                    errorMsg = "El número de teléfono es demasiado largo.";
+                                    break;
+                                case intlTelInputUtils.validationError.INVALID_LENGTH:
+                                     errorMsg = "La longitud del número no es válida para el país seleccionado.";
+                                     break;
+                                default:
+                                    errorMsg = "El número de teléfono ingresado no es válido.";
+                            }
+                        }
+                        
+                        formStatus.textContent = errorMsg;
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5';
+                        return; 
+                    }
+                    // --- FIN PASO 3: VALIDACIÓN ---
+
+                    // Actualizar el valor del input al formato internacional ANTES de crear FormData
+                    if (phoneInputInstance && phoneInputInstance.isValidNumber()) {
+                        phoneInputField.value = phoneInputInstance.getNumber(); 
+                    }
+
+                    formStatus.textContent = 'Verificando y enviando mensaje...';
+                    formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; 
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
+                    
+                    try {
+                        console.log("reCAPTCHA: Iniciando ejecución...");
+                        const token = await new Promise((resolve, reject) => {
+                            if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
+                                console.error("reCAPTCHA: La API de grecaptcha no está cargada.");
+                                reject(new Error("API de reCAPTCHA no disponible."));
+                                return;
+                            }
+                            grecaptcha.ready(function() {
+                                grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' })
+                                    .then(resolve)
+                                    .catch(error => {
+                                        console.error("reCAPTCHA: Error al ejecutar:", error);
+                                        reject(error);
+                                    });
+                            });
+                        });
+                        console.log("reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
+                        
+                        const formData = new FormData(contactForm); // FormData ahora tomará el valor actualizado del campo 'phone'
+                        formData.append('g-recaptcha-response', token); 
+                        
+                        const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
+                        const fetchOptions = { method: 'POST', body: formData };
+                        console.log("Formulario: Enviando datos al webhook...");
+                        const response = await fetch(webhookUrl, fetchOptions);
+                        const responseText = await response.text(); 
+                        console.log("Formulario: Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
+                        
+                        if (response.ok && responseText === 'Accepted') {
+                            formStatus.textContent = '¡Mensaje enviado con éxito!';
+                            formStatus.className = 'mb-4 text-sm text-green-400 h-5'; 
+                            contactForm.reset(); 
+                            // Después de resetear, intl-tel-input debería volver a su estado inicial
+                            // (por ejemplo, si initialCountry era "ar", volverá a Argentina)
+                            // Si no lo hace, puedes forzarlo con: phoneInputInstance.setCountry("ar");
+                            setTimeout(() => {
+                                formStatus.textContent = '';
+                                formStatus.className = 'mb-4 text-sm h-5'; 
+                            }, 5000);
+                        } else {
+                            formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
+                            formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                            console.error('Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
+                        }
+                    } catch (error) {
+                        console.error('Error general en el proceso de envío o reCAPTCHA:', error);
+                        if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
+                            formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
+                        } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
+                            formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
+                        }
+                        else {
+                            formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                        }
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                    } finally {
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                        console.log("Formulario: Proceso finalizado, botón rehabilitado.");
+                    }
+                });
+            } else {
+                if (!contactForm) console.error("Error crítico: Elemento de formulario con id 'contactForm' no encontrado.");
+                if (!formStatus) console.error("Error crítico: Elemento para mostrar estado con id 'formStatus' no encontrado.");
+                if (contactForm && !submitButton) console.error("Error crítico: Botón de envío no encontrado en 'contactForm'.");
+            }
+        });
+
+        // Scroll automático al formulario al cargar la página (sin cambios)
+        window.addEventListener('load', () => {
             const targetElement = document.querySelector('#contacto'); 
             if (targetElement) {
                 const navbarHeight = document.querySelector('nav.navbar-bg')?.offsetHeight || 0; 
@@ -622,9 +616,8 @@
             } else {
                 console.error("No se encontró el elemento con el ID 'contacto' para scroll automático.");
             }
-        }
-    });
-</script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>     
+        });
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>     
 </body>
 </html>
