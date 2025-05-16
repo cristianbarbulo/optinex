@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/opticlinic",
+      "destination": "/opticlinic.html"
+    }
+  ]
+}
