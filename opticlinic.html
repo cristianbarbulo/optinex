@@ -23,15 +23,15 @@
     <meta property="og:title" content="OPTICLINIC - Agentes IA para Clínicas y Profesionales | Optinex" />
     <meta property="og:description" content="Descubre cómo OPTICLINIC revoluciona la gestión de turnos y la atención al cliente en tu clínica con Inteligencia Artificial. ¡Mira la demo y contáctanos!" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://optinex.vercel.app/opticlinic.html" /> 
-    <meta property="og:image" content="https://optinex.vercel.app/imagenes/opticlinic_banner.jpg" /> 
+    <meta property="og:url" content="https://www.optinexia.com/opticlinic" /> 
+    <meta property="og:image" content="https://www.optinexia.com/imagenes/opticlinic_banner.jpg" /> 
     <meta property="og:image:alt" content="Agentes IA de Opticlinic en acción" />
     <meta property="og:site_name" content="Optinex" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OPTICLINIC - Agentes IA para Clínicas | Optinex" />
     <meta name="twitter:description" content="Optimiza tu clínica con IA: gestión de turnos inteligente y atención al cliente 24/7." />
-    <meta name="twitter:image" content="https://optinex.vercel.app/imagenes/opticlinic_banner.jpg" />
+    <meta name="twitter:image" content="https://www.optinexia.com/imagenes/opticlinic_banner.jpg" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
         }
         .banner-image-container {
             width: 100%;
-            max-height: 500px; /* Mantén o ajusta esta altura si es necesario */
+            max-height: 500px;
             overflow: hidden;
             border-radius: 0.75rem;
             margin-bottom: 2rem; 
@@ -116,24 +116,26 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 90%; /* Ajustado para mostrar más la parte inferior */
+            object-position: center 90%;
         }
-        .video-container {
+        /* Estilos para el contenedor del video de Vimeo para mantener el aspect ratio */
+        .vimeo-video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            background: #000; /* Fondo mientras carga el poster/video */
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background: #000; /* Fondo mientras carga el iframe */
+            border-radius: 0.5rem; /* Mantenemos el borde redondeado */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Mantenemos la sombra */
         }
-        .video-container video {
+        .vimeo-video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: 0; /* Vimeo ya lo pone, pero por si acaso */
         }
     </style>
 </head>
@@ -213,19 +215,20 @@
                 <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-2xl mx-auto text-lg">
                     Este video demuestra, de forma corta y al grano, cómo nuestros agentes IA gestionan reservas y proporcionan información detallada sobre los servicios de una clínica. <strong class="text-gray-200">Prepárate para ver el futuro de la atención al paciente.</strong>
                 </p>
+                
                 <div class="max-w-3xl mx-auto">
-                    <div class="video-container">
-                        <video controls poster="imagenes/opticlinic_banner.jpg"> 
-                            <source src="videos/opticlinic_demo.mp4" type="video/mp4">
-                            Tu navegador no soporta la etiqueta de video. Por favor, actualízalo.
-                            <p class="text-white text-center p-4">Si no puedes ver el video, asegúrate de que tu navegador esté actualizado o intenta con otro. También puedes <a href="#contacto-opticlinic" class="underline hover:text-purple-400">contactarnos</a> para una demostración personalizada.</p>
-                        </video>
+                    <div class="vimeo-video-container">
+                        <iframe src="https://player.vimeo.com/video/1085076180?h=f051a0605d&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                                title="opticlinic_demo">
+                        </iframe>
                     </div>
                     <p class="text-center text-gray-500 mt-3 text-sm">
-                        Video: Agente IA de OPTICLINIC gestionando reservas y consultas.
+                        Video: Agente IA de OPTICLINIC gestionando reservas y consultas. (Demo en Vimeo)
                     </p>
                 </div>
-
                 <div class="text-center mt-12">
                      <a href="#contacto-opticlinic" class="cta-button text-lg px-8 py-4">
                         ¡Quiero Esta Magia en MI Clínica AHORA!
@@ -296,6 +299,8 @@
         </div>
     </footer>
 
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
     <script>
         // Toggle del menú móvil
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -323,7 +328,7 @@
             console.error("Opticlinic Page: No se encontró el botón del menú móvil o el menú.");
         }
 
-        // Scroll suave para enlaces ancla (adaptado para esta página)
+        // Scroll suave para enlaces ancla
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -364,12 +369,10 @@
             if (contactFormOpticlinic && formStatusOpticlinic && submitButtonOpticlinic) {
                 contactFormOpticlinic.addEventListener('submit', async function(event) {
                     event.preventDefault();
-
                     formStatusOpticlinic.textContent = 'Verificando y enviando mensaje...';
                     formStatusOpticlinic.className = 'mb-4 text-sm text-gray-300 h-5';
                     submitButtonOpticlinic.disabled = true;
                     submitButtonOpticlinic.classList.add('opacity-70', 'cursor-not-allowed');
-
                     try {
                         const token = await new Promise((resolve, reject) => {
                             if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
@@ -386,16 +389,13 @@
                                     });
                             });
                         });
-
                         const formData = new FormData(contactFormOpticlinic);
                         formData.append('g-recaptcha-response', token);
                         formData.append('form_source', 'Opticlinic Page'); 
-
                         const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
                         const fetchOptions = { method: 'POST', body: formData };
                         const response = await fetch(webhookUrl, fetchOptions);
                         const responseText = await response.text();
-
                         if (response.ok && responseText === 'Accepted') {
                             formStatusOpticlinic.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
                             formStatusOpticlinic.className = 'mb-4 text-sm text-green-400 h-5';
@@ -409,7 +409,6 @@
                             formStatusOpticlinic.className = 'mb-4 text-sm text-red-400 h-5';
                             console.error('Opticlinic Page: Error del webhook o fallo de reCAPTCHA en backend (Opticlinic):', response.status, responseText);
                         }
-
                     } catch (error) {
                         console.error('Opticlinic Page: Error general en el proceso de envío o reCAPTCHA (Opticlinic):', error);
                         if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
@@ -436,30 +435,24 @@
         window.addEventListener('load', () => {
             const targetElement = document.querySelector('#demo-opticlinic');
             const navbar = document.querySelector('nav');
-
             if (targetElement && navbar) {
                 let navbarHeight = 0;
                 if (getComputedStyle(navbar).position === 'fixed') {
                     navbarHeight = navbar.offsetHeight;
                 }
-                
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 const scrollToPosition = elementPosition - navbarHeight;
-
                 setTimeout(() => {
                     window.scrollTo({
                         top: scrollToPosition,
                         behavior: 'smooth'
                     });
                 }, 100); 
-
             } else {
                 if (!targetElement) console.error("Opticlinic Page: Elemento '#demo-opticlinic' no encontrado para scroll automático.");
                 if (!navbar) console.error("Opticlinic Page: Elemento 'nav' no encontrado para calcular altura para scroll automático.");
             }
         });
-        // --- FIN SCRIPT PARA SCROLL AUTOMÁTICO ---
-
     </script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>
 </body>
