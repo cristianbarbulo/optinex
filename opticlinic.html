@@ -35,6 +35,10 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -59,11 +63,11 @@
             transform: translateY(-6px);
             box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2);
         }
-        .cta-button {
+        .cta-button { /* Estilo original de Opticlinic para botones */
             background-color: #6E44FF;
             color: #FFFFFF;
             font-weight: 600;
-            padding: 0.875rem 2rem;
+            padding: 0.875rem 2rem; 
             border-radius: 0.5rem;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: inline-block;
@@ -83,7 +87,7 @@
         .section-title {
             color: #C9D1D9;
         }
-        .form-input {
+        .form-input { 
             background-color: #0D1117;
             border: 1px solid #30363D;
             color: #E6EDF3;
@@ -118,16 +122,15 @@
             object-fit: cover;
             object-position: center 90%;
         }
-        /* Estilos para el contenedor del video de Vimeo para mantener el aspect ratio */
         .vimeo-video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            background: #000; /* Fondo mientras carga el iframe */
-            border-radius: 0.5rem; /* Mantenemos el borde redondeado */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Mantenemos la sombra */
+            background: #000; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
         }
         .vimeo-video-container iframe {
             position: absolute;
@@ -135,8 +138,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0; /* Vimeo ya lo pone, pero por si acaso */
+            border: 0; 
         }
+
+        /* INICIO: Estilos para intl-tel-input */
+        .iti { width: 100%; }
+        .iti__country-list {
+            background-color: #161B22;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+        }
+        .iti__country-list .iti__country:hover, .iti__country-list .iti__active {
+            background-color: #30363D;
+        }
+        .iti__dial-code {
+            color: #825EFF; 
+        }
+        /* FIN: Estilos para intl-tel-input */
     </style>
 </head>
 <body class="antialiased">
@@ -169,7 +187,7 @@
                 <a href="index.html#inicio" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
                 <a href="index.html#servicios" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Servicios</a>
                 <a href="index.html#sobre-nosotros" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre Nosotros</a>
-                <a href="#contacto-opticlinic" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                 <a href="#contacto-opticlinic" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
             </div>
         </div>
     </nav>
@@ -246,7 +264,8 @@
                 <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
                     No gastes más tiempo ni dinero en sistemas obsoletos. Completa el formulario y descubre cómo <strong class="text-gray-200">OPTICLINIC puede transformar tu negocio hoy mismo.</strong> ¡Te sorprenderá lo simple, potente y accesible que es!
                 </p>
-                <form id="contactFormOpticlinic" class="max-w-xl mx-auto bg-0D1117 p-6 md:p-8 rounded-lg shadow-xl border border-30363D">
+               
+                <form id="contactForm" class="max-w-xl mx-auto bg-0D1117 p-6 md:p-8 rounded-lg shadow-xl border border-30363D">
                     <div class="mb-5">
                         <label for="name" class="block text-gray-300 font-medium mb-2 text-sm">Nombre Completo</label>
                         <input type="text" id="name" name="name" class="form-input placeholder-gray-500" placeholder="Tu Nombre y Apellido" required>
@@ -255,16 +274,21 @@
                         <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
                         <input type="email" id="email" name="email" class="form-input placeholder-gray-500" placeholder="tu.mejor@email.com" required>
                     </div>
+
                     <div class="mb-5">
-                        <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Teléfono WhatsApp (Opcional pero recomendado)</label>
-                        <input type="tel" id="phone" name="phone" class="form-input placeholder-gray-500" placeholder="Ej: +54 9 341 1234567">
+                        <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
+                       
+                        <input type="tel" id="phone" name="phone" class="form-input w-full" required>
+                        <p class="text-xs text-gray-400 mt-1">Selecciona tu país e ingresa tu número. Debe tener WhatsApp activo.</p>
                     </div>
+                    
                     <div class="mb-8">
                         <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Tu Mensaje (Cuéntanos sobre tu clínica o dudas)</label>
                         <textarea id="message" name="message" rows="5" class="form-input placeholder-gray-500" placeholder="Ej: 'Tengo una clínica dental con 3 profesionales y quiero optimizar la agenda y reducir ausencias. ¿Cómo me ayuda OPTICLINIC?'" required></textarea>
                     </div>
                     <div class="text-center">
-                        <p id="formStatusOpticlinic" class="mb-4 text-sm h-5"></p> 
+                       
+                        <p id="formStatus" class="mb-4 text-sm h-5"></p> 
                         <button type="submit" class="cta-button w-full sm:w-auto text-base">
                             Solicitar Demo Personalizada y Asesoramiento
                         </button>
@@ -272,7 +296,7 @@
                 </form>
             </div>
         </section>
-    </main>
+        </main>
 
     <footer class="footer-bg py-10 text-center">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,7 +326,7 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
 
     <script>
-        // Toggle del menú móvil
+        // Toggle del menú móvil (sin cambios)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinksMobile = document.querySelectorAll('#mobile-menu a');
@@ -328,119 +352,197 @@
             console.error("Opticlinic Page: No se encontró el botón del menú móvil o el menú.");
         }
 
-        // Scroll suave para enlaces ancla
+        // Scroll suave para enlaces ancla (sin cambios)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
-                if (targetId && targetId.startsWith('#') && targetId.length > 1 && !this.href.includes('index.html')) {
-                    e.preventDefault();
+                if (targetId && targetId.startsWith('#') && targetId.length > 1 && !this.pathname.includes('index.html')) { 
                     const targetElement = document.querySelector(targetId);
-                    const navbar = document.querySelector('nav');
-
-                    if (targetElement && navbar) {
+                    if (targetElement) {
+                        e.preventDefault();
+                        const navbar = document.querySelector('nav.navbar-bg'); 
                         let navbarHeight = 0;
-                        if (getComputedStyle(navbar).position === 'fixed') {
+                        if (navbar && getComputedStyle(navbar).position === 'fixed') {
                             navbarHeight = navbar.offsetHeight;
                         }
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     } else {
-                         if (!targetElement) console.error(`Opticlinic Page: Elemento '${targetId}' no encontrado para scroll suave.`);
-                         if (!navbar) console.error("Opticlinic Page: Navbar no encontrada para scroll suave.");
+                        console.warn(`Opticlinic Page: Elemento ancla '${targetId}' no encontrado para scroll suave.`);
                     }
                 }
             });
         });
 
-        // Año actual en el footer
+        // Año actual en el footer (sin cambios)
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
         }
 
+        // --- INICIO: SCRIPT PARA EL NUEVO FORMULARIO DE CONTACTO (id="contactForm") ---
+        // Este script se ejecutará después del DOMContentLoaded del script anterior,
+        // o puedes envolverlo en su propio DOMContentLoaded si prefieres.
+        // Para simplicidad y evitar anidamiento, lo pongo secuencialmente.
+        // Si hay problemas, envolver en otro DOMContentLoaded.
+        
+        // (Se asume que el DOM ya está cargado por el listener anterior, pero para ser más robusto, se puede agregar otro)
+        // document.addEventListener('DOMContentLoaded', function () { // Opcional si el script anterior ya lo cubre
+            const contactForm = document.getElementById('contactForm'); 
+            const formStatus = document.getElementById('formStatus'); 
+            const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
-        // --- SCRIPT PARA EL FORMULARIO DE CONTACTO OPTICLINIC CON RECAPTCHA v3 ---
-        document.addEventListener('DOMContentLoaded', function () {
-            const contactFormOpticlinic = document.getElementById('contactFormOpticlinic'); 
-            const formStatusOpticlinic = document.getElementById('formStatusOpticlinic'); 
-            const submitButtonOpticlinic = contactFormOpticlinic ? contactFormOpticlinic.querySelector('button[type="submit"]') : null;
+            const phoneInputField = contactForm ? contactForm.querySelector('#phone') : null;
+            let phoneInputInstance = null; 
 
-            if (contactFormOpticlinic && formStatusOpticlinic && submitButtonOpticlinic) {
-                contactFormOpticlinic.addEventListener('submit', async function(event) {
+            if (phoneInputField) {
+                phoneInputInstance = window.intlTelInput(phoneInputField, {
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js",
+                    initialCountry: "ar", 
+                    preferredCountries: ["ar", "uy", "py", "cl", "br", "es", "us", "mx"], 
+                    separateDialCode: true, 
+                    autoPlaceholder: "aggressive", 
+                    nationalMode: false 
+                });
+
+                function clearPhoneError() {
+                    if (formStatus && (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono'))) {
+                         formStatus.textContent = '';
+                         formStatus.className = 'mb-4 text-sm h-5'; 
+                    }
+                }
+                phoneInputField.addEventListener('countrychange', clearPhoneError);
+                phoneInputField.addEventListener('input', clearPhoneError);
+            }
+
+            if (contactForm && formStatus && submitButton) {
+                contactForm.addEventListener('submit', async function(event) {
                     event.preventDefault();
-                    formStatusOpticlinic.textContent = 'Verificando y enviando mensaje...';
-                    formStatusOpticlinic.className = 'mb-4 text-sm text-gray-300 h-5';
-                    submitButtonOpticlinic.disabled = true;
-                    submitButtonOpticlinic.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    if (phoneInputInstance && !phoneInputInstance.isValidNumber()) {
+                        let errorMsg = "Por favor, ingresa un número de WhatsApp válido para el país seleccionado.";
+                        const errorCode = phoneInputInstance.getValidationError();
+                        
+                        if (typeof intlTelInputUtils !== 'undefined' && errorCode !== 0) { 
+                            switch (errorCode) {
+                                case intlTelInputUtils.validationError.IS_POSSIBLE_LOCAL_ONLY:
+                                    errorMsg = "El número parece ser local, por favor incluye el código de área si aplica.";
+                                    break;
+                                case intlTelInputUtils.validationError.INVALID_COUNTRY_CODE:
+                                    errorMsg = "El código de país no es válido. Por favor, selecciona uno de la lista.";
+                                    break;
+                                case intlTelInputUtils.validationError.TOO_SHORT:
+                                    errorMsg = "El número de teléfono es demasiado corto.";
+                                    break;
+                                case intlTelInputUtils.validationError.TOO_LONG:
+                                    errorMsg = "El número de teléfono es demasiado largo.";
+                                    break;
+                                case intlTelInputUtils.validationError.INVALID_LENGTH:
+                                     errorMsg = "La longitud del número no es válida para el país seleccionado.";
+                                     break;
+                                default:
+                                    errorMsg = "El número de teléfono ingresado no es válido.";
+                            }
+                        }
+                        
+                        formStatus.textContent = errorMsg;
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5';
+                        return; 
+                    }
+
+                    if (phoneInputInstance && phoneInputInstance.isValidNumber()) {
+                        phoneInputField.value = phoneInputInstance.getNumber(); 
+                    }
+
+                    formStatus.textContent = 'Verificando y enviando mensaje...';
+                    formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; 
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
+                    
                     try {
+                        console.log("Formulario Opticlinic (Nuevo): reCAPTCHA: Iniciando ejecución...");
                         const token = await new Promise((resolve, reject) => {
                             if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
-                                console.error("Opticlinic Page: reCAPTCHA: La API de grecaptcha no está cargada.");
+                                console.error("Formulario Opticlinic (Nuevo): reCAPTCHA: La API de grecaptcha no está cargada.");
                                 reject(new Error("API de reCAPTCHA no disponible."));
                                 return;
                             }
                             grecaptcha.ready(function() {
-                                grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_opticlinic_submit' }) 
+                                grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' }) // Usando la acción del nuevo form
                                     .then(resolve)
                                     .catch(error => {
-                                        console.error("Opticlinic Page: reCAPTCHA: Error al ejecutar:", error);
+                                        console.error("Formulario Opticlinic (Nuevo): reCAPTCHA: Error al ejecutar:", error);
                                         reject(error);
                                     });
                             });
                         });
-                        const formData = new FormData(contactFormOpticlinic);
-                        formData.append('g-recaptcha-response', token);
-                        formData.append('form_source', 'Opticlinic Page'); 
+                        console.log("Formulario Opticlinic (Nuevo): reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
+                        
+                        const formData = new FormData(contactForm);
+                        formData.append('g-recaptcha-response', token); 
+                        // Opcional: añadir un identificador si necesitas saber en el backend que vino de esta página específica
+                        formData.append('form_source', 'Opticlinic Page - Intl Form'); 
+                        
                         const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
                         const fetchOptions = { method: 'POST', body: formData };
+                        console.log("Formulario Opticlinic (Nuevo): Enviando datos al webhook...");
                         const response = await fetch(webhookUrl, fetchOptions);
-                        const responseText = await response.text();
+                        const responseText = await response.text(); 
+                        console.log("Formulario Opticlinic (Nuevo): Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
+                        
                         if (response.ok && responseText === 'Accepted') {
-                            formStatusOpticlinic.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
-                            formStatusOpticlinic.className = 'mb-4 text-sm text-green-400 h-5';
-                            contactFormOpticlinic.reset();
+                            formStatus.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
+                            formStatus.className = 'mb-4 text-sm text-green-400 h-5'; 
+                            contactForm.reset(); 
+                            if (phoneInputInstance) {
+                                phoneInputInstance.setCountry("ar"); 
+                            }
                             setTimeout(() => {
-                                formStatusOpticlinic.textContent = '';
-                                formStatusOpticlinic.className = 'mb-4 text-sm h-5';
+                                formStatus.textContent = '';
+                                formStatus.className = 'mb-4 text-sm h-5'; 
                             }, 7000); 
                         } else {
-                            formStatusOpticlinic.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
-                            formStatusOpticlinic.className = 'mb-4 text-sm text-red-400 h-5';
-                            console.error('Opticlinic Page: Error del webhook o fallo de reCAPTCHA en backend (Opticlinic):', response.status, responseText);
+                            formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
+                            formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                            console.error('Formulario Opticlinic (Nuevo): Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
                         }
                     } catch (error) {
-                        console.error('Opticlinic Page: Error general en el proceso de envío o reCAPTCHA (Opticlinic):', error);
+                        console.error('Formulario Opticlinic (Nuevo): Error general en el proceso de envío o reCAPTCHA:', error);
                         if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
-                            formStatusOpticlinic.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
+                            formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
                         } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
-                            formStatusOpticlinic.textContent = 'Error de red. Revisa tu conexión a internet.';
-                        } else {
-                            formStatusOpticlinic.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                            formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
                         }
-                        formStatusOpticlinic.className = 'mb-4 text-sm text-red-400 h-5';
+                        else {
+                            formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                        }
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
                     } finally {
-                        submitButtonOpticlinic.disabled = false;
-                        submitButtonOpticlinic.classList.remove('opacity-70', 'cursor-not-allowed');
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                        console.log("Formulario Opticlinic (Nuevo): Proceso finalizado, botón rehabilitado.");
                     }
                 });
             } else {
-                if (!contactFormOpticlinic) console.error("Opticlinic Page: Error crítico: Formulario 'contactFormOpticlinic' no encontrado.");
-                if (!formStatusOpticlinic) console.error("Opticlinic Page: Error crítico: Elemento 'formStatusOpticlinic' no encontrado.");
-                if (contactFormOpticlinic && !submitButtonOpticlinic) console.error("Opticlinic Page: Error crítico: Botón de envío no encontrado en 'contactFormOpticlinic'.");
+                if (!contactForm) console.error("Formulario Opticlinic (Nuevo): Error crítico: Formulario 'contactForm' no encontrado.");
+                if (!formStatus) console.error("Formulario Opticlinic (Nuevo): Error crítico: Elemento 'formStatus' no encontrado.");
+                if (contactForm && !submitButton) console.error("Formulario Opticlinic (Nuevo): Error crítico: Botón de envío no encontrado en 'contactForm'.");
             }
-        });
+        // }); // Cierre del DOMContentLoaded opcional
+        // --- FIN: SCRIPT PARA EL NUEVO FORMULARIO DE CONTACTO ---
 
-        // --- SCRIPT PARA SCROLL AUTOMÁTICO A LA SECCIÓN DEL VIDEO ---
+
+        // --- SCRIPT PARA SCROLL AUTOMÁTICO A LA SECCIÓN DEL VIDEO (sin cambios) ---
         window.addEventListener('load', () => {
-            const targetElement = document.querySelector('#demo-opticlinic');
-            const navbar = document.querySelector('nav');
-            if (targetElement && navbar) {
+            const targetElementDemo = document.querySelector('#demo-opticlinic'); 
+            const navbarDemo = document.querySelector('nav.navbar-bg'); 
+            if (targetElementDemo && navbarDemo) {
                 let navbarHeight = 0;
-                if (getComputedStyle(navbar).position === 'fixed') {
-                    navbarHeight = navbar.offsetHeight;
+                if (getComputedStyle(navbarDemo).position === 'fixed') {
+                    navbarHeight = navbarDemo.offsetHeight;
                 }
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const elementPosition = targetElementDemo.getBoundingClientRect().top + window.pageYOffset;
                 const scrollToPosition = elementPosition - navbarHeight;
                 setTimeout(() => {
                     window.scrollTo({
@@ -449,8 +551,8 @@
                     });
                 }, 100); 
             } else {
-                if (!targetElement) console.error("Opticlinic Page: Elemento '#demo-opticlinic' no encontrado para scroll automático.");
-                if (!navbar) console.error("Opticlinic Page: Elemento 'nav' no encontrado para calcular altura para scroll automático.");
+                if (!targetElementDemo) console.error("Opticlinic Page: Elemento '#demo-opticlinic' no encontrado para scroll automático.");
+                if (!navbarDemo) console.error("Opticlinic Page: Elemento 'nav.navbar-bg' no encontrado para calcular altura para scroll automático.");
             }
         });
     </script>
