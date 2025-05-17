@@ -3,6 +3,10 @@
     {
       "source": "/opticlinic",
       "destination": "/opticlinic.html"
+    },
+    {
+      "source": "/optiresto",
+      "destination": "/optiresto.html"
     }
   ]
 }
