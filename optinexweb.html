@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="imagenes/favacon.png?v=2" type="image/png"> <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '654073890751197');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=654073890751197&ev=PageView&noscript=1"
+    /></noscript>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optinex Web - Marketing Digital Inteligente para Conectar con TU Cliente Ideal</title>
+
+    <meta property="og:title" content="Optinex Web - Marketing Digital Inteligente para Conectar con TU Cliente Ideal" />
+    <meta property="og:description" content="En Optinex Web, fusionamos IA y estrategia para potenciar tu presencia online, automatizar tus campañas y alcanzar al cliente QUE VOS BUSCAS. Descubre cómo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.optinexia.com/optinexweb.html" /> <meta property="og:image" content="https://www.optinexia.com/imagenes/optinex_web_og_image.jpg" /> <meta property="og:image:alt" content="Optinex Web - Marketing Digital con IA" />
+    <meta property="og:site_name" content="Optinex" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Optinex Web - Marketing Digital Inteligente para Conectar con TU Cliente Ideal" />
+    <meta name="twitter:description" content="IA y estrategia para potenciar tu presencia online y alcanzar al cliente QUE VOS BUSCAS." />
+    <meta name="twitter:image" content="https://www.optinexia.com/imagenes/optinex_web_og_image.jpg" /> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117; /* Negro GitHub oscuro */
+            color: #E6EDF3; /* Texto claro GitHub */
+        }
+        .navbar-bg {
+            background-color: rgba(13, 17, 23, 0.85); /* Fondo de navbar con transparencia */
+            backdrop-filter: blur(10px);
+        }
+        .hero-bg-optinex-web { /* Gradiente específico para Optinex Web */
+            background: linear-gradient(135deg, #201040 0%, #302050 40%, #503070 100%);
+        }
+        .service-card {
+            background-color: #161B22; /* Gris oscuro GitHub para tarjetas */
+            border: 1px solid #30363D; /* Borde sutil GitHub */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem; /* Bordes redondeados consistentes */
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Para que todas las tarjetas tengan la misma altura en un grid */
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(90, 50, 150, 0.25); /* Sombra más pronunciada con acento púrpura */
+        }
+        .cta-button {
+            background-color: #6E44FF; /* Púrpura principal Optinex */
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 0.85rem 1.75rem; /* Ligeramente más grande */
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #5A32E0; /* Púrpura más oscuro */
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
+        }
+        .demo-button { /* Estilo para botones secundarios o de "ver más" */
+            background-color: transparent;
+            color: #825EFF; /* Acento púrpura claro */
+            border: 2px solid #825EFF;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .demo-button:hover {
+            background-color: #825EFF;
+            color: #FFFFFF;
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(130, 94, 255, 0.3);
+        }
+        .service-buttons-container { /* Para alinear botones al final de la tarjeta */
+            margin-top: auto;
+            padding-top: 1rem; /* Espacio antes de los botones */
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap; /* Para que los botones se ajusten en móviles */
+        }
+        .accent-text { color: #825EFF; } /* Púrpura claro para acentos */
+        .secondary-accent-text { color: #58A6FF; } /* Azul GitHub para acentos secundarios */
+        .section-title { color: #C9D1D9; } /* Texto de título de sección */
+        .form-input {
+            background-color: #0D1117;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+            border-radius: 0.375rem;
+            width: 100%;
+            padding: 0.625rem 1rem;
+        }
+        .form-input::placeholder { color: #48515b; }
+        .form-input:focus {
+            border-color: #6E44FF;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-color: #6E44FF;
+            box-shadow: 0 0 0 2px var(--tw-ring-color);
+        }
+        .footer-bg {
+            background-color: #010409; /* Negro más profundo para footer */
+            border-top: 1px solid #30363D;
+        }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .service-card p { flex-grow: 1; } /* Para que el texto ocupe el espacio y los botones se alineen abajo */
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #161B22;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            border: 1px solid #30363D;
+            padding: 0.5rem 0;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #C9D1D9;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.875rem; /* text-sm */
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .dropdown-content a:hover { background-color: #30363D; color: #FFFFFF; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .services-link-container { display: flex; align-items: center; gap: 0.25rem; }
+        .services-link-container svg { width: 0.75rem; height: 0.75rem; transition: transform 0.2s ease-in-out; }
+        .dropdown:hover .services-link-container svg { transform: rotate(180deg); }
+
+        .iti { width: 100%; }
+        .iti__country-list {
+            background-color: #161B22;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+        }
+        .iti__country-list .iti__country:hover, .iti__country-list .iti__active {
+            background-color: #30363D;
+        }
+        .iti__dial-code { color: #825EFF; }
+
+        .feature-icon {
+            font-size: 2rem; /* Tamaño del icono */
+            color: #825EFF; /* Color del icono */
+            margin-bottom: 0.75rem; /* Espacio debajo del icono */
+            width: 4rem; /* Contenedor cuadrado */
+            height: 4rem;
+            background-color: rgba(130, 94, 255, 0.1); /* Fondo sutil para el icono */
+            border-radius: 0.5rem; /* Bordes redondeados para el contenedor del icono */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-image-optinex-web {
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden; /* Para asegurar que la imagen respete el borde redondeado */
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="navbar-bg shadow-md fixed w-full z-50 top-0">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 p-1 sm:p-2"> <img src="imagenes/logo_optinex_navbar.jpg" alt="Optinex Logo" class="w-36 sm:w-44 md:w-48 h-auto" onerror="this.onerror=null;this.src='https://placehold.co/192x64/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold';this.alt='Logo Optinex no disponible';">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                    <div class="dropdown">
+                        <a href="index.html#servicios" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium services-link-container">
+                            Servicios
+                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="opticlinic.html">OPTICLINIC</a>
+                            <a href="optiresto.html">OPTIRESTO</a>
+                            <a href="index.html#servicios">Más Proyectos</a> </div>
+                    </div>
+                    <a href="index.html#sobre-nosotros" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre Nosotros</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a> </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#inicio" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                <a href="index.html#servicios" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestros Servicios</a>
+                <a href="opticlinic.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block pl-6 pr-3 py-2 rounded-md text-base font-medium">- OPTICLINIC</a>
+                <a href="optiresto.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block pl-6 pr-3 py-2 rounded-md text-base font-medium">- OPTIRESTO</a>
+                <a href="index.html#sobre-nosotros" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre Nosotros</a>
+                <a href="#contacto" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio-optinex-web" class="pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 hero-bg-optinex-web text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight section-title">
+                        <span class="accent-text">OPTINEX WEB:</span> Tu Agencia de Marketing Digital <br> Potenciada con <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">Inteligencia Artificial</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+                        Multiplicamos tu presencia online y te conectamos con el <strong class="font-semibold text-white">CLIENTE QUE VOS BUSCAS</strong>. Automatización, estrategia y creatividad para llevar tu marca al siguiente nivel.
+                    </p>
+                    <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#servicios-optinex-web" class="cta-button">Descubre Nuestros Servicios Web</a>
+                        <a href="#contacto" class="demo-button">Solicita tu Asesoría Gratuita</a>
+                    </div>
+                </div>
+                <div class="mt-10 md:mt-0 hero-image-optinex-web">
+                    <img src="imagenes/optinexweb.png" alt="Equipo de marketing digital de Optinex Web colaborando frente a computadoras con pantallas que muestran gráficos de crecimiento, logotipo de Optinex visible en la esquina, ambiente moderno de oficina con luz natural y tono profesional y optimista. Texto en la imagen: Optinex Web Marketing Digital con IA" class="w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1024x683/161B22/E6EDF3?text=Banner+Optinex+Web+(Reemplazar+con+optinexweb.png)&font=inter';this.alt='Banner Optinex Web no disponible';">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios-optinex-web" class="py-16 md:py-24 bg-0D1117">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 section-title">Soluciones Completas para <span class="accent-text">Dominar el Mundo Digital</span></h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-3xl mx-auto text-lg">
+                Desde la estrategia hasta la ejecución y optimización continua, te ofrecemos un arsenal de servicios de marketing digital impulsados por IA para garantizar que tu mensaje llegue, resuene y convierta.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-users"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Gestión Integral de Redes Sociales con IA</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Dominamos <strong class="text-white">LinkedIn, Facebook, Instagram, Twitter y más</strong>. Usamos IA para identificar a tu audiencia ideal, crear contenido hiper-relevante, programar publicaciones en el momento óptimo y analizar el rendimiento para un engagement sin precedentes.
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Quiero Potenciar Mis Redes</a>
+                    </div>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Publicidad Digital Inteligente (Ads con IA)</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Maximizamos tu ROI en <strong class="text-white">Google Ads, Facebook Ads, Instagram Ads y LinkedIn Ads</strong>. La IA optimiza tus pujas, segmenta audiencias con precisión quirúrgica, realiza A/B testing a escala y predice qué creatividades generarán más conversiones. ¡Menos gasto, más impacto!
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Optimizar Mis Campañas Ads</a>
+                    </div>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-star"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Marketing de Influencers Estratégico y Medible</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Conectamos tu marca con <strong class="text-white">influencers locales y nacionales auténticos</strong>. La IA nos ayuda a identificar los perfiles con mayor afinidad y alcance real. Co-creamos guiones optimizados y medimos el impacto real en tus ventas y posicionamiento.
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Colaborar con Influencers</a>
+                    </div>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Diseño y Desarrollo Web de Vanguardia</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Creamos sitios web <strong class="text-white">modernos, rápidos, responsive y optimizados para la conversión</strong>. Desde landing pages hasta e-commerce complejos, con un UI/UX intuitivo y la posibilidad de integrar IA para personalización y asistencia al usuario.
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Necesito una Web Impactante</a>
+                    </div>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-feather-alt"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Contenido SEO y Automatización Inteligente</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Generamos <strong class="text-white">artículos de blog, posts para redes, y noticias optimizadas para SEO</strong>, supervisados por expertos humanos. La IA acelera la investigación de keywords y la creación, posicionando tu marca y atrayendo tráfico orgánico cualificado.
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Mejorar Mi SEO con IA</a>
+                    </div>
+                </div>
+
+                <div class="service-card p-6 md:p-8 shadow-lg">
+                    <div class="feature-icon mx-auto md:mx-0"><i class="fas fa-cogs"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">Automatización de Marketing y Embudos de Venta</h3>
+                    <p class="text-gray-300 mb-6 text-base leading-relaxed">
+                        Diseñamos e implementamos <strong class="text-white">embudos de venta inteligentes y flujos de nutrición de leads</strong>. Automatizamos la comunicación, segmentamos contactos y mejoramos la eficiencia de tu equipo comercial, todo con reportes claros y accionables.
+                    </p>
+                    <div class="service-buttons-container">
+                        <a href="#contacto" class="cta-button text-sm w-full sm:w-auto">Automatizar Mi Marketing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferencial-ia" class="py-16 md:py-24 bg-161B22">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 section-title">Nuestro Diferencial: <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">IA Estratégica para Resultados Reales</span></h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 max-w-3xl mx-auto text-lg">
+                No solo usamos IA, la integramos con una visión estratégica y un toque humano experto para ofrecerte una ventaja competitiva única.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-brain text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">Hiperpersonalización Auténtica</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Anticipamos las necesidades de TUS clientes con mensajes y ofertas 1:1 en tiempo real, creando conexiones profundas.</p>
+                </div>
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-line text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">Analítica Predictiva Avanzada</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Vamos más allá de los clics. Predecimos tendencias y optimizamos tus campañas para un ROI medible y transparente.</p>
+                </div>
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-paint-brush text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">Creatividad Humana, Potencia IA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">La IA acelera y escala, nuestros creativos aportan la estrategia, empatía y originalidad que enamora.</p>
+                </div>
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-shield-alt text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">IA Ética y Transparente por Diseño</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Construimos confianza. Tus datos y los de tus clientes se manejan con los más altos estándares de seguridad y privacidad.</p>
+                </div>
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-handshake text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">Co-creación y Empoderamiento</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Trabajamos <span class="italic">contigo</span>, no solo <span class="italic">para ti</span>. Te involucramos y capacitamos para maximizar el impacto de la IA en tu negocio.</p>
+                </div>
+                <div class="bg-0D1117 p-6 rounded-lg border border-30363D">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-tachometer-alt text-2xl accent-text mr-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-100">Impacto Estratégico Medible</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nos enfocamos en KPIs que importan: crecimiento, eficiencia y rentabilidad. Te mostramos el valor real de tu inversión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-16 md:py-24 bg-0D1117"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">
+                ¿Listo para que <span class="accent-text">TU CLIENTE IDEAL</span> te encuentre?
+            </h2>
+            <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-2xl mx-auto text-lg">
+                Completa el formulario y un especialista de Optinex Web se pondrá en contacto para diseñar una estrategia de IA a la medida de tus objetivos. ¡La primera asesoría es gratuita!
+            </p>
+            <form id="contactForm" class="max-w-xl mx-auto bg-161B22 p-6 md:p-8 rounded-lg shadow-xl border border-30363D"> <div class="mb-5">
+                    <label for="name" class="block text-gray-300 font-medium mb-2 text-sm">Nombre Completo</label>
+                    <input type="text" id="name" name="name" class="form-input placeholder-gray-500" placeholder="Tu Nombre" required>
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-input placeholder-gray-500" placeholder="tu@email.com" required>
+                </div>
+                <div class="mb-5">
+                    <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-input w-full" required>
+                    <p class="text-xs text-gray-400 mt-1">Selecciona tu país e ingresa tu número. Debe tener WhatsApp activo.</p>
+                </div>
+                <div class="mb-8">
+                    <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Mensaje (Cuéntanos sobre tu proyecto o desafío)</label>
+                    <textarea id="message" name="message" rows="5" class="form-input placeholder-gray-500" placeholder="Ej: Quiero mejorar mis ventas online, necesito más visibilidad en redes, etc." required></textarea>
+                </div>
+                <div class="text-center">
+                    <p id="formStatus" class="mb-4 text-sm h-5"></p>
+                    <button type="submit" class="cta-button w-full sm:w-auto">
+                        Solicitar Asesoría Gratuita
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-bg py-10 text-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="index.html#inicio" class="inline-block p-1 sm:p-2"> <img src="imagenes/logo_optinex_footer.jpg" alt="Optinex Logo Footer" class="w-40 sm:w-44 md:w-48 h-auto mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/192x64/010409/6E44FF?text=OPTINEX&font=inter&fontweight=semibold';this.alt='Logo Optinex Footer no disponible';">
+            </a>
+            <p class="text-gray-400 text-sm">
+                &copy; <span id="currentYear"></span> Optinex. Todos los derechos reservados.
+            </p>
+            <p class="text-gray-500 text-xs mt-2">
+                Soluciones de Inteligencia Artificial para Empresas. Rosario, Argentina.
+            </p>
+            <div class="mt-6 space-x-5">
+                <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300" aria-label="Facebook">
+                    <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors duration-300" aria-label="Instagram">
+                    <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.03998C9.17441 2.03998 8.80416 2.05223 7.73561 2.10073C6.72811 2.14673 5.98336 2.31598 5.33886 2.56423C4.65736 2.82673 4.06186 3.20098 3.48886 3.77398C2.91586 4.34698 2.54161 4.94248 2.27911 5.62423C2.03086 5.93098 1.86161 6.37673 1.81561 7.08423C1.76711 7.81873 1.75486 8.18898 1.75486 11C1.75486 13.8255 1.76711 14.1957 1.81561 14.9247C1.86161 15.6322 2.03086 16.0725 2.27911 16.3792C2.54161 17.061 2.91586 17.6565 3.48886 18.2295C4.06186 18.8025 4.65736 19.1767 5.33886 19.4392C5.98336 19.6875 6.72811 19.8567 7.73561 19.9027C8.80416 19.9512 9.17441 19.9635 12 19.9635C14.8256 19.9635 15.1958 19.9512 16.2644 19.9027C17.2719 19.8567 18.0166 19.6875 18.6611 19.4392C19.3426 19.1767 19.9381 18.8025 20.5111 18.2295C21.0841 17.6565 21.4584 17.061 21.7209 16.3792C21.9691 16.0725 22.1384 15.6322 22.1844 14.9247C22.2329 14.1957 22.2451 13.8255 22.2451 11C22.2451 8.18898 22.2329 7.81873 22.1844 7.08423C22.1384 6.37673 21.9691 5.93098 21.7209 5.62423C21.4584 4.94248 21.0841 4.34698 20.5111 3.77398C19.9381 3.20098 19.3426 2.82673 18.6611 2.56423C18.0166 2.31598 17.2719 2.14673 16.2644 2.10073C15.1958 2.05223 14.8256 2.03998 12 2.03998ZM12 3.71398C14.7691 3.71398 15.1161 3.72448 16.1596 3.77148C17.0671 3.81448 17.6326 3.97423 18.0384 4.13623C18.5011 4.32298 18.8476 4.54498 19.2264 4.92373C19.6051 5.30248 19.8271 5.64898 20.0139 6.11173C20.1759 6.51748 20.3356 7.08298 20.3786 7.99048C20.4256 9.03398 20.4361 9.38098 20.4361 12.15C20.4361 14.919 20.4256 15.266 20.3786 16.3095C20.3356 17.217 20.1759 17.7825 20.0139 18.1882C19.8271 18.651 19.6051 18.9975 19.2264 19.3762C18.8476 19.755 18.5011 19.977 18.0384 20.1637C17.6326 20.3257 17.0671 20.4855 16.1596 20.5285C15.1161 20.5755 14.7691 20.586 12 20.586C9.23086 20.586 8.88386 20.5755 7.84036 20.5285C6.93286 20.4855 6.36736 20.3257 5.96161 20.1637C5.49886 19.977 5.15236 19.755 4.77361 19.3762C4.39486 18.9975 4.17286 18.651 3.98611 18.1882C3.82411 17.7825 3.66436 17.217 3.62136 16.3095C3.57436 15.266 3.56386 14.919 3.56386 12.15C3.56386 9.38098 3.57436 9.03398 3.62136 7.99048C3.66436 7.08298 3.82411 6.51748 3.98611 6.11173C4.17286 5.64898 4.39486 5.30248 4.77361 4.92373C5.15236 4.54498 5.49886 4.32298 5.96161 4.13623C6.36736 3.97423 6.93286 3.81448 7.84036 3.77148C8.88386 3.72448 9.23086 3.71398 12 3.71398ZM12 7.11148C9.28936 7.11148 7.00036 9.34123 7.00036 12.15C7.00036 14.9587 9.28936 17.1885 12 17.1885C14.7106 17.1885 16.9996 14.9587 16.9996 12.15C16.9996 9.34123 14.7106 7.11148 12 7.11148ZM12 15.516C10.1119 15.516 8.56386 13.9972 8.56386 12.15C8.56386 10.3027 10.1119 8.78398 12 8.78398C13.8881 8.78398 15.4361 10.3027 15.4361 12.15C15.4361 13.9972 13.8881 15.516 12 15.516ZM17.3066 7.69348C17.3066 8.24548 16.8656 8.68648 16.3136 8.68648C15.7616 8.68648 15.3206 8.24548 15.3206 7.69348C15.3206 7.14148 15.7616 6.70048 16.3136 6.70048C16.8656 6.70048 17.3066 7.14148 17.3066 7.69348Z" /></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors duration-300" aria-label="LinkedIn">
+                    <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Toggle del menú móvil
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('#mobile-menu a, .dropdown-content a');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenuButton.innerHTML = isOpen
+                ? `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`
+                : `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    // Cierra el menú si el enlace es ancla en la misma página o un enlace a otra página
+                    if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').includes('.html')) {
+                         mobileMenu.classList.add('hidden');
+                         mobileMenuButton.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
+                    }
+                }
+            });
+        });
+    } else {
+        console.error("No se encontró el botón del menú móvil o el menú.");
+    }
+    
+    // Scroll suave para enlaces ancla
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            // Asegurarse de que es un ancla y no solo "#"
+            if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault(); // Prevenir el comportamiento por defecto solo si el elemento existe
+                    let navbarHeight = 0;
+                    const navbar = document.querySelector('nav.navbar-bg'); // Selector más específico
+                    if (navbar && getComputedStyle(navbar).position === 'fixed') {
+                        navbarHeight = navbar.offsetHeight;
+                    }
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+            
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Si el ancla es para otra página (ej: index.html#servicios), no prevenir y permitir la navegación normal.
+                    // Si es un ancla en la misma página pero no se encuentra, advertir.
+                    if (!this.pathname.includes('.html') || this.pathname === window.location.pathname) {
+                         console.warn(`Elemento ancla '${targetId}' no encontrado en esta página.`);
+                    }
+                }
+            }
+        });
+    });
+
+    // Año actual en el footer
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+
+    // --- SCRIPT PARA EL FORMULARIO DE CONTACTO CON RECAPTCHA v3 e intl-tel-input ---
+    // (IDÉNTICO AL PROPORCIONADO EN EL HTML BASE, ASEGURANDO FUNCIONALIDAD)
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+        const phoneInputField = document.getElementById('phone');
+        let phoneInputInstance = null; 
+
+        if (phoneInputField) {
+            phoneInputInstance = window.intlTelInput(phoneInputField, {
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js",
+                initialCountry: "ar", 
+                preferredCountries: ["ar", "uy", "py", "cl", "br", "es", "us", "mx"], 
+                separateDialCode: true, 
+                autoPlaceholder: "aggressive", 
+                nationalMode: false 
+            });
+
+            function clearPhoneError() {
+                if (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono')) {
+                    formStatus.textContent = '';
+                    formStatus.className = 'mb-4 text-sm h-5'; 
+                }
+            }
+            phoneInputField.addEventListener('countrychange', clearPhoneError);
+            phoneInputField.addEventListener('input', clearPhoneError);
+        }
+
+        if (contactForm && formStatus && submitButton) {
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                if (phoneInputInstance && !phoneInputInstance.isValidNumber()) {
+                    let errorMsg = "Por favor, ingresa un número de WhatsApp válido para el país seleccionado.";
+                    const errorCode = phoneInputInstance.getValidationError();
+                    
+                    if (typeof intlTelInputUtils !== 'undefined' && errorCode !== 0) { 
+                        switch (errorCode) {
+                            case intlTelInputUtils.validationError.IS_POSSIBLE_LOCAL_ONLY:
+                                errorMsg = "El número parece ser local, por favor incluye el código de área si aplica.";
+                                break;
+                            case intlTelInputUtils.validationError.INVALID_COUNTRY_CODE:
+                                errorMsg = "El código de país no es válido. Por favor, selecciona uno de la lista.";
+                                break;
+                            case intlTelInputUtils.validationError.TOO_SHORT:
+                                errorMsg = "El número de teléfono es demasiado corto.";
+                                break;
+                            case intlTelInputUtils.validationError.TOO_LONG:
+                                errorMsg = "El número de teléfono es demasiado largo.";
+                                break;
+                            case intlTelInputUtils.validationError.INVALID_LENGTH:
+                                errorMsg = "La longitud del número no es válida para el país seleccionado.";
+                                break;
+                            default:
+                                errorMsg = "El número de teléfono ingresado no es válido.";
+                        }
+                    }
+                    
+                    formStatus.textContent = errorMsg;
+                    formStatus.className = 'mb-4 text-sm text-red-400 h-5';
+                    return; 
+                }
+
+                if (phoneInputInstance && phoneInputInstance.isValidNumber()) {
+                    phoneInputField.value = phoneInputInstance.getNumber(); 
+                }
+
+                formStatus.textContent = 'Verificando y enviando mensaje...';
+                formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; 
+                submitButton.disabled = true;
+                submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
+                
+                try {
+                    console.log("reCAPTCHA: Iniciando ejecución...");
+                    const token = await new Promise((resolve, reject) => {
+                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
+                            console.error("reCAPTCHA: La API de grecaptcha no está cargada.");
+                            reject(new Error("API de reCAPTCHA no disponible."));
+                            return;
+                        }
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' })
+                                .then(resolve)
+                                .catch(error => {
+                                    console.error("reCAPTCHA: Error al ejecutar:", error);
+                                    reject(error);
+                                });
+                        });
+                    });
+                    console.log("reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
+                    
+                    const formData = new FormData(contactForm);
+                    formData.append('g-recaptcha-response', token); 
+                    
+                    const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
+                    const fetchOptions = { method: 'POST', body: formData };
+                    console.log("Formulario: Enviando datos al webhook...");
+                    const response = await fetch(webhookUrl, fetchOptions);
+                    const responseText = await response.text(); 
+                    console.log("Formulario: Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
+                    
+                    if (response.ok && responseText === 'Accepted') {
+                        formStatus.textContent = '¡Mensaje enviado con éxito!';
+                        formStatus.className = 'mb-4 text-sm text-green-400 h-5'; 
+                        contactForm.reset(); 
+                        if (phoneInputInstance) { // Resetear el campo de teléfono a su estado inicial
+                             phoneInputInstance.setCountry(phoneInputInstance.options.initialCountry);
+                        }
+                        setTimeout(() => {
+                            formStatus.textContent = '';
+                            formStatus.className = 'mb-4 text-sm h-5'; 
+                        }, 5000);
+                    } else {
+                        formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                        console.error('Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
+                    }
+                } catch (error) {
+                    console.error('Error general en el proceso de envío o reCAPTCHA:', error);
+                    if (error && error.message && error.message.toLowerCase().includes("recaptcha")) {
+                        formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
+                    } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
+                        formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
+                    }
+                    else {
+                        formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                    }
+                    formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                    console.log("Formulario: Proceso finalizado, botón rehabilitado.");
+                }
+            });
+        } else {
+            if (!contactForm) console.error("Error crítico: Elemento de formulario con id 'contactForm' no encontrado.");
+            if (!formStatus) console.error("Error crítico: Elemento para mostrar estado con id 'formStatus' no encontrado.");
+            if (contactForm && !submitButton) console.error("Error crítico: Botón de envío no encontrado en 'contactForm'.");
+        }
+    });
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>  
+</body>
+</html>

@@ -2,11 +2,15 @@
   "rewrites": [
     {
       "source": "/opticlinic",
-      "destination": "/opticlinic.html"
+      "destination": "/opticlinic"
     },
     {
       "source": "/optiresto",
-      "destination": "/optiresto.html"
+      "destination": "/optiresto"
+    },
+    {
+      "source": "/optinexweb",
+      "destination": "/optinexweb"
     }
   ]
 }
