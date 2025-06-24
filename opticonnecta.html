@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiConnect by Optinex - El Sistema Operativo de IA para la Comunicación con Clientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/imagenes/favacon.png?v=2" type="image/png">
+    
+    <!-- Scripts y Estilos para el Formulario -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117;
+            color: #E6EDF3;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(145deg, #161B22 0%, #0D1117 100%);
+        }
+        .text-gradient-brand {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f97316, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.3);
+        }
+        .use-case-card:hover, .feature-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            border-color: #8b5cf6;
+        }
+        .pricing-card {
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card-content {
+            flex-grow: 1;
+        }
+        .pricing-card:hover {
+            transform: scale(1.02);
+            border-color: #8b5cf6;
+        }
+        .pricing-card-recommended {
+            border-color: #8b5cf6;
+            transform: scale(1.05);
+        }
+         .pricing-card-recommended:hover {
+            border-color: #a78bfa;
+            transform: scale(1.07);
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .accent-text { color: #a78bfa; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
+            background-color: #25D366;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .step-card::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            border: 4px solid #161B22;
+        }
+        .testimonial-carousel::-webkit-scrollbar { height: 8px; }
+        .testimonial-carousel::-webkit-scrollbar-track { background: #161B22; border-radius: 10px; }
+        .testimonial-carousel::-webkit-scrollbar-thumb { background-color: #8b5cf6; border-radius: 10px; border: 2px solid #161B22;}
+        
+        /* Form Styles from your index.html */
+        .form-input {
+            background-color: #0D1117;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+            border-radius: 0.375rem;
+            width: 100%;
+            padding: 0.625rem 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input::placeholder { color: #48515b; }
+        .form-input:focus {
+            border-color: #6E44FF;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(110, 68, 255, 0.5);
+        }
+        .form-cta-button {
+           background-color: #6E44FF;
+           color: #FFFFFF;
+           font-weight: 600;
+           padding: 0.75rem 1.5rem;
+           border-radius: 0.5rem;
+           transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+           display: inline-block;
+           text-align: center;
+        }
+        .form-cta-button:hover {
+           background-color: #5A32E0;
+           transform: scale(1.03);
+           box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
+        }
+        .iti { width: 100%; }
+        .iti__country-list {
+            background-color: #161B22;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+        }
+        .iti__country-list .iti__country:hover, .iti__country-list .iti__active {
+            background-color: #30363D;
+        }
+        .iti__dial-code { color: #a78bfa; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300" style="counter-reset: step-counter;">
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Opticonnecta%20YA%20%21" target="_blank" class="whatsapp-float text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg text-4xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 shadow-lg" style="background-color: rgba(13, 17, 23, 0.85); backdrop-filter: blur(10px);">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="/imagenes/logo_optinex_navbar.jpg" alt="Logo Optinex" class="h-12 md:h-14" onerror="this.style.display='none'">
+            </a>
+            <div class="hidden md:flex space-x-6 items-center font-medium">
+                <a href="#workflow" class="hover:text-purple-400">Nuestra Tecnología</a>
+                <a href="#use-cases" class="hover:text-purple-400">Casos de Uso</a>
+                <a href="#pricing" class="hover:text-purple-400">Planes</a>
+                <a href="#faq" class="hover:text-purple-400">Preguntas Frecuentes</a>
+                <a href="#contacto" class="hover:text-purple-400">Contacto</a>
+            </div>
+            <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Opticonnecta%20YA%20%21" target="_blank" class="cta-button font-bold py-2 px-6 rounded-lg flex items-center space-x-2">
+                <i class="fab fa-whatsapp"></i>
+                <span>Probar Demo</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-white">La IA que se Convierte en un Experto de <span class="text-gradient-brand">TU Propio Negocio</span>.</h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-8">
+                    Conversa con el futuro de tus ventas. Pon a prueba nuestro bot en WhatsApp Agenda, informa, vende, lo que tu negocio necesite. Mientras asombra a tu cliente con su razonamiento y adaptabilidad, nuestra IA carga sus datos, lo califica y lo prepara para una relación de por vida. Potencia, escala y fideliza.
+                </p>
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Opticonnecta%20YA%20%21" target="_blank" class="cta-button font-bold py-4 px-10 rounded-lg text-xl inline-flex items-center space-x-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>Personaliza tu Demo en Vivo</span>
+                </a>
+            </div>
+            <div class="flex justify-center">
+                <img src="imagenes/opticonnect-hero-ia.jpg" alt="Agente IA de OptiConnect orquestando WhatsApp, HubSpot y Calendario" class="w-full max-w-lg rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Descubre el Poder de la Adaptación en 3 Pasos</h2>
+                <p class="text-slate-400 mt-2">Prueba la flexibilidad de nuestra plataforma directamente en WhatsApp.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                <div class="step-card bg-slate-900 p-8 rounded-lg shadow-xl relative">
+                    <h3 class="text-xl font-bold text-white mb-2">Inicia la Demo</h3>
+                    <p class="text-slate-400">Haz clic en cualquier botón de WhatsApp para hablar con nuestro bot de demostración.</p>
+                </div>
+                <div class="step-card bg-slate-900 p-8 rounded-lg shadow-xl relative">
+                    <h3 class="text-xl font-bold text-white mb-2">Dale una Personalidad</h3>
+                    <p class="text-slate-400">Nuestro agente de optinex simulara el negocio que elijas y sin ninguna informacion cargada te demuestra su poder..., imagina volverlo un experto en tu negocio, jamas haz tenido un experto de ese nivel en tu negocio...</p>
+                </div>
+                <div class="step-card bg-slate-900 p-8 rounded-lg shadow-xl relative">
+                    <h3 class="text-xl font-bold text-white mb-2">Comprueba su Conocimiento</h3>
+                    <p class="text-slate-400">Verás cómo su lenguaje y capacidades cambian al instante para adaptarse al nuevo rol que le has asignado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Workflow Section -->
+    <section id="workflow" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">El Motor Detrás de la Magia: Nuestro Flujo Inteligente</h2>
+                <p class="text-slate-400 mt-2 max-w-3xl mx-auto">No es una respuesta automática. Es un proceso de razonamiento de múltiples agentes que garantiza coherencia, precisión y calidad en cada interacción.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+                <div class="flex flex-col items-center p-4">
+                    <div class="bg-slate-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-700">
+                        <i class="fas fa-hourglass-half text-4xl text-gradient-brand"></i>
+                    </div>
+                    <h4 class="font-bold text-white mt-4 mb-2">Entiende y Razona</h4>
+                    <p class="text-sm text-slate-400">El sistema entiende los metodos de comunicacion humanos a la perfeccion</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="bg-slate-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-700">
+                        <i class="fas fa-book-open text-4xl text-gradient-brand"></i>
+                    </div>
+                    <h4 class="font-bold text-white mt-4 mb-2">Analiza Imagenes</h4>
+                    <p class="text-sm text-slate-400">Analiza el nuevo mensaje y el contexto, incluyendo el contenido de imágenes, para entender la consulta real.</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="bg-slate-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-700">
+                        <i class="fas fa-magic text-4xl text-gradient-brand"></i>
+                    </div>
+                    <h4 class="font-bold text-white mt-4 mb-2">Agente completo</h4>
+                    <p class="text-sm text-slate-400">Usa la memoria de conversaciones pasadas y su conocimiento del negocio para redactar la respuesta más inteligente y útil, es decir no solo es un experto en tu negocio sino tambien en tu cliente, alguna vez soñaste un empleado asi? Maneja tu agenda de turnos a la perfeccion !.</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="bg-slate-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-700">
+                        <i class="fas fa-check-double text-4xl text-gradient-brand"></i>
+                    </div>
+                    <h4 class="font-bold text-white mt-4 mb-2">Todo Verificador</h4>
+                    <p class="text-sm text-slate-400">Realiza un control de calidad final para asegurar que la respuesta sea coherente, profesional y libre de errores antes de enviarla.</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="bg-slate-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-700">
+                        <i class="fas fa-user-tie text-4xl text-gradient-brand"></i>
+                    </div>
+                    <h4 class="font-bold text-white mt-4 mb-2">Agente de Leads</h4>
+                    <p class="text-sm text-slate-400">En segundo plano, analiza las conversaciones finalizadas para identificar oportunidades y cargarlas automáticamente a tu CRM, actualizandolo constantemente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 1 -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">¿Listo para Verlo en Acción?</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-8">La mejor forma de entender el poder de OptiConnect es interactuando con él. Personaliza la personalidad del bot en vivo.</p>
+            <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Opticonnecta%20YA%20%21" target="_blank" class="cta-button font-bold py-4 px-10 rounded-lg text-xl inline-flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span>Iniciar Demo Interactiva</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="py-20">
+         <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Un Agente Experto para Cada Industria</h2>
+                <p class="text-slate-400 mt-2 max-w-2xl mx-auto">OptiConnect no es una solución genérica. Es una plataforma que se adapta a la cotidianeidad de tu operación, especializado en los ciclos completos de atencion al cliente.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-6 rounded-lg shadow-xl use-case-card border-2 border-transparent grid sm:grid-cols-3 gap-6 items-center">
+                    <img src="imagenes/opticonnect-usecase-clinica.jpg" alt="Agente IA para clínicas y consultorios" class="rounded-md w-full h-full object-cover col-span-1">
+                    <div class="col-span-2">
+                        <h3 class="text-2xl font-bold text-white mb-3">Clínicas y Consultorios</h3>
+                        <p class="text-slate-300">Ofrece y agenda turnos disponibles, responde preguntas sobre preparaciones de estudios y o lo que tu cliente necesite, necesita reprogramar o leer un estudio? Sin problemas !</p>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg shadow-xl use-case-card border-2 border-transparent grid sm:grid-cols-3 gap-6 items-center">
+                    <img src="imagenes/opticonnect-usecase-tienda.jpg" alt="Agente IA para tiendas y comercios" class="rounded-md w-full h-full object-cover col-span-1">
+                    <div class="col-span-2">
+                        <h3 class="text-2xl font-bold text-white mb-3">Tiendas y Comercios</h3>
+                        <p class="text-slate-300">Recibe fotos de productos, los identifica, consulta el stock y el precio en tiempo real, y guía al cliente en la compra.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-xl use-case-card border-2 border-transparent grid sm:grid-cols-3 gap-6 items-center">
+                      <img src="imagenes/opticonnect-usecase-inmobiliaria.jpg" alt="Agente IA para inmobiliarias y servicios" class="rounded-md w-full h-full object-cover col-span-1">
+                      <div class="col-span-2">
+                        <h3 class="text-2xl font-bold text-white mb-3">Inmobiliarias y Servicios</h3>
+                        <p class="text-slate-300">Califica leads con preguntas clave, los carga en el CRM y agenda visitas solo para los clientes de alta calidad.</p>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg shadow-xl use-case-card border-2 border-transparent grid sm:grid-cols-3 gap-6 items-center">
+                    <img src="imagenes/opticonnect-usecase-restaurante.jpg" alt="Agente IA para restaurantes y cafeterías" class="rounded-md w-full h-full object-cover col-span-1">
+                    <div class="col-span-2">
+                        <h3 class="text-2xl font-bold text-white mb-3">Restaurantes y Cafeterías</h3>
+                        <p class="text-slate-300">Gestiona las reservas en tiempo real, responde preguntas sobre el menú e ingredientes y envía la ubicación o promociones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">No Confíes en Nuestra Palabra, Confía en los Resultados</h2>
+                <p class="text-slate-400 mt-2">Clientes reales, impacto real.</p>
+            </div>
+            <div class="relative">
+                <div id="testimonial-carousel" class="testimonial-carousel flex overflow-x-auto snap-x snap-mandatory space-x-8 pb-4">
+                    <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                        <div class="bg-slate-900 p-8 rounded-lg h-full flex flex-col">
+                            <i class="fas fa-hard-hat text-3xl text-gradient-brand mb-4"></i>
+                            <p class="text-slate-400 italic flex-grow">"Manejamos un catálogo de miles de rodamientos técnicos. Creíamos que era imposible de automatizar. OptiConnect no solo aprendió nuestro inventario, sino que ahora asesora a nuestros clientes industriales sobre códigos y especificaciones 24/7."</p>
+                            <div class="mt-6 pt-6 border-t border-slate-700">
+                                <p class="font-bold text-white">- Equipo de Ingeniería</p>
+                                <a href="https://www.rodamientoslaesperanza.com.ar" target="_blank" class="accent-text hover:text-purple-300">Rodamientos La Esperanza</a>
+                                <p class="text-sm text-slate-500">Desafío Técnico Superado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                         <div class="bg-slate-900 p-8 rounded-lg h-full flex flex-col">
+                            <i class="fas fa-heartbeat text-3xl text-gradient-brand mb-4"></i>
+                            <p class="text-slate-400 italic flex-grow">"Las ausencias a los turnos se redujeron un 40% gracias a los recordatorios inteligentes. Nuestro equipo de ventas ahora recibe los leads calificados y listos para cerrar."</p>
+                            <div class="mt-6 pt-6 border-t border-slate-700">
+                                <p class="font-bold text-white">- Gerente Comercial</p>
+                                <p class="accent-text">Clínica Dental</p>
+                                <p class="text-sm text-slate-500">Optimización de Agenda</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                         <div class="bg-slate-900 p-8 rounded-lg h-full flex flex-col">
+                            <i class="fas fa-rocket text-3xl text-gradient-brand mb-4"></i>
+                            <p class="text-slate-400 italic flex-grow">"Como startup, cada lead cuenta. OptiConnect se convirtió en nuestro mejor vendedor: califica, nutre y agenda demos mientras dormimos. Es la herramienta que nos permitió escalar."</p>
+                           <div class="mt-6 pt-6 border-t border-slate-700">
+                                <p class="font-bold text-white">- CEO & Fundador</p>
+                                <p class="accent-text">TechNova Solutions</p>
+                                 <p class="text-sm text-slate-500">Escalabilidad de Ventas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snap-center flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                         <div class="bg-slate-900 p-8 rounded-lg h-full flex flex-col">
+                            <i class="fas fa-tshirt text-3xl text-gradient-brand mb-4"></i>
+                            <p class="text-slate-400 italic flex-grow">"Hasta cuando le envian foto de una remera el bot resuelve. La reconoció, le dijo que la teníamos en stock y le mandó el link de compra. Cerramos la venta en 2 minutos. Increíble."</p>
+                           <div class="mt-6 pt-6 border-t border-slate-700">
+                                <p class="font-bold text-white">- Dueña</p>
+                                <p class="accent-text">Tienda Urbana</p>
+                                 <p class="text-sm text-slate-500">Venta por Imagen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== CTA SECTION 2 ======== -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Únete a las Empresas que ya están Transformando su Comunicación</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-8">Tú también puedes tener un agente de IA que trabaje para ti 24/7. ¿Qué esperas para probarlo?</p>
+            <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Opticonnecta%20YA%20%21" target="_blank" class="cta-button font-bold py-4 px-10 rounded-lg text-xl inline-flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span>Probar la Demo Ahora</span>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-20 bg-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Un Ecosistema de Comunicación Completo</h2>
+                <p class="text-slate-400 mt-4 max-w-xl">OptiConnect es el núcleo. Nuestra plataforma está lista para expandirse a todos tus canales de comunicación.</p>
+                <div class="mt-8 space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-microphone-alt text-3xl accent-text mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Agentes de Voz</h4>
+                            <p class="text-slate-400">Conecta agentes que pueden realizar y recibir llamadas, enviando audios de WhatsApp o interactuando por teléfono.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-envelope-open-text text-3xl accent-text mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Email Marketing Inteligente</h4>
+                            <p class="text-slate-400">Inicia campañas de email y seguimientos automáticos basados en las conversaciones y el interés real de tus clientes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-hand-holding-heart text-3xl accent-text mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Post-Venta y Fidelización</h4>
+                            <p class="text-slate-400">Automatiza encuestas de satisfacción, ofrece soporte y fideliza a tus clientes con un seguimiento personalizado y proactivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <img src="imagenes/opticonnect-ecosystem.jpg" alt="Agente IA en un centro de comando, gestionando WhatsApp, Email y Voz" class="rounded-lg shadow-2xl w-full max-w-md">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Escala a tu Propio Ritmo</h2>
+                <p class="text-slate-400 mt-2">Planes claros, transparentes y diseñados para crecer contigo.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                
+                <!-- Plan Profesional -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-lg border-2 border-slate-700">
+                    <div class="pricing-card-content">
+                        <h3 class="text-2xl font-bold text-white">Profesional</h3>
+                        <p class="text-slate-400 mt-2">El núcleo de la automatización para atención y ventas.</p>
+                        <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$169 <span class="text-base font-normal">USD</span></p></div>
+                        <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$99 <span class="text-lg font-medium">/mes</span></p></div>
+                        <ul class="space-y-4 text-slate-300">
+                            <li><i class="fas fa-check accent-text mr-2"></i>Flujo Inteligente de IA</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>Integración con 1 CRM</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>Módulo de Agendamiento</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>2.000 Conversaciones</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-center text-slate-500 mt-6">* El Setup Fee cubre el primer mes.</p>
+                    <a href="#" class="cta-button block w-full text-center mt-4 font-bold py-3 px-6 rounded-lg">Contratar</a>
+                </div>
+
+                <!-- Plan Business (Recomendado) -->
+                <div class="pricing-card pricing-card-recommended p-8 rounded-lg border-2 w-full relative bg-slate-900">
+                      <div class="pricing-card-content">
+                        <span class="absolute top-0 -translate-y-1/2 bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded-full">MEJOR VALOR</span>
+                        <h3 class="text-2xl font-bold text-white">Business</h3>
+                        <p class="text-slate-400 mt-2">Inteligencia y herramientas transaccionales.</p>
+                        <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$299 <span class="text-base font-normal">USD</span></p></div>
+                        <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$249 <span class="text-lg font-medium">/mes</span></p></div>
+                        <ul class="space-y-4 text-slate-300">
+                            <li><i class="fas fa-check accent-text mr-2"></i>Todo de Profesional, y:</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Agente de Sentimientos</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Reportes Diarios Administrativos</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Conexión E-commerce</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Conexión Email Marketing</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>5.000 Conversaciones</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-center text-slate-500 mt-6">* El Setup Fee cubre el primer mes.</p>
+                    <a href="#" class="cta-button block w-full text-center mt-4 font-bold py-3 px-6 rounded-lg">Contratar</a>
+                </div>
+
+                <!-- Plan Performance -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-lg border-2 border-slate-700">
+                      <div class="pricing-card-content">
+                        <h3 class="text-2xl font-bold text-white">Performance</h3>
+                        <p class="text-slate-400 mt-2">Comunicación omnicanal proactiva.</p>
+                        <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$499 <span class="text-base font-normal">USD</span></p></div>
+                        <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$399 <span class="text-lg font-medium">/mes</span></p></div>
+                        <ul class="space-y-4 text-slate-300">
+                            <li><i class="fas fa-check accent-text mr-2"></i>Todo de Business, y:</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Agentes de Voz (Audios y Llamadas)</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Automatización Proactiva</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>10.000 Conversaciones</li>
+                        </ul>
+                    </div>
+                       <p class="text-xs text-center text-slate-500 mt-6">* El Setup Fee cubre el primer mes.</p>
+                    <a href="#" class="cta-button block w-full text-center mt-4 font-bold py-3 px-6 rounded-lg">Contratar</a>
+                </div>
+
+                <!-- Plan Enterprise -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-lg border-2 border-slate-700">
+                      <div class="pricing-card-content">
+                        <h3 class="text-2xl font-bold text-white">Enterprise</h3>
+                        <p class="text-slate-400 mt-2">Soluciones a medida para gran escala.</p>
+                        <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">Desde $999</p></div>
+                        <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-4xl font-extrabold text-white">Desde $599/mes</p></div>
+                        <ul class="space-y-4 text-slate-300">
+                            <li><i class="fas fa-check accent-text mr-2"></i>Todo de Performance, y:</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Agente de Pagos Integrado</li>
+                            <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>Integraciones Múltiples y a Medida (escuchamos tu idea y la hacemos realidad)</li>
+                            <li><i class="fas fa-check accent-text mr-2"></i>Soporte y SLA Dedicado</li>
+                        </ul>
+                    </div>
+                       <p class="text-xs text-center text-slate-500 mt-6 invisible">* Placeholder</p>
+                    <a href="#" class="cta-button block w-full text-center mt-4 font-bold py-3 px-6 rounded-lg">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== FINAL FAQ SECTION ================== -->
+    <section id="faq" class="py-20 bg-slate-800">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-8">Resolviendo tus Dudas</h2>
+            <div class="space-y-4">
+                <!-- Preguntas existentes -->
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Esto es solo un chatbot con respuestas predefinidas?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        Definitivamente no. OptiConnect no sigue un script. Es un sistema de múltiples agentes de IA que razonan, recuerdan conversaciones, se integran con tus sistemas de datos y aprenden para volverse más expertos con cada interacción.
+                    </p>
+                </details>
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        Mi empresa no usa HubSpot, ¿aún así puedo usarlo?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        ¡Por supuesto! Nuestra plataforma está construida con una arquitectura de adaptadores. Podemos integrarnos con casi cualquier CRM o sistema que tenga una API disponible, ya sea Salesforce, Zoho, o incluso un sistema desarrollado a medida.
+                    </p>
+                </details>
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Puede manejar imágenes o solo texto?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        Sí, puede manejar imágenes. Un cliente puede enviar una foto de un producto que vio en la vidriera, y el agente de IA la analizará para identificarlo, consultar el stock en tu sistema y dar el precio.
+                    </p>
+                </details>
+                 <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Qué tan seguro es el manejo de los datos?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        La seguridad es fundamental. Cada cliente de OptiConnect opera en una infraestructura de servidor y base de datos completamente aislada y dedicada. No hay recursos compartidos ni posibilidad de cruce de datos.
+                    </p>
+                </details>
+
+                <!-- NUEVAS PREGUNTAS FRECUENTES -->
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Cuál es la diferencia real entre los planes?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        La diferencia principal es la capacidad para realizar acciones complejas y proactivas. Cada plan desbloquea nuevos "módulos" y agentes de IA con capacidades más avanzadas, desde el agendamiento y la conexión a catálogos, hasta el manejo de voz y pagos.
+                    </p>
+                </details>
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Qué implica el proceso de implementación?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        Es un proceso guiado y sencillo. Primero, tenemos una reunión de descubrimiento para entender tu negocio. Luego, nos das acceso a la información clave (catálogo, preguntas frecuentes). Nuestro equipo configura y entrena a los agentes de IA y finalmente, vinculamos el sistema a tu número de WhatsApp. Normalmente, puedes estar operativo en pocos días.
+                    </p>
+                </details>
+                <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Qué pasa si el bot no sabe responder?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                        El sistema está diseñado para la colaboración. Si la IA detecta una consulta que no puede manejar con la información que tiene, o si el cliente solicita explícitamente hablar con una persona, la conversación se pausa y se notifica a un miembro de tu equipo para que pueda tomar el control desde su propio WhatsApp o panel de control.
+                    </p>
+                </details>
+                 <details class="faq-item bg-slate-900 p-6 rounded-lg group">
+                    <summary class="font-semibold text-lg text-white cursor-pointer flex justify-between items-center">
+                        ¿Qué sucede si excedo el límite de conversaciones de mi plan?
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-4">
+                          Tu servicio nunca se detendrá. Si excedes el límite, te contactaremos para ofrecerte dos opciones: pasar al siguiente plan para obtener un mejor costo por volumen o pagar un pequeño excedente por cada conversación adicional. Siempre tendrás el control de tus costos.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================== FINAL CONTACT FORM SECTION ================== -->
+    <section id="contacto" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-white">¿Prefieres un Contacto Directo?</h2>
+            <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
+                Completa el formulario y un especialista de nuestro equipo se pondrá en contacto contigo para resolver todas tus dudas.
+            </p>
+            <form id="contactForm" class="max-w-xl mx-auto bg-slate-800 p-6 md:p-8 rounded-lg shadow-xl border border-slate-700">
+                <div class="mb-5">
+                    <label for="name" class="block text-slate-300 font-medium mb-2 text-sm">Nombre Completo</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Tu Nombre" required>
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block text-slate-300 font-medium mb-2 text-sm">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                </div>
+                <div class="mb-5">
+                    <label for="phone" class="block text-slate-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-input w-full" required>
+                    <p class="text-xs text-slate-500 mt-1">Selecciona tu país e ingresa tu número.</p>
+                </div>
+                <div class="mb-8">
+                    <label for="message" class="block text-slate-300 font-medium mb-2 text-sm">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" class="form-input" placeholder="Cuéntanos sobre tu negocio y tus necesidades de automatización." required></textarea>
+                </div>
+                <div class="text-center">
+                    <p id="formStatus" class="mb-4 text-sm h-5"></p>
+                    <button type="submit" class="form-cta-button w-full sm:w-auto">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer-bg py-10 text-center" style="background-color: #010409; border-top: 1px solid #30363D;">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="index.html" class="inline-block p-1 sm:p-2">
+                <img src="/imagenes/logo_optinex_footer.jpg" alt="Optinex Logo Footer" class="w-40 sm:w-44 md:w-48 h-auto mx-auto mb-4" onerror="this.style.display='none'">
+            </a>
+            <p class="text-gray-400 text-sm">
+                &copy; <span id="currentYear"></span> Optinex. Todos los derechos reservados.
+            </p>
+            <p class="text-gray-500 text-xs mt-2">
+                Soluciones de Inteligencia Artificial para Empresas. Rosario, Argentina.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ" defer></script> 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- SCRIPT PARA EL FORMULARIO DE CONTACTO ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+            const phoneInputField = document.getElementById('phone');
+            let phoneInputInstance = null; 
+
+            if (phoneInputField) {
+                phoneInputInstance = window.intlTelInput(phoneInputField, {
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js",
+                    initialCountry: "ar", 
+                    preferredCountries: ["ar", "uy", "py", "cl", "br", "es", "us", "mx"], 
+                    separateDialCode: true, 
+                    autoPlaceholder: "aggressive", 
+                    nationalMode: false 
+                });
+
+                function clearPhoneError() {
+                    if (formStatus && (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono'))) {
+                        formStatus.textContent = '';
+                        formStatus.className = 'mb-4 text-sm h-5'; 
+                    }
+                }
+                phoneInputField.addEventListener('countrychange', clearPhoneError);
+                phoneInputField.addEventListener('input', clearPhoneError);
+            }
+
+            if (contactForm && formStatus && submitButton) {
+                contactForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    if (phoneInputInstance && !phoneInputInstance.isValidNumber()) {
+                        let errorMsg = "Por favor, ingresa un número de WhatsApp válido.";
+                        formStatus.textContent = errorMsg;
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5';
+                        return; 
+                    }
+                    
+                    if (phoneInputInstance && phoneInputInstance.isValidNumber()) {
+                        phoneInputField.value = phoneInputInstance.getNumber(); 
+                    }
+
+                    formStatus.textContent = 'Enviando...';
+                    formStatus.className = 'mb-4 text-sm text-gray-300 h-5'; 
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
+                    
+                    try {
+                        const token = await grecaptcha.execute('6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ', { action: 'contacto_submit' });
+                        
+                        const formData = new FormData(contactForm);
+                        formData.append('g-recaptcha-response', token); 
+                        
+                        const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
+                        const response = await fetch(webhookUrl, { method: 'POST', body: formData });
+                        const responseText = await response.text(); 
+                        
+                        if (response.ok && responseText === 'Accepted') {
+                            formStatus.textContent = '¡Mensaje enviado con éxito!';
+                            formStatus.className = 'mb-4 text-sm text-green-400'; 
+                            contactForm.reset(); 
+                            if(phoneInputInstance) phoneInputInstance.setCountry("ar");
+                            setTimeout(() => {
+                                formStatus.textContent = '';
+                                formStatus.className = 'mb-4 text-sm h-5'; 
+                            }, 5000);
+                        } else {
+                            formStatus.textContent = 'Error al enviar. Intenta de nuevo.';
+                            formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                        }
+                    } catch (error) {
+                        console.error('Error en el envío:', error);
+                        formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
+                        formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
+                    } finally {
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                    }
+                });
+            }
+        });
+    </script> 
+</body>
+</html>
