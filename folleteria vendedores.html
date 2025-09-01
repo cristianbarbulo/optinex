@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folleto de Presentación - OPTICONNECTA </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117;
+            color: #E6EDF3;
+            -webkit-print-color-adjust: exact;
+        }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            padding: 15mm;
+            background: linear-gradient(145deg, #161B22 0%, #0D1117 100%);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+        .text-gradient-brand {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-gradient {
+            border: 2px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to right, #8b5cf6, #ec4899);
+        }
+        .icon-circle {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print p-4 bg-gray-800 text-center text-sm">
+        <p>Este es un folleto digital. Para imprimir, use la función de impresión de su navegador (Ctrl+P o Cmd+P).</p>
+    </div>
+
+    <!-- PÁGINA 1: Portada y El Problema -->
+    <div class="page">
+        <!-- Encabezado -->
+        <header class="flex justify-between items-center pb-6 border-b border-slate-700">
+            <img src="imagenes/logo_optinex_navbar.jpg" alt="Logo Optinex" class="h-40 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x160/0D1117/E6EDF3?text=Optinex';">
+            <h1 class="text-3xl font-bold text-gradient-brand"> OPTICONNECTA </h1>
+        </header>
+
+        <!-- Título Principal -->
+        <main class="flex-grow flex flex-col justify-center items-center text-center">
+            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mt-10">
+                Deje de <span class="line-through text-red-500">responder</span>.<br> Empiece a <span class="text-gradient-brand">vender y atender</span>.
+            </h2>
+            <p class="text-2xl text-slate-400 mt-4">Su negocio a nivel Multinacional, automatizado 24/7. Sacale ventaja a todos y prioriza tu tiempo en actividades realemente complejas.</p>
+            
+            <!-- El Problema vs Solución -->
+            <div class="mt-16 w-full max-w-4xl p-8 bg-slate-900 rounded-2xl border border-slate-700">
+                <h3 class="text-2xl font-bold mb-8">¿Su día a día se ve así?</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-slate-400">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-comment-slash text-4xl text-red-500 mb-3"></i>
+                        <p>Consultas repetitivas</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-business-time text-4xl text-red-500 mb-3"></i>
+                        <p>Ventas perdidas fuera de horario</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-calendar-times text-4xl text-red-500 mb-3"></i>
+                        <p>Errores agendando citas</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-battery-quarter text-4xl text-red-500 mb-3"></i>
+                        <p>Equipo agotado y saturado</p>
+                    </div>
+                </div>
+                <div class="mt-8">
+                     <i class="fas fa-arrow-down text-4xl text-purple-500 animate-bounce"></i>
+                </div>
+                 <h3 class="text-2xl font-bold mt-4 text-purple-400">Transformamos su WhatsApp en su mejor empleado.</h3>
+            </div>
+        </main>
+        
+        <!-- Pie de página -->
+        <footer class="text-center text-slate-500 text-sm pt-6">
+            <p>EL MEJOR SISTEMA DEL MERCADO AL MOMENTO</p>
+        </footer>
+    </div>
+
+    <!-- PÁGINA 2: La Solución Gráfica -->
+    <div class="page">
+        <header class="text-center">
+            <h2 class="text-4xl font-extrabold">No es un Bot. Es un <span class="text-gradient-brand">Equipo de Agentes IA</span>.</h2>
+            <p class="text-xl text-slate-400 mt-2">Un solo número de WhatsApp se convierte en el cerebro de su negocio.</p>
+        </header>
+        
+        <!-- Diagrama de Flujo -->
+        <main class="flex-grow flex items-center justify-center w-full">
+            <div class="w-full space-y-8">
+                <!-- Entrada del Cliente -->
+                <div class="flex items-center justify-center gap-4">
+                    <div class="text-center">
+                        <i class="fas fa-user text-4xl text-green-400"></i>
+                        <p class="font-bold mt-2">CLIENTE</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-3xl text-slate-600 mx-4"></i>
+                    <div class="text-center">
+                         
+                        <p class="font-bold mt-2">SU WHATSAPP</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <i class="fas fa-arrow-down text-4xl text-slate-600 my-4"></i>
+                </div>
+                
+                <!-- Orquestador IA -->
+                <div class="text-center p-6 bg-slate-900 rounded-xl border-2 border-purple-500 shadow-2xl shadow-purple-500/10">
+                    <i class="fas fa-brain text-5xl text-purple-400 mb-3"></i>
+                    <h3 class="text-2xl font-bold text-white">ORQUESTADOR INTELIGENTE PERSONALIZADO</h3>
+                    <p class="text-slate-400">Clasifica cada mensaje y lo asigna al agente especialista correcto, segun el momento.</p>
+                </div>
+
+                <div class="flex justify-center">
+                    <i class="fas fa-arrow-down text-4xl text-slate-600 my-4"></i>
+                </div>
+                
+                <!-- Agentes Especialistas -->
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 text-center">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <i class="fas fa-tags text-3xl text-blue-400 mb-2"></i>
+                        <h4 class="font-bold">Agente de Ventas</h4>
+                        <p class="text-xs text-slate-400">Responde consultas y guía la compra.</p>
+                    </div>
+                     <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <i class="fas fa-calendar-check text-3xl text-green-400 mb-2"></i>
+                        <h4 class="font-bold">Agente de Agenda</h4>
+                         <p class="text-xs text-slate-400">Gestiona citas y horarios 24/7.</p>
+                    </div>
+                     <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <i class="fas fa-credit-card text-3xl text-yellow-400 mb-2"></i>
+                        <h4 class="font-bold">Agente de Pagos</h4>
+                        <p class="text-xs text-slate-400">Cobra y verifica pagos al instante.</p>
+                    </div>
+                     <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <i class="fas fa-headset text-3xl text-pink-400 mb-2"></i>
+                        <h4 class="font-bold">Agente de Soporte</h4>
+                        <p class="text-xs text-slate-400">Resuelve dudas y problemas comunes.</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 col-span-2 lg:col-span-1">
+                        <i class="fas fa-comments text-3xl text-teal-400 mb-2"></i>
+                        <h4 class="font-bold">Agente Conversador</h4>
+                        <p class="text-xs text-slate-400">Mantiene un diálogo 100% natural.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="text-center text-slate-500 text-sm pt-6">
+            <p>Todo conectado. Todo automatizado.</p>
+        </footer>
+    </div>
+    
+    <!-- PÁGINA 3: Superpoderes y CTA -->
+    <div class="page">
+         <header class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold">Capacidades Únicas que <span class="text-gradient-brand">Revolucionan</span> su Negocio</h2>
+        </header>
+        
+        <main class="flex-grow grid md:grid-cols-2 gap-8 items-start">
+            <!-- Columna 1 -->
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-calendar-alt text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Agendamiento Inteligente</h3>
+                        <p class="text-slate-400 mt-1">Se conecta a su Google Calendar en tiempo real. Muestra, agenda, y reprograma citas sin que usted mueva un dedo.</p>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-money-check-alt text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Pagos Automatizados</h3>
+                        <p class="text-slate-400 mt-1">Se integra a MercadoPago, MODO y más. Genera links de pago y hasta <span class="font-bold">verifica los comprobantes</span> que envían por imagen.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-cogs text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Integración Total</h3>
+                        <p class="text-slate-400 mt-1">Conectamos su WhatsApp con las herramientas que ya usa: CRM (HubSpot, etc.), bases de datos, y más.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna 2 -->
+             <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-microphone-alt text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Entiende Audios</h3>
+                        <p class="text-slate-400 mt-1">Transcribe y comprende audios al instante. Extrae fechas, nombres y la intención del cliente sin que nadie tenga que escucharlos.</p>
+                    </div>
+                </div>
+                 <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-image text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Analiza Imágenes</h3>
+                        <p class="text-slate-400 mt-1">Reconoce productos, lee documentos y verifica comprobantes de pago. La información que antes se perdía, ahora trabaja para usted.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="icon-circle w-16 h-16 flex-shrink-0 flex items-center justify-center rounded-full">
+                         <i class="fas fa-user-shield text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Escalamiento Inteligente</h3>
+                        <p class="text-slate-400 mt-1">Solo los casos verdaderamente complejos llegan a un humano. Su equipo recibe la conversación con todo el contexto para una resolución inmediata.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- NUEVA SECCIÓN: Personalización Total -->
+        <div class="mt-12 p-8 bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-2xl border-2 border-purple-500/30">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-extrabold text-white mb-4">
+                    <i class="fas fa-star text-yellow-400 mr-3"></i>
+                    PERSONALIZACIÓN TOTAL
+                    <i class="fas fa-star text-yellow-400 ml-3"></i>
+                </h3>
+                <p class="text-xl text-purple-300 font-semibold">Lo que NADIE más hace en el mercado</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-database text-2xl text-green-400"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Conecta con SUS sistemas</h4>
+                            <p class="text-slate-300 text-sm">Excel, listas de stock, precios, inventarios... TODO lo que ya tiene.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-palette text-2xl text-blue-400"></i>
+                        <div>
+                            <h4 class="font-bold text-white">100% Personalizable</h4>
+                            <p class="text-slate-300 text-sm">Respuestas, flujos, horarios, productos... TODO a su medida.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-sync-alt text-2xl text-orange-400"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Actualización en Tiempo Real</h4>
+                            <p class="text-slate-300 text-sm">Cambios en sus sistemas se reflejan automáticamente en WhatsApp.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-crown text-2xl text-yellow-400"></i>
+                        <div>
+                            <h4 class="font-bold text-white">Diferenciador Único</h4>
+                            <p class="text-slate-300 text-sm">Nadie personaliza a este nivel. Su ventaja competitiva real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <p class="text-lg font-bold text-white bg-purple-600/20 px-6 py-3 rounded-lg border border-purple-500/30">
+                    <i class="fas fa-exclamation-triangle text-yellow-400 mr-2"></i>
+                    No es un bot genérico. Es SU sistema de atención personalizado.
+                </p>
+            </div>
+        </div>
+        
+        <!-- NUEVA SECCIÓN: Plataforma de Gestión -->
+        <div class="mt-8 p-6 bg-slate-800/50 rounded-xl border border-slate-600">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-white mb-2">
+                    <i class="fas fa-users text-blue-400 mr-2"></i>
+                    PLATAFORMA DE GESTIÓN OPTICONNECTA
+                </h3>
+                <p class="text-slate-300"> TU EQUIPO TODO DESDE UN SOLO LUGAR, DESDE LA PLATAFORMA DE OPTICONNECTA WEB Y APP </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <i class="fas fa-handshake text-2xl text-green-400 mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Trabajo Colaborativo</h4>
+                    <p class="text-slate-300 text-xs">Un solo número, todo su equipo. Pase conversaciones entre agentes sin perder contexto.</p>
+                </div>
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <i class="fas fa-tags text-2xl text-yellow-400 mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Etiquetas y Prioridades</h4>
+                    <p class="text-slate-300 text-xs">Organice, priorice y categorice cada conversación para máxima eficiencia.</p>
+                </div>
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <i class="fas fa-chart-line text-2xl text-purple-400 mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Control Total</h4>
+                    <p class="text-slate-300 text-xs">Supervise, intervenga y optimice el rendimiento de su equipo en tiempo real.</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+                <p class="text-sm font-semibold text-blue-300 bg-blue-900/20 px-4 py-2 rounded-lg border border-blue-500/30">
+                    <i class="fas fa-lightbulb text-yellow-400 mr-1"></i>
+                    Su equipo nunca más trabajará aislado. Todo centralizado, todo visible.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Call to Action Final -->
+        <footer class="mt-12 text-center p-8 bg-slate-900 rounded-2xl border-gradient">
+             
+            <h3 class="text-3xl font-extrabold text-white">¿Listo para ver esta "locura" en acción?</h3>
+            <p class="text-lg text-slate-300 mt-2">Agendemos una reunion y vea cómo transformamos SU negocio y nos transformamos para SU negocio..</p>
+            <div class="mt-6">
+                <a href="#" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i> Solicitar reunion de 20 minutos
+                </a>
+            </div>
+            <div class="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
+                <div class="text-center">
+                    <h4 class="text-lg font-bold text-white mb-2">
+                        <i class="fas fa-user-tie text-purple-400 mr-2"></i>
+                        CELESTE BÁRBULO
+                    </h4>
+                    <p class="text-slate-300 mb-1">
+                        <i class="fas fa-phone text-green-400 mr-2"></i>
+                        CELULAR: 3413724547
+                    </p>
+                    <p class="text-slate-300">
+                        <i class="fas fa-envelope text-blue-400 mr-2"></i>
+                        SECTOR VENTAS
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
