@@ -11,6 +11,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="/imagenes/favacon.png?v=2" type="image/png">
     
+    <!-- ====== SISTEMA DE CONVERSIÓN AUTOMÁTICA DE DÓLAR ====== -->
+    <script>
+        // 🔥 SOLO CAMBIA ESTE NÚMERO PARA ACTUALIZAR TODOS LOS PRECIOS 🔥
+        const DOLAR_HOY = 1430; // ← Actualiza solo este valor
+        
+        // Precios base en USD (no tocar)
+        const PRECIOS_USD = {
+            plan_basico_setup: 191,      // $273.000 ARG / 1430
+            plan_basico_mensual: 97,     // $138.600 ARG / 1430  
+            plan_business_setup: 273,    // $390.000 ARG / 1430
+            plan_business_mensual: 209,  // $298.900 ARG / 1430
+            plan_performance_setup: 447, // $639.000 ARG / 1430
+            plan_performance_mensual: 348, // $498.000 ARG / 1430
+            desde_mensual: 97            // Para el "Desde $138.000"
+        };
+        
+        // Función para formatear números argentinos
+        function formatearPesos(numero) {
+            return new Intl.NumberFormat('es-AR').format(Math.round(numero));
+        }
+        
+        // Función para convertir y actualizar precios
+        function actualizarPrecios() {
+            // Calcular precios en pesos
+            const precios_ars = {};
+            for (let key in PRECIOS_USD) {
+                precios_ars[key] = PRECIOS_USD[key] * DOLAR_HOY;
+            }
+            
+            // Actualizar en la página cuando cargue
+            document.addEventListener('DOMContentLoaded', function() {
+                // Precio "Desde" en el botón
+                const desdeElement = document.querySelector('.text-gradient-brand');
+                if (desdeElement) {
+                    desdeElement.innerHTML = `(Desde $${formatearPesos(precios_ars.desde_mensual)} ARG/mes)`;
+                }
+                
+                // Actualizar precios específicos
+                actualizarPrecio('plan-basico-setup', precios_ars.plan_basico_setup);
+                actualizarPrecio('plan-basico-mensual', precios_ars.plan_basico_mensual);
+                actualizarPrecio('plan-business-setup', precios_ars.plan_business_setup);
+                actualizarPrecio('plan-business-mensual', precios_ars.plan_business_mensual);
+                actualizarPrecio('plan-performance-setup', precios_ars.plan_performance_setup);
+                actualizarPrecio('plan-performance-mensual', precios_ars.plan_performance_mensual);
+                
+                // Mostrar fecha de actualización
+                mostrarFechaActualizacion();
+            });
+        }
+        
+        function actualizarPrecio(id, precio) {
+            const elemento = document.getElementById(id);
+            if (elemento) {
+                elemento.textContent = `$${formatearPesos(precio)}`;
+            }
+        }
+        
+        function mostrarFechaActualizacion() {
+            const fecha = new Date().toLocaleDateString('es-AR');
+            const elementos = document.querySelectorAll('.fecha-actualizacion');
+            elementos.forEach(el => {
+                el.innerHTML = `<small class="text-slate-500">Actualizado: ${fecha} - Dólar: $${DOLAR_HOY}</small>`;
+            });
+        }
+        
+        // Inicializar sistema
+        actualizarPrecios();
+    </script>
+    
     <!-- Scripts y Estilos para el Formulario -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
@@ -214,6 +283,7 @@
                         <div class="mt-2 text-center">
                             <p class="text-lg text-gradient-brand">(Desde $138.000 ARG/mes)</p>
                             <p class="text-base text-slate-400 mt-1">Un equipo preparado, y con desarrolladores certificados.</p>
+                            <div class="fecha-actualizacion mt-2"></div>
                         </div>
                     </div>
 
@@ -235,8 +305,8 @@
                             <div class="pricing-card-content">
                                 <h3 class="text-2xl font-bold text-white">PROFESIONAL</h3>
                                 <p class="text-slate-400 mt-2">El núcleo de la automatización para atención y ventas.</p>
-                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$273.000  <span class="text-base font-normal">$ ARG</span></p></div>
-                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$138.600 <span class="text-lg font-medium">/mes</span></p></div>
+                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white"><span id="plan-basico-setup">$273.000</span> <span class="text-base font-normal">ARG</span></p></div>
+                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white"><span id="plan-basico-mensual">$138.600</span> <span class="text-lg font-medium">/mes</span></p></div>
                                 <ul class="space-y-4 text-slate-300">
                                     <li><i class="fas fa-check accent-text mr-2"></i>Flujo de atencion Inteligente IA con conocimiento completo de tu negocio y capacidad de resolución.</li>
                                     <li><i class="fas fa-check accent-text mr-2"></i>Integracion a CRM</li>
@@ -256,8 +326,8 @@
                                 <span class="absolute top-0 -translate-y-1/2 bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded-full">MEJOR VALOR</span>
                                 <h3 class="text-2xl font-bold text-white">BUSSINES</h3>
                                 <p class="text-slate-400 mt-2">Inteligencia y herramientas transaccionales.</p>
-                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$390.000 <span class="text-base font-normal">$ ARG</span></p></div>
-                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$298.900 <span class="text-lg font-medium">/mes</span></p></div>
+                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white"><span id="plan-business-setup">$390.000</span> <span class="text-base font-normal">ARG</span></p></div>
+                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white"><span id="plan-business-mensual">$298.900</span> <span class="text-lg font-medium">/mes</span></p></div>
                                 <ul class="space-y-4 text-slate-300">
                                     <li><i class="fas fa-check accent-text mr-2"></i>TODO LO PROFESIONAL Y</li>
                                     <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>CENTRO DE ATENCION COMPLETO CON DELEGACIONES AUTOMATIZADAS CON IA POR EQUIPO DE TRABAJO (VENTAS/SOPORTE/ETC)</li>
@@ -277,8 +347,8 @@
                                 <div class="pricing-card-content">
                                 <h3 class="text-2xl font-bold text-white">Performance</h3>
                                 <p class="text-slate-400 mt-2">Comunicación omnicanal proactiva.</p>
-                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white">$639.000 <span class="text-base font-normal">$ ARG</span></p></div>
-                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white">$498.000 <span class="text-lg font-medium">/mes</span></p></div>
+                                <div class="my-6"><p class="text-lg font-medium text-slate-400">Setup Fee</p><p class="text-4xl font-extrabold text-white"><span id="plan-performance-setup">$639.000</span> <span class="text-base font-normal">ARG</span></p></div>
+                                <div class="my-6 pt-4 border-t border-slate-700"><p class="text-lg font-medium text-slate-400">Suscripción</p><p class="text-5xl font-extrabold text-white"><span id="plan-performance-mensual">$498.000</span> <span class="text-lg font-medium">/mes</span></p></div>
                                 <ul class="space-y-4 text-slate-300">
                                     <li><i class="fas fa-check accent-text mr-2"></i>TODO LO BUSSINES Y</li>
                                     <li class="font-bold"><i class="fas fa-star accent-text mr-2"></i>HASTA 2 AGENTES HUMANOS (podes agregar 3 plus).</li>
