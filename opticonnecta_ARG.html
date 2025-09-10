@@ -1111,10 +1111,117 @@
         /* ====== PRICING CARDS PROFESIONALES Y ELEGANTES ====== */
         .pricing-grid-professional {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .pricing-grid-professional {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .pricing-card-professional {
+                min-height: auto;
+                padding: 1.5rem;
+                margin: 0 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .pricing-card-professional.recommended {
+                transform: none;
+                margin-top: 0;
+            }
+            
+            .plan-pricing {
+                margin-bottom: 1.5rem;
+            }
+            
+            .price-value {
+                font-size: 2rem;
+            }
+            
+            .monthly-price .price-value {
+                font-size: 2.4rem;
+            }
+            
+            .plan-features {
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature {
+                font-size: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .plan-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pricing-card-professional {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            
+            .price-value {
+                font-size: 1.8rem;
+            }
+            
+            .monthly-price .price-value {
+                font-size: 2.2rem;
+            }
+            
+            .feature {
+                font-size: 0.75rem;
+            }
+            
+            /* Arreglar contenedor de precios en móvil */
+            #pricing-content {
+                padding: 0 1rem;
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Anillos flotantes menos intrusivos en móvil */
+            .floating-ring {
+                opacity: 0.05 !important;
+            }
+        }
+        
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 375px) {
+            .pricing-card-professional {
+                padding: 0.8rem;
+                margin: 0 0.5rem;
+            }
+            
+            .price-value {
+                font-size: 1.6rem;
+            }
+            
+            .monthly-price .price-value {
+                font-size: 2rem;
+            }
+            
+            .plan-name {
+                font-size: 1.3rem;
+            }
+            
+            .feature {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
         }
         
         .pricing-card-professional {
