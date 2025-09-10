@@ -246,7 +246,7 @@
         
         /* ====== NUEVOS ESTILOS MODERNOS Y FUTURISTAS ====== */
         
-        /* Animaciones globales */
+        /* Animaciones globales optimizadas */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -255,6 +255,15 @@
         @keyframes glow {
             0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.5); }
             50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.6); }
+        }
+        
+        /* Optimización global para elementos animados */
+        .floating-ring,
+        .icon-bounce,
+        .animated-text,
+        .modern-card,
+        .integration-card {
+            will-change: transform;
         }
         
         @keyframes slideInUp {
@@ -420,12 +429,13 @@
             filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.9));
         }
         
-        /* Efectos de scroll */
+        /* Efectos de scroll optimizados */
         .parallax-bg {
-            background-attachment: fixed;
+            background-attachment: scroll; /* Cambiado de fixed para mejor rendimiento */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            will-change: transform; /* Optimización para GPU */
         }
         
         /* Loader moderno */
@@ -1120,22 +1130,30 @@
         /* Responsive para móviles */
         @media (max-width: 768px) {
             .pricing-grid-professional {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 0.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0 1rem;
+                align-items: center;
+                max-width: 100%;
+                justify-content: center;
             }
             
             .pricing-card-professional {
                 min-height: auto;
                 padding: 1.5rem;
-                margin: 0 auto;
-                max-width: 100%;
+                margin: 0;
+                max-width: 350px;
                 width: 100%;
+                position: relative;
+                will-change: auto; /* Desactivar will-change en móviles */
             }
             
             .pricing-card-professional.recommended {
-                transform: none;
-                margin-top: 0;
+                transform: none !important;
+                margin: 0;
+                border: 2px solid rgba(139, 92, 246, 0.6);
+                box-shadow: 0 8px 30px rgba(139, 92, 246, 0.2);
             }
             
             .plan-pricing {
@@ -1143,11 +1161,11 @@
             }
             
             .price-value {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .monthly-price .price-value {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
             
             .plan-features {
@@ -1163,49 +1181,41 @@
                 font-size: 0.7rem;
                 padding: 0.3rem 1rem;
             }
+            
+            /* Ocultar elementos pesados en móviles */
+            .floating-ring,
+            .particle-bg,
+            .color-particles,
+            .matrix-bg {
+                display: none !important;
+            }
+            
+            /* Desactivar animaciones pesadas en móviles */
+            .icon-bounce,
+            .animated-text,
+            .card-3d {
+                animation: none !important;
+                will-change: auto !important;
+            }
+            
+            /* Asegurar que el contenedor de precios esté centrado */
+            #pricing-content {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            #pricing {
+                width: 100%;
+                max-width: 100%;
+            }
         }
         
         @media (max-width: 480px) {
             .pricing-card-professional {
                 padding: 1rem;
                 border-radius: 8px;
-            }
-            
-            .price-value {
-                font-size: 1.8rem;
-            }
-            
-            .monthly-price .price-value {
-                font-size: 2.2rem;
-            }
-            
-            .feature {
-                font-size: 0.75rem;
-            }
-            
-            /* Arreglar contenedor de precios en móvil */
-            #pricing-content {
-                padding: 0 1rem;
-            }
-            
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            /* Anillos flotantes menos intrusivos en móvil */
-            .floating-ring {
-                opacity: 0.05 !important;
-            }
-            
-            /* Eliminar reglas problemáticas de imágenes */
-        }
-        
-        /* Para pantallas muy pequeñas */
-        @media (max-width: 375px) {
-            .pricing-card-professional {
-                padding: 0.8rem;
-                margin: 0 0.5rem;
+                max-width: 320px;
             }
             
             .price-value {
@@ -1216,6 +1226,70 @@
                 font-size: 2rem;
             }
             
+            .feature {
+                font-size: 0.75rem;
+            }
+            
+            /* Arreglar contenedor de precios en móvil */
+            #pricing-content {
+                padding: 0 0.5rem;
+            }
+            
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            /* Optimizaciones adicionales para móviles */
+            .floating-ring,
+            .particle-bg,
+            .color-particles,
+            .matrix-bg,
+            .futuristic-cursor {
+                display: none !important;
+            }
+            
+            /* Asegurar que las imágenes no se deformen */
+            .demo-image {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Reducir efectos de hover en móviles */
+            .modern-card:hover,
+            .integration-card:hover,
+            .pricing-card-professional:hover {
+                transform: none !important;
+            }
+            
+            /* Mejorar el botón de toggle en móviles */
+            #pricing-toggler {
+                margin: 0 0.5rem;
+                padding: 1rem;
+            }
+            
+            /* Asegurar centrado perfecto */
+            .pricing-grid-professional {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 375px) {
+            .pricing-card-professional {
+                padding: 0.8rem;
+                margin: 0;
+                max-width: 300px;
+            }
+            
+            .price-value {
+                font-size: 1.5rem;
+            }
+            
+            .monthly-price .price-value {
+                font-size: 1.8rem;
+            }
+            
             .plan-name {
                 font-size: 1.3rem;
             }
@@ -1223,6 +1297,17 @@
             .feature {
                 font-size: 0.7rem;
                 line-height: 1.3;
+            }
+            
+            /* Ajustar el contenedor principal */
+            .pricing-grid-professional {
+                padding: 0 0.25rem;
+                gap: 1rem;
+            }
+            
+            #pricing-toggler {
+                margin: 0 0.25rem;
+                padding: 0.8rem;
             }
         }
         
@@ -2948,12 +3033,21 @@
             observer.observe(el);
         });
 
-        // Efecto parallax sutil para el hero
-        window.addEventListener('scroll', () => {
+        // Efecto parallax optimizado con throttling
+        let ticking = false;
+        function updateParallax() {
             const scrolled = window.pageYOffset;
             const heroSection = document.querySelector('.hero-enhanced');
             if (heroSection) {
-                heroSection.style.transform = `translateY(${scrolled * 0.1}px)`;
+                heroSection.style.transform = `translateY(${scrolled * 0.05}px)`;
+            }
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
             }
         });
 
@@ -3017,16 +3111,25 @@
         
         // ====== EFECTOS INTERACTIVOS SÚPER FUTURISTAS ======
         
-        // Efecto de cursor futurista
-        let cursor = document.createElement('div');
-        cursor.classList.add('futuristic-cursor');
-        cursor.innerHTML = '<div class="cursor-trail"></div>';
-        document.body.appendChild(cursor);
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+        // Cursor futurista solo en desktop para mejor rendimiento
+        if (window.innerWidth > 768) {
+            let cursor = document.createElement('div');
+            cursor.classList.add('futuristic-cursor');
+            cursor.innerHTML = '<div class="cursor-trail"></div>';
+            document.body.appendChild(cursor);
+            
+            let cursorTicking = false;
+            document.addEventListener('mousemove', (e) => {
+                if (!cursorTicking) {
+                    requestAnimationFrame(() => {
+                        cursor.style.left = e.clientX + 'px';
+                        cursor.style.top = e.clientY + 'px';
+                        cursorTicking = false;
+                    });
+                    cursorTicking = true;
+                }
+            });
+        }
         
         // Agregar estilos del cursor dinámicamente
         let cursorStyles = document.createElement('style');
@@ -3146,11 +3249,13 @@
         `;
         document.head.appendChild(rippleAnimation);
         
-        // Efecto de breathing en cards 3D
-        document.querySelectorAll('.card-3d').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.2}s`;
-            card.style.animation = 'cardBreathing 4s ease-in-out infinite';
-        });
+        // Breathing effect optimizado - solo en desktop
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.card-3d').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.style.animation = 'cardBreathing 6s ease-in-out infinite'; // Más lento para menos procesamiento
+            });
+        }
         
         // Agregar animación de breathing
         let breathingAnimation = document.createElement('style');
@@ -3226,8 +3331,8 @@
             setInterval(draw, 50);
         }
         
-        // Activar matrix rain después de un delay
-        setTimeout(createMatrixRain, 2000);
+        // Matrix rain desactivado para mejor rendimiento
+        // setTimeout(createMatrixRain, 2000);
         
         // ====== EFECTOS ADICIONALES PARA ELEMENTOS FLOTANTES ======
         
@@ -3255,8 +3360,8 @@
             }, 3000);
         }
         
-        // Activar partículas dinámicas
-        setTimeout(createDynamicParticles, 3000);
+        // Partículas dinámicas desactivadas para mejor rendimiento
+        // setTimeout(createDynamicParticles, 3000);
         
         // Efecto de typing para el footer
         const typingElement = document.querySelector('.typing-effect');
@@ -3299,31 +3404,31 @@
             });
         });
         
-        // Crear ondas en el footer al hacer scroll
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const st = window.pageYOffset || document.documentElement.scrollTop;
-            const footer = document.querySelector('.futuristic-footer');
-            
-            if (footer && Math.abs(lastScrollTop - st) > 5) {
-                const wave = document.createElement('div');
-                wave.style.cssText = `
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    height: 2px;
-                    background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, transparent);
-                    animation: waveScroll 2s ease-out forwards;
-                    pointer-events: none;
-                `;
-                
-                footer.appendChild(wave);
-                setTimeout(() => wave.remove(), 2000);
-                
-                lastScrollTop = st;
-            }
-        });
+        // Ondas en footer desactivadas para mejor rendimiento
+        // let lastScrollTop = 0;
+        // window.addEventListener('scroll', () => {
+        //     const st = window.pageYOffset || document.documentElement.scrollTop;
+        //     const footer = document.querySelector('.futuristic-footer');
+        //     
+        //     if (footer && Math.abs(lastScrollTop - st) > 5) {
+        //         const wave = document.createElement('div');
+        //         wave.style.cssText = `
+        //             position: absolute;
+        //             top: 0;
+        //             left: 0;
+        //             right: 0;
+        //             height: 2px;
+        //             background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, transparent);
+        //             animation: waveScroll 2s ease-out forwards;
+        //             pointer-events: none;
+        //         `;
+        //         
+        //         footer.appendChild(wave);
+        //         setTimeout(() => wave.remove(), 2000);
+        //         
+        //         lastScrollTop = st;
+        //     }
+        // });
         
         // Agregar animación de wave scroll
         let waveScrollAnimation = document.createElement('style');
