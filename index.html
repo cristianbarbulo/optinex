@@ -728,20 +728,75 @@
             
             .floating-ring-light,
             .particle-bg,
-            .logo-particles,
-            .logo-energy,
             .navbar-particles {
                 display: none !important;
             }
             
+            /* Logo del footer optimizado para móvil con efectos futuristas */
             .logo-spectacular {
-                animation: none !important;
-                filter: none !important;
+                animation: logoFloat 6s ease-in-out infinite !important;
+                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6)) !important;
+                transform: scale(0.85);
             }
             
-            .logo-spectacular::before,
+            .logo-spectacular::before {
+                display: block !important;
+                top: -20px;
+                left: -20px;
+                right: -20px;
+                bottom: -20px;
+                animation: logoOrbitSpectacular 10s linear infinite !important;
+                opacity: 0.4;
+            }
+            
             .logo-spectacular::after {
-                display: none !important;
+                display: block !important;
+                top: -15px;
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+                animation: logoOrbitSpectacular 15s linear infinite reverse !important;
+                opacity: 0.3;
+            }
+            
+            .logo-particles {
+                display: block !important;
+                width: 150px;
+                height: 150px;
+                margin-left: -75px;
+                margin-top: -75px;
+            }
+            
+            .logo-particle {
+                width: 4px;
+                height: 4px;
+                animation: orbitParticle 8s linear infinite !important;
+            }
+            
+            .logo-energy {
+                display: block !important;
+                width: 120px;
+                height: 120px;
+                margin-left: -60px;
+                margin-top: -60px;
+                animation: energyPulse 4s ease-in-out infinite !important;
+            }
+            
+            /* Ajustar tamaño del logo en móvil */
+            .logo-spectacular img {
+                width: 140px !important;
+                max-width: 140px !important;
+            }
+            
+            /* Footer futurista mejorado para móvil */
+            .futuristic-footer {
+                padding: 3rem 0 !important;
+            }
+            
+            .futuristic-footer::before {
+                height: 3px;
+                background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #f59e0b, transparent);
+                animation: gradientShift 2s ease-in-out infinite;
             }
         }
         /* Partículas futuristas */
@@ -1371,27 +1426,57 @@
             });
         });
         
-        // Menú móvil
+        // Menú móvil mejorado
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
         if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
+            // Función para cerrar el menú
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+            }
+            
+            // Función para abrir el menú
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-times text-xl';
+            }
+            
+            // Toggle del menú al hacer clic en el botón
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (mobileMenu.classList.contains('hidden')) {
-                    icon.className = 'fas fa-bars text-xl';
-       } else {
-                    icon.className = 'fas fa-times text-xl';
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
                 }
+            });
+            
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Evitar que el menú se cierre al hacer clic dentro de él
+            mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
             
             // Cerrar menú al hacer clic en un enlace
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+                    closeMobileMenu();
                 });
+            });
+            
+            // Cerrar menú al presionar Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
             });
     }
 
