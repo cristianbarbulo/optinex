@@ -1,8 +1,21 @@
 <!DOCTYPE html>
  <html lang="es">
  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optinex - IA Aplicada que Mueve tu Negocio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="/imagenes/favacon.png?v=2" type="image/png">
 
+    <!-- Scripts y Estilos para el Formulario -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
+
+    <!-- Meta Pixel Code -->
    <script>
    !function(f,b,e,v,n,t,s)
    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,507 +31,1216 @@
    <noscript><img height="1" width="1" style="display:none"
    src="https://www.facebook.com/tr?id=654073890751197&ev=PageView&noscript=1"
    /></noscript>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Optinex - Automatización Inteligente para tu Negocio</title>
-
-   <meta property="og:title" content="Optinex - Automatización Inteligente para tu Negocio" />
-   <meta property="og:description" content="En Optinex, creamos soluciones de IA a medida que automatizan procesos, optimizan la eficiencia y potencian el crecimiento de tu empresa." />
-   <meta property="og:type" content="website" />
-   <meta property="og:url" content="https://www.optinexia.com/" /> <meta property="og:image" content="https://www.optinexia.com/imagenes/logo_optinex_footer.jpg" /> <meta property="og:image:alt" content="Logo de Optinex" />
-   <meta property="og:site_name" content="Optinex" />
-
-   <meta name="twitter:card" content="summary_large_image" />
-   <meta name="twitter:title" content="Optinex - Automatización Inteligente para tu Negocio" />
-   <meta name="twitter:description" content="Soluciones de IA a medida para potenciar el crecimiento de tu empresa." />
-   <meta name="twitter:image" content="https://www.optinexia.com/imagenes/logo_optinex_footer.jpg" />
-   <script src="https://cdn.tailwindcss.com"></script>
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/css/intlTelInput.css" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/intlTelInput.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js"></script>
+    <!-- End Meta Pixel Code -->
+    
    <style>
     body {
      font-family: 'Inter', sans-serif;
      background-color: #0D1117;
      color: #E6EDF3;
-     /* scroll-behavior: smooth;  Considera si aún lo necesitas o si el JS lo maneja completamente */
-    }
-    .navbar-bg {
-     background-color: rgba(13, 17, 23, 0.85);
-     backdrop-filter: blur(10px);
-    }
-    .hero-bg-gradient {
-     background: linear-gradient(145deg, #161B22 0%, #21262D 50%, #302050 100%);
-    }
-    .service-card {
-     background-color: #161B22;
-     border: 1px solid #30363D;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     border-radius: 0.75rem;
-     display: flex;
-     flex-direction: column;
-    }
-    .service-card:hover {
-     transform: translateY(-6px);
-     box-shadow: 0 12px 24px rgba(66, 32, 108, 0.2);
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(145deg, #161B22 0%, #0D1117 100%);
+        }
+        .text-gradient-brand {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f97316, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
     }
     .cta-button {
-     background-color: #6E44FF;
-     color: #FFFFFF;
-     font-weight: 600;
-     padding: 0.75rem 1.5rem;
-     border-radius: 0.5rem;
-     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-     display: inline-block;
-     text-align: center;
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            color: white;
+            transition: all 0.3s ease;
     }
     .cta-button:hover {
-     background-color: #5A32E0;
-     transform: scale(1.03);
-     box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
-    }
-    .demo-button {
-     background-color: transparent;
-     color: #825EFF;
-     border: 2px solid #825EFF;
-     font-weight: 600;
-     padding: 0.75rem 1.5rem;
-     border-radius: 0.5rem;
-     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-     display: inline-block;
-     text-align: center;
-    }
-    .demo-button:hover {
-     background-color: #825EFF;
-     color: #FFFFFF;
-     transform: scale(1.03);
-     box-shadow: 0 6px 12px rgba(130, 94, 255, 0.3);
-    }
-    .service-buttons-container {
-     margin-top: auto;
-     display: flex;
-     gap: 0.75rem;
-     flex-wrap: wrap;
-    }
-    .accent-text { color: #825EFF; }
-    .secondary-accent-text { color: #58A6FF; }
-    .section-title { color: #C9D1D9; }
-    .form-input {
-     background-color: #0D1117;
-     border: 1px solid #30363D;
-     color: #E6EDF3;
-     border-radius: 0.375rem;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* ====== ESTILOS FUTURISTAS DE ÉLITE ====== */
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes holographicShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes neonGlow {
+            0%, 100% { 
+                box-shadow: 0 0 5px rgba(139, 92, 246, 0.5),
+                           0 0 10px rgba(139, 92, 246, 0.3),
+                           0 0 15px rgba(139, 92, 246, 0.1);
+            }
+            50% { 
+                box-shadow: 0 0 10px rgba(139, 92, 246, 0.8),
+                           0 0 20px rgba(139, 92, 246, 0.6),
+                           0 0 30px rgba(139, 92, 246, 0.4);
+            }
+        }
+        
+        /* Efecto holográfico para textos */
+        .holographic-text {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6, #8b5cf6);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: holographicShift 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        /* Hero section élite */
+        .hero-enhanced {
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+                        linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-enhanced::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Botones futuristas */
+        .futuristic-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .futuristic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
      width: 100%;
-     padding: 0.625rem 1rem;
-    }
-    .form-input::placeholder { color: #48515b; }
-    .form-input:focus {
-     border-color: #6E44FF;
-     outline: 2px solid transparent;
-     outline-offset: 2px;
-     --tw-ring-color: #6E44FF;
-     box-shadow: 0 0 0 2px var(--tw-ring-color);
-    }
-    .footer-bg {
-     background-color: #010409;
-     border-top: 1px solid #30363D;
-    }
-    .benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .service-image-container {
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .futuristic-btn:hover::before {
+            left: 100%;
+        }
+        
+        .futuristic-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Cards modernas */
+        .modern-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+     overflow: hidden;
+        }
+        
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
      width: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     margin-bottom: 1.5rem;
-     padding: 0.5rem;
-    }
-    .service-image-container img {
-     width: 100%;
-     max-width: 280px;
-     height: auto;
-     object-fit: contain;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .modern-card:hover::before {
+            left: 100%;
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15), 
+                        0 0 0 1px rgba(139, 92, 246, 0.1),
+                        0 0 20px rgba(139, 92, 246, 0.3);
+            animation: neonGlow 2s ease-in-out infinite;
+        }
+        
+        .icon-bounce {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+            transition: filter 0.3s ease;
+            animation: neonGlow 3s ease-in-out infinite;
+        }
+        
+        .icon-glow:hover {
+            filter: drop-shadow(0 0 25px rgba(139, 92, 246, 1));
+            animation: neonGlow 1s ease-in-out infinite;
+        }
+        
+        /* Efectos de matriz digital */
+        .matrix-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(139, 92, 246, 0.03) 2px,
+                rgba(139, 92, 246, 0.03) 4px
+            );
+            animation: matrixScroll 10s linear infinite;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        @keyframes matrixScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
+        }
+        
+        .modern-card:hover .matrix-overlay {
+            opacity: 1;
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+        
+        .animated-text {
+            animation: slideInUp 0.8s ease-out;
+        }
+        
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navbar súper vanguardista */
+        .futuristic-navbar {
+            background: linear-gradient(145deg, rgba(5, 10, 20, 0.98), rgba(15, 23, 42, 0.95));
+            backdrop-filter: blur(30px);
+            border-bottom: 2px solid transparent;
+            background-image: linear-gradient(145deg, rgba(5, 10, 20, 0.98), rgba(15, 23, 42, 0.95)),
+                              linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            position: relative;
+     overflow: hidden;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
+        }
+        
+        .navbar-top-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6, transparent);
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        
+        /* Efectos de partículas en la navbar */
+        .navbar-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(1px 1px at 10% 20%, #8b5cf6, transparent),
+                radial-gradient(1px 1px at 30% 80%, #ec4899, transparent),
+                radial-gradient(1px 1px at 70% 30%, #3b82f6, transparent),
+                radial-gradient(1px 1px at 90% 70%, #f59e0b, transparent);
+            background-size: 100px 50px;
+            animation: particleMove 15s linear infinite;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .nav-link-futuristic {
+            position: relative;
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+            padding: 8px 0;
      display: block;
-     border-radius: 0.5rem;
-    }
-    .hero-image-container {
-     width: 100%;
+        }
+        
+        .nav-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            border-radius: 1px;
+        }
+        
+        .nav-link-futuristic:hover .nav-underline {
+            transform: scaleX(1);
+        }
+        
+        .nav-link-futuristic:hover .nav-text {
+            color: #8b5cf6;
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+            transform: translateY(-1px);
+        }
+        
+        .navbar-cta-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            border: 2px solid transparent;
+            background-image: linear-gradient(135deg, #8b5cf6, #ec4899),
+                              linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            position: relative;
      overflow: hidden;
-     border-radius: 0.75rem;
-     aspect-ratio: 1024 / 670;
-     max-height: 600px;
-     background-color: #161B22;
-    }
-    .hero-image-container img{ width: 100%; height: 100%; object-fit: cover; }
-    .about-us-image-container {
-     width: 100%;
-     max-width: 450px;
-     margin-left: auto;
-     margin-right: auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .navbar-cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6),
+                        0 10px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Botón WhatsApp en navbar */
+        .navbar-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border: 2px solid #25D366;
+            position: relative;
      overflow: hidden;
-     border-radius: 0.75rem;
-     aspect-ratio: 1 / 1;
-     background-color: #161B22;
-    }
-    .about-us-image-container img { width: 100%; height: 100%; object-fit: cover; }
-    .service-card p { flex-grow: 1; }
-    .dropdown { position: relative; display: inline-block; }
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .navbar-whatsapp:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Dropdown futurista */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
     .dropdown-content {
      display: none;
      position: absolute;
-     background-color: #161B22;
-     min-width: 160px;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(20px);
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
      z-index: 1;
      border-radius: 0.5rem;
-     border: 1px solid #30363D;
+            border: 1px solid rgba(139, 92, 246, 0.3);
      padding: 0.5rem 0;
      top: 100%;
      left: 0;
     }
+        
     .dropdown-content a {
-     color: #C9D1D9;
+            color: #e2e8f0;
      padding: 0.75rem 1rem;
      text-decoration: none;
      display: block;
-     font-size: 0.875rem; /* text-sm */
-     transition: background-color 0.2s ease, color 0.2s ease;
-    }
-    .dropdown-content a:hover { background-color: #30363D; color: #FFFFFF; }
-    .dropdown:hover .dropdown-content { display: block; }
-    .services-link-container { display: flex; align-items: center; gap: 0.25rem; }
-    .services-link-container svg { width: 0.75rem; height: 0.75rem; transition: transform 0.2s ease-in-out; }
-    .dropdown:hover .services-link-container svg { transform: rotate(180deg); }
-
-    /* Estilos adicionales para intl-tel-input si es necesario para que se vea bien con tu tema oscuro */
-    .iti { width: 100%; } /* Asegurar que el contenedor de intl-tel-input ocupe el ancho completo */
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: #3b82f6;
+            transform: translateX(5px);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Métricas animadas */
+        .metric-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+        
+        /* Pasos de trabajo */
+        .step-card {
+            position: relative;
+            counter-increment: step-counter;
+            margin-top: 30px;
+        }
+        
+        .step-card::before {
+            content: counter(step-counter);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: 3px solid #0D1117;
+            z-index: 10;
+        }
+        
+        /* Footer futurista */
+        .futuristic-footer {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .futuristic-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, transparent);
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        /* Tech stack badges */
+        .tech-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Bordes personalizados */
+        .border-3 {
+            border-width: 3px;
+        }
+        
+        /* Estilos del formulario */
+        .form-input {
+            background-color: #0D1117;
+            border: 1px solid #30363D;
+            color: #E6EDF3;
+            border-radius: 0.375rem;
+            width: 100%;
+            padding: 0.625rem 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input::placeholder { color: #48515b; }
+        .form-input:focus {
+            border-color: #6E44FF;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(110, 68, 255, 0.5);
+        }
+        .form-cta-button {
+           background-color: #6E44FF;
+           color: #FFFFFF;
+           font-weight: 600;
+           padding: 0.75rem 1.5rem;
+           border-radius: 0.5rem;
+           transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+           display: inline-block;
+           text-align: center;
+        }
+        .form-cta-button:hover {
+           background-color: #5A32E0;
+           transform: scale(1.03);
+           box-shadow: 0 6px 12px rgba(110, 68, 255, 0.3);
+        }
+        .iti { width: 100%; }
     .iti__country-list {
-     background-color: #161B22; /* Color de fondo del desplegable */
+            background-color: #161B22;
      border: 1px solid #30363D;
-     color: #E6EDF3; /* Color del texto en el desplegable */
+            color: #E6EDF3;
     }
     .iti__country-list .iti__country:hover, .iti__country-list .iti__active {
-     background-color: #30363D; /* Color de hover/activo en el desplegable */
-    }
-    .iti__dial-code {
-     color: #825EFF; /* Color del código de país */
-    }
-   </style>
-
-   <script>
-  window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-</script>
-<script src="/_vercel/insights/script.js" defer></script>
-
+            background-color: #30363D;
+        }
+        .iti__dial-code { color: #a78bfa; }
+        
+        /* Fondos claros contrastantes */
+        .contrast-section {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 250, 252, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+        }
+        
+        .light-futuristic-bg {
+            background: linear-gradient(145deg, 
+                rgba(248, 250, 252, 0.95) 0%, 
+                rgba(241, 245, 249, 0.9) 50%, 
+                rgba(226, 232, 240, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+        }
+        
+        .light-futuristic-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Texto oscuro para fondos claros */
+        .dark-text { color: #1e293b !important; }
+        .dark-text h1, .dark-text h2, .dark-text h3, .dark-text h4 { color: #0f172a !important; }
+        .dark-text p { color: #475569 !important; }
+        
+        /* Anillos flotantes para fondos claros */
+        .floating-ring-light {
+            position: absolute;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Optimizaciones móviles */
+        @media (max-width: 768px) {
+            .modern-card:hover,
+            .metric-card:hover {
+                transform: none !important;
+            }
+            
+            .icon-bounce,
+            .animated-text {
+                animation: none !important;
+            }
+            
+            .floating-ring-light,
+            .particle-bg {
+                display: none !important;
+            }
+        }
+        /* Partículas futuristas */
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #8b5cf6, transparent),
+                radial-gradient(2px 2px at 40px 70px, #ec4899, transparent),
+                radial-gradient(1px 1px at 90px 40px, #f59e0b, transparent),
+                radial-gradient(1px 1px at 130px 80px, #8b5cf6, transparent),
+                radial-gradient(2px 2px at 160px 30px, #ec4899, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: particleMove 20s linear infinite;
+            opacity: 0.08;
+        }
+        
+        @keyframes particleMove {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+    </style>
  </head>
- <body class="antialiased">
-   <nav class="navbar-bg shadow-md fixed w-full z-50 top-0">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex items-center justify-between h-20 sm:h-24">
-      <div class="flex items-center">
-       <a href="#inicio" class="flex-shrink-0 p-1 sm:p-2">
-        <img src="imagenes/logo_optinex_navbar.jpg" alt="Optinex Logo" class="w-36 sm:w-44 md:w-48 h-auto" onerror="this.onerror=null;this.src='https://placehold.co/192x64/0D1117/825EFF?text=OPTINEX&font=inter&fontweight=bold';this.alt='Logo Optinex no disponible';">
+<body class="bg-slate-900 text-slate-300" style="counter-reset: step-counter;">
+    
+    <!-- Fondo de partículas futuristas -->
+    <div class="particle-bg"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Optinex%20YA%20%21" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg text-3xl hover:scale-110 transition-transform duration-300">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Header Súper Vanguardista -->
+    <header class="futuristic-navbar sticky top-0 z-50">
+        <!-- Línea superior con gradiente animado -->
+        <div class="navbar-top-line"></div>
+        <!-- Partículas en la navbar -->
+        <div class="navbar-particles"></div>
+        
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center relative z-10">
+            <!-- Logo con efectos -->
+            <a href="/" class="flex-shrink-0 relative">
+                <div class="absolute -inset-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg blur opacity-20 animate-pulse"></div>
+                <img src="/imagenes/logo_optinex_navbar.jpg" alt="Logo Optinex" class="h-12 md:h-14 relative z-10 icon-bounce" onerror="this.onerror=null;this.src='https://placehold.co/200x56/0D1117/E6EDF3?text=Optinex';">
+            </a>
+            
+            <!-- Navegación élite -->
+            <div class="hidden md:flex space-x-6 items-center font-semibold">
+                <a href="opticonnecta_ARG.html" class="nav-link-futuristic relative group">
+                    <span class="nav-text relative z-10">OptiConnecta</span>
+                    <div class="nav-underline"></div>
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                <a href="#casos" class="nav-link-futuristic relative group">
+                    <span class="nav-text relative z-10">Casos</span>
+                    <div class="nav-underline"></div>
+                    <div class="absolute inset-0 bg-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                <a href="#contacto" class="nav-link-futuristic relative group">
+                    <span class="nav-text relative z-10">Contacto</span>
+                    <div class="nav-underline"></div>
+                    <div class="absolute inset-0 bg-green-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20hablar%20con%20el%20equipo%20de%20Optinex" target="_blank" class="navbar-whatsapp font-bold py-2 px-4 rounded-lg flex items-center">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    <span>WhatsApp</span>
        </a>
       </div>
-      <div class="hidden md:flex items-center space-x-4">
-       <a href="#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
-       <a href="#plataforma" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Nuestra Plataforma</a>
-       <a href="#sobre-nosotros" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre Nosotros</a>
-       <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
-      </div>
-      <div class="md:hidden flex items-center">
-       <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md">
-        <span class="sr-only">Abrir menú principal</span>
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            
+            <!-- Menú móvil -->
+            <div class="md:hidden flex items-center space-x-4">
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20hablar%20con%20el%20equipo%20de%20Optinex" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:scale-110 transition-transform">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                </a>
+                <button id="mobile-menu-btn" class="text-white p-2 hover:text-purple-400 transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
        </button>
       </div>
+            
+            <!-- Botón CTA principal (desktop) -->
+            <a href="#contacto" class="hidden md:block navbar-cta-btn font-bold py-3 px-8 rounded-lg">
+                <span class="relative z-10">Traé tu Problema</span>
+            </a>
+        </nav>
+        
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/98 backdrop-blur-lg border-t-2 border-purple-500/50">
+            <div class="container mx-auto px-6 py-6 space-y-4">
+                <a href="opticonnecta_ARG.html" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">OptiConnecta</a>
+                <a href="#casos" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">Casos</a>
+                <a href="#contacto" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">Contacto</a>
+                <a href="#contacto" class="block bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center py-4 px-6 rounded-lg font-bold mt-6 hover:from-purple-500 hover:to-pink-500 transition-all duration-300">Traé tu Problema</a>
      </div>
     </div>
-    <div class="md:hidden hidden" id="mobile-menu">
-     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="#inicio" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
-      <a href="#plataforma" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestra Plataforma</a>
-      <a href="#sobre-nosotros" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre Nosotros</a>
-      <a href="#contacto" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
-     </div>
-    </div>
-   </nav>
+    </header>
 
-   <section id="inicio" class="pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24 hero-bg-gradient text-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight section-title">
-      El <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Sistema Operativo</span><br> para la Comunicación con tus Clientes
+    <!-- Hero Section Élite -->
+    <section class="hero-enhanced py-20 section-animate relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 text-white animated-text text-glow">
+                IA Aplicada que <span class="holographic-text">Mueve tu Negocio</span>
      </h1>
-     <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-      Te presentamos <strong>OptiConnect</strong>: la plataforma que une una IA experta en tu negocio con un centro de comando para tu equipo. Automatiza, colabora y convierte cada conversación en una oportunidad.
-     </p>
-     <a href="#plataforma" class="cta-button">Descubre la Plataforma</a>
-     <div class="mt-12 md:mt-16 hero-image-container mx-auto max-w-4xl">
-      <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA" class="shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/1024x670/161B22/E6EDF3?text=Hero+1024x670&font=inter';this.alt='Imagen Hero no disponible';">
+            <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto animated-text" style="animation-delay: 0.2s;">
+                Consultora + Desarrolladora personalizada + productos propios. Resolvemos.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animated-text" style="animation-delay: 0.4s;">
+                <a href="#contacto" class="futuristic-btn font-bold py-4 px-10 rounded-lg text-xl">
+                    Traé tu Problema
+                </a>
+                <a href="opticonnecta_ARG.html" class="border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-bold py-4 px-10 rounded-lg text-xl transition-all duration-300">
+                    Ver OptiConnecta
+                </a>
+            </div>
+            
+            <!-- Micro-confianza tech stack -->
+            <div class="text-center animated-text" style="animation-delay: 0.6s;">
+                <p class="text-slate-400 mb-4 text-sm">Plataformas que conectamos:</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="tech-badge">WhatsApp</span>
+                    <span class="tech-badge">Instagram</span>
+                    <span class="tech-badge">Facebook</span>
+                    <span class="tech-badge">LinkedIn</span>
+                    <span class="tech-badge">MercadoPago</span>
+                    <span class="tech-badge">MercadoLibre</span>
+                    <span class="tech-badge">Google Calendar</span>
+                    <span class="tech-badge">Google Sheets</span>
+                    <span class="tech-badge">HubSpot</span>
+                    <span class="tech-badge">Salesforce</span>
+                    <span class="tech-badge">Shopify</span>
+                    <span class="tech-badge">WooCommerce</span>
+                </div>
+            </div>
+            
+            <!-- Imagen del hero -->
+            <div class="mt-16 animated-text" style="animation-delay: 0.8s;">
+                <img src="imagenes/imagen_hero_equipo.jpg" alt="Equipo Optinex IA trabajando con sistemas futuristas" class="w-full max-w-4xl mx-auto rounded-lg shadow-2xl border border-purple-500/30 icon-bounce" onerror="this.onerror=null;this.src='https://placehold.co/800x500/161B22/E6EDF3?text=Hero+Image';">
      </div>
     </div>
    </section>
 
-   <!-- =======================
-        SECCIÓN: PLATAFORMA OPTICONNECT (NUEVO ENFOQUE)
-   ======================== -->
-   <section id="plataforma" class="py-16 md:py-24 bg-0D1117">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold section-title">Nuestra Plataforma Insignia: <span class="accent-text">OptiConnect</span></h2>
-      <p class="text-center text-gray-400 mt-4 max-w-3xl mx-auto text-lg">
-       La solución todo-en-uno que actúa como el cerebro y el corazón de la comunicación de tu empresa.
+    <!-- Qué Hacemos - 3 Puertas -->
+    <section id="servicios" class="py-20 section-animate">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 text-glow">
+                    Tres Soluciones, <span class="holographic-text">Resultados Garantizados</span>
+                </h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-lg">
+                    Sistemas potentes, simples y escalables para empresas que buscan resultados reales.
       </p>
      </div>
-     <!-- Tarjeta Principal de OptiConnect -->
-     <div class="bg-slate-800 rounded-lg shadow-2xl border-2 border-purple-500 p-8 grid md:grid-cols-2 gap-8 items-center mb-16">
-      <div>
-       <h3 class="text-3xl font-bold text-white mb-4">El Centro de Comando Inteligente</h3>
-       <p class="text-gray-300 mb-6 leading-relaxed">
-        <strong>OptiConnect</strong> fusiona un agente de IA que trabaja 24/7 con una plataforma de gestión para tu equipo humano. Atiende consultas, agenda citas, califica leads y procesa pagos automáticamente, mientras tu equipo supervisa, colabora y toma el control de las conversaciones importantes desde un único lugar.
-       </p>
-       <div class="flex flex-wrap gap-4">
-        <a href="opticonnecta.html" class="cta-button">Ver Detalles y Precios</a>
-        <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20una%20demo%20de%20OptiConnect" target="_blank" class="demo-button">Probar Demo en Vivo</a>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Proyectos IA -->
+                <div class="modern-card p-8 rounded-xl text-center relative overflow-hidden">
+                    <div class="matrix-overlay"></div>
+                    <!-- Imagen de fondo con overlay -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="imagenes/imagen_contactanos.jpg" alt="Desarrollo de proyectos empresariales" class="w-full h-full object-cover opacity-20">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden border-3 border-purple-500 shadow-2xl">
+                            <img src="imagenes/imagen_contactanos.jpg" alt="Proyectos IA" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Desarrollo de Proyectos Empresariales</h3>
+                        <p class="text-slate-200 mb-6 leading-relaxed">
+                            Consultora especializada en IA aplicada. Desarrollamos sistemas complejos: reconocimiento visual, PDFs interactivos, conexión de bases de datos. Resolvemos desafíos únicos con tecnología de vanguardia.
+                        </p>
+                        <a href="#contacto" class="cta-button font-semibold py-3 px-6 rounded-lg inline-block">
+                            Desarrollar mi Proyecto
+                        </a>
        </div>
       </div>
-      <div class="flex justify-center">
-       <img src="imagenes/opticonnect-ecosystem.jpg" alt="Ecosistema de OptiConnect" class="rounded-lg shadow-xl" onerror="this.onerror=null;this.src='https://placehold.co/500x400/161B22/E6EDF3?text=OptiConnect';">
+                
+                <!-- OptiConnecta -->
+                <div class="modern-card p-8 rounded-xl text-center border-2 border-purple-500 relative overflow-hidden">
+                    <div class="matrix-overlay"></div>
+                    <!-- Imagen de fondo con overlay -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="imagenes/opticonnect-ecosystem.jpg" alt="OptiConnecta ecosystem" class="w-full h-full object-cover opacity-25">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/90 to-slate-900/50"></div>
       </div>
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                        <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            ESTRELLA
+                        </span>
      </div>
-     <!-- Subtítulo para Soluciones Especializadas -->
-     <h3 class="text-2xl sm:text-3xl font-bold text-center mb-12 section-title">Soluciones <span class="secondary-accent-text">Especializadas para tu Industria</span></h3>
-     <!-- Grid para servicios secundarios -->
-     <div class="grid md:grid-cols-3 gap-8">
-      <!-- OptiClinic -->
-      <div class="service-card p-6 md:p-8 shadow-lg">
-       <div class="service-image-container">
-        <img src="imagenes/imagen_opticlinic.jpg" alt="Opticlinic IA" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/6E44FF?text=Opticlinic';">
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden border-3 border-blue-500 shadow-2xl">
+                            <img src="imagenes/opticonnect-ecosystem.jpg" alt="OptiConnecta" class="w-full h-full object-cover">
        </div>
-       <h3 class="text-2xl font-semibold mb-3 accent-text">OPTICLINIC</h3>
-       <p class="text-gray-300 mb-6 text-base leading-relaxed">La versión de OptiConnect pre-configurada para el sector salud. Gestiona turnos, recordatorios y consultas de pacientes de forma automática.</p>
-       <div class="service-buttons-container">
-        <a href="opticlinic" class="demo-button text-sm w-full text-center">Saber Más</a>
+                        <h3 class="text-2xl font-bold text-white mb-4">El departamento completo de Atencion al cliente que siempre soñaste.</h3>
+                        <p class="text-slate-200 mb-6 leading-relaxed">
+                            OptiConnecta: IA que atiende, vende y agenda 24/7. Centro de comando para tu equipo. Se integra con WhatsApp, CRM, pagos y calendarios. Arquitectura de dos cerebros trabajando juntos.
+                        </p>
+                        <a href="opticonnecta_ARG.html" class="futuristic-btn font-semibold py-3 px-6 rounded-lg inline-block">
+                            Ver OptiConnecta
+                        </a>
        </div>
       </div>
-      <!-- OptiResto -->
-      <div class="service-card p-6 md:p-8 shadow-lg">
-       <div class="service-image-container">
-        <img src="imagenes/imagen_optiresto.jpg" alt="Optiresto IA" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/58A6FF?text=Optiresto';">
+                
+                <!-- OptiPanel SEO -->
+                <div class="modern-card p-8 rounded-xl text-center relative overflow-hidden">
+                    <div class="matrix-overlay"></div>
+                    <!-- Imagen de fondo con overlay -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="imagenes/opticonnect-hero-ia.jpg" alt="OptiPanel SEO IA" class="w-full h-full object-cover opacity-25">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
        </div>
-       <h3 class="text-2xl font-semibold mb-3 accent-text">OPTIRESTO</h3>
-       <p class="text-gray-300 mb-6 text-base leading-relaxed">La adaptación de OptiConnect para gastronomía. Automatiza reservas de mesas, gestiona pedidos y responde consultas del menú.</p>
-       <div class="service-buttons-container">
-        <a href="optiresto" class="demo-button text-sm w-full text-center">Saber Más</a>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden border-3 border-orange-500 shadow-2xl">
+                            <img src="imagenes/opticonnect-hero-ia.jpg" alt="OptiPanel SEO" class="w-full h-full object-cover">
+       </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Sistema de Creación de Contenido</h3>
+                        <p class="text-slate-200 mb-6 leading-relaxed">
+                            OptiPanel SEO: IA que conecta todas tus redes sociales y crea contenido optimizado. Posicionamiento web completo desde un solo lugar con análisis inteligente.
+                        </p>
+                        <div class="mb-4">
+                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-semibold">
+                                Próximamente
+                            </span>
+      </div>
+                        <a href="#contacto" class="border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white font-semibold py-3 px-6 rounded-lg inline-block transition-all duration-300">
+                            Unirme a la Lista
+                        </a>
+       </div>
        </div>
       </div>
-      <!-- Optinex Proyectos -->
-      <div class="service-card p-6 md:p-8 shadow-lg">
-       <div class="service-image-container">
-        <img src="imagenes/imagen_contactanos.jpg" alt="Optinex Proyectos IA a medida" onerror="this.onerror=null;this.src='https://placehold.co/280x280/161B22/825EFF?text=Proyectos';">
        </div>
-       <h3 class="text-2xl font-semibold mb-3 accent-text">PROYECTOS A MEDIDA</h3>
-       <p class="text-gray-300 mb-6 text-base leading-relaxed">¿Necesitas algo único? Adaptamos el motor de OptiConnect para resolver los desafíos específicos de tu empresa.</p>
-       <div class="service-buttons-container">
-        <a href="#contacto" class="cta-button text-sm w-full text-center">Cotiza tu Proyecto</a>
-       </div>
+    </section>
+
+    <!-- Impacto Probado -->
+    <section id="casos" class="py-20 bg-slate-800 section-animate">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 text-glow">
+                    Impacto en <span class="holographic-text">Empresas Reales</span>
+                </h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-lg">
+                    Resultados medibles, casos reales, datos anonimizados.
+                </p>
       </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Métrica 1 -->
+                <div class="metric-card p-8 rounded-xl text-center">
+                    <div class="text-5xl font-bold text-gradient-brand mb-4">+35%</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Reservas en 30 días</h3>
+                    <p class="text-slate-400 text-sm">(Sector Salud)</p>
+       </div>
+                
+                <!-- Métrica 2 -->
+                <div class="metric-card p-8 rounded-xl text-center">
+                    <div class="text-5xl font-bold text-gradient-brand mb-4">&lt;2min</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Tiempo de respuesta</h3>
+                    <p class="text-slate-400 text-sm">(Soporte Ventas)</p>
+       </div>
+                
+                <!-- Métrica 3 -->
+                <div class="metric-card p-8 rounded-xl text-center">
+                    <div class="text-5xl font-bold text-gradient-brand mb-4">-40%</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Costo por lead</h3>
+                    <p class="text-slate-400 text-sm">(Retail - 6 semanas)</p>
+      </div>
+      </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-slate-500 text-xs mb-4">Casos reales; datos anonimizados.</p>
+                <a href="#casos" class="text-purple-400 hover:text-purple-300 font-semibold">
+                    Ver casos detallados →
+                </a>
      </div>
     </div>
    </section>
 
-   <!-- =======================
-        SECCIÓN: VISUALIZACIÓN DEL CENTRO DE COMANDO
-   ======================== -->
-   <section class="py-16 md:py-24 bg-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold section-title">Tu Centro de Comando: <span class="accent-text">Control y Colaboración Total</span></h2>
-      <p class="text-center text-gray-400 mt-4 max-w-3xl mx-auto text-lg">
-       Así es como tu equipo verá y gestionará cada interacción, todo desde un único lugar.
-      </p>
+    <!-- Sección con fondo blanco - Beneficios -->
+    <section class="py-20 contrast-section dark-text">
+        <!-- Anillos flotantes -->
+        <div class="floating-ring-light" style="width: 200px; height: 200px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="floating-ring-light" style="width: 150px; height: 150px; top: 60%; right: 8%; animation-delay: 2s;"></div>
+        <div class="floating-ring-light" style="width: 100px; height: 100px; top: 30%; right: 20%; animation-delay: 4s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">¿Por Qué las Empresas <span class="text-blue-600">Nos Eligen?</span></h2>
+                <p class="text-slate-600 mt-2 max-w-3xl mx-auto">Resultados que hablan por sí solos. Tecnología que funciona.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="light-futuristic-bg p-8 rounded-xl border border-blue-200">
+                    <div class="text-5xl text-purple-500 mb-6"><i class="fas fa-rocket"></i></div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-4">Implementación Rápida</h3>
+                    <p class="text-slate-600 leading-relaxed">De la idea al sistema funcionando como lo soñaste y tu negocio lo necesita.</p>
+                </div>
+                <div class="light-futuristic-bg p-8 rounded-xl border border-blue-200">
+                    <div class="text-5xl text-blue-500 mb-6"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-4">Seguridad Enterprise</h3>
+                    <p class="text-slate-600 leading-relaxed">Infraestructura aislada y dedicada. Cumplimos con estándares de seguridad de multinacionales.</p>
+                </div>
+                <div class="light-futuristic-bg p-8 rounded-xl border border-blue-200">
+                    <div class="text-5xl text-green-500 mb-6"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-4">ROI Medible</h3>
+                    <p class="text-slate-600 leading-relaxed">Métricas claras desde el día 1. Cada peso invertido se refleja en resultados cuantificables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA con fondo blanco -->
+    <section class="py-20 contrast-section dark-text">
+        <!-- Anillos flotantes -->
+        <div class="floating-ring-light" style="width: 180px; height: 180px; top: 20%; left: 10%; animation-delay: 2s;"></div>
+        <div class="floating-ring-light" style="width: 140px; height: 140px; top: 60%; right: 15%; animation-delay: 5s;"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">¿Listo para Transformar tu Negocio?</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-8 text-lg">La mejor forma de entender el poder de nuestra tecnología es viendo casos reales funcionando.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20comenzar%20una%20demo%20con%20Optinex%20YA%20%21" target="_blank" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 rounded-lg text-xl inline-flex items-center justify-center hover:from-purple-500 hover:to-pink-500 transition-all duration-300 transform hover:scale-105">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    <span>Ver Demo en Vivo</span>
+                </a>
+                <a href="#contacto" class="border-2 border-slate-700 text-slate-700 hover:bg-slate-700 hover:text-white font-bold py-4 px-10 rounded-lg text-xl transition-all duration-300 transform hover:scale-105">
+                    Contáctanos
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección de Casos de Uso Reales con Imágenes -->
+    <section class="py-20 section-animate relative overflow-hidden">
+        <!-- Efectos de fondo súper futuristas -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-3/4 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-2xl animate-pulse" style="animation-delay: 4s;"></div>
+      </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6 text-glow">
+                    <span class="holographic-text">Casos Reales</span> de Impacto
+                </h2>
+                <p class="text-slate-300 max-w-3xl mx-auto text-xl">
+                    Sistemas funcionando en empresas reales. Resultados medibles, no promesas.
+                </p>
      </div>
-     <div class="grid lg:grid-cols-2 gap-8 items-center">
-      <!-- Imagen 1: Bandeja de Entrada -->
-      <div class="text-center">
-       <h3 class="text-2xl font-bold text-white mb-4">Bandeja de Entrada Unificada</h3>
-       <p class="text-gray-400 mb-6">Todos los canales en una sola vista. Tu equipo puede colaborar con <strong>notas privadas</strong>, asignar conversaciones de agente en agente o departamento en departamento (ventas/soporte/etc) y tener el perfil completo del cliente siempre a mano.</p>
-       <img src="imagenes/bandejacompletachats.png" alt="Bandeja de entrada unificada de OptiConnect" class="rounded-lg shadow-2xl border-2 border-slate-700">
+            
+            <!-- Grid de casos con imágenes optimizadas -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Caso 1: Inmobiliaria -->
+                <div class="modern-card p-6 rounded-xl overflow-hidden">
+                    <div class="mb-4 bg-slate-800 p-4 rounded-lg">
+                        <img src="imagenes/IMG_6276.PNG" alt="IA agendando visitas inmobiliarias" class="w-full max-w-xs mx-auto h-auto rounded-lg shadow-lg border border-purple-500/50">
+    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Inmobiliaria: Agendamiento Inteligente</h3>
+                    <p class="text-slate-300 mb-3 text-sm">IA que califica leads, agenda visitas y analiza imágenes de propiedades en tiempo real.</p>
+                    <div class="text-purple-400 font-semibold">+40% conversión en visitas</div>
+                </div>
+                
+                <!-- Caso 2: Industria -->
+                <div class="modern-card p-6 rounded-xl overflow-hidden">
+                    <div class="mb-4 bg-slate-800 p-4 rounded-lg">
+                        <img src="imagenes/IMG_6279.PNG" alt="IA identificando productos industriales" class="w-full max-w-xs mx-auto h-auto rounded-lg shadow-lg border border-blue-500/50">
       </div>
-      <!-- Imagen 2: Reportes -->
-      <div class="text-center">
-       <h3 class="text-2xl font-bold text-white mb-4">Reportes y Analíticas</h3>
-       <p class="text-gray-400 mb-6">Mide el rendimiento, los tiempos de respuesta y la satisfacción del cliente. Toma decisiones basadas en <strong>datos reales</strong>, no en intuiciones.</p>
-       <img src="imagenes/informesclaros.png" alt="Panel de reportes de OptiConnect" class="rounded-lg shadow-2xl border-2 border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-2">Industria: Reconocimiento Visual</h3>
+                    <p class="text-slate-300 mb-3 text-sm">Sistema que identifica piezas por foto y genera cotizaciones automáticas de catálogos complejos.</p>
+                    <div class="text-blue-400 font-semibold">-60% tiempo de cotización</div>
       </div>
+                
+                <!-- Caso 3: Salud -->
+                <div class="modern-card p-6 rounded-xl overflow-hidden">
+                    <div class="mb-4 bg-slate-800 p-4 rounded-lg">
+                        <img src="imagenes/IMG_6268.PNG" alt="IA gestionando turnos médicos" class="w-full max-w-xs mx-auto h-auto rounded-lg shadow-lg border border-green-500/50">
+      </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Salud: Gestión de Turnos</h3>
+                    <p class="text-slate-300 mb-3 text-sm">Agendamiento automático, recordatorios y reprogramación de citas médicas con IA.</p>
+                    <div class="text-green-400 font-semibold">-40% ausencias a turnos</div>
+                </div>
+                
+                <!-- Caso 4: Retail -->
+                <div class="modern-card p-6 rounded-xl overflow-hidden">
+                    <div class="mb-4 bg-slate-800 p-4 rounded-lg">
+                        <img src="imagenes/IMG_6264.PNG" alt="IA vendiendo por reconocimiento de imagen" class="w-full max-w-xs mx-auto h-auto rounded-lg shadow-lg border border-pink-500/50">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Retail: Venta por Imagen</h3>
+                    <p class="text-slate-300 mb-3 text-sm">Cliente envía foto del producto, IA lo reconoce, consulta stock y cierra la venta.</p>
+                    <div class="text-pink-400 font-semibold">+80% ventas por WhatsApp</div>
+                </div>
+            </div>
+            
+            <!-- CTA de casos -->
+            <div class="text-center mt-16">
+                <div class="modern-card p-8 rounded-xl max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold text-white mb-4">
+                        <span class="holographic-text">"No importa tu industria"</span>
+                    </h3>
+                    <p class="text-slate-300 text-xl mb-6">
+                        Si tienes un problema complejo, tenemos la tecnología para resolverlo.
+                    </p>
+                    <a href="#contacto" class="futuristic-btn font-bold py-4 px-10 rounded-lg text-xl">
+                        Resolver mi Desafío
+                    </a>
+                </div>
      </div>
     </div>
    </section>
 
-   <section id="sobre-nosotros" class="py-16 md:py-24 bg-161B22">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-      <div class="md:w-1/2">
-       <h2 class="text-3xl sm:text-4xl font-bold mb-5 section-title">Somos Optinex: <br class="sm:hidden">Tu Socio en <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500">Innovación Tecnológica</span></h2>
-       <p class="text-gray-300 mb-5 text-lg leading-relaxed"> Optinex es más que agentes especializados; somos una agencia integral de soluciones tecnológicas impulsadas por Inteligencia Artificial. </p>
-       <p class="text-gray-300 mb-8 text-base leading-relaxed"> Diseñamos e implementamos estructuras completas de IA para empresas de todos los tamaños y sectores. Desde la consultoría inicial hasta el desarrollo y mantenimiento, te acompañamos en cada paso de tu transformación digital. Nuestro objetivo es poner la tecnología más avanzada a tu disposición para que alcances resultados extraordinarios. </p>
-       <a href="#contacto" class="cta-button">Hablemos de tu Proyecto</a>
-      </div>
-      <div class="md:w-1/2 mt-8 md:mt-0 about-us-image-container"> <img src="imagenes/imagen_sobre_nosotros.jpg" alt="Soluciones IA Optinex" class="shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/450x450/0D1117/6E44FF?text=Sobre+Nosotros&font=inter';this.alt='Imagen Sobre Nosotros no disponible';"> </div>
-     </div>
-    </div>
-   </section>
-
-   <section class="py-16 md:py-24 bg-0D1117">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 md:mb-16 section-title">¿Por Qué Elegir <span class="accent-text">Optinex</span>?</h2>
-     <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 text-center">
-      <div class="p-6 md:p-8 service-card">
-       <div class="benefit-icon text-purple-400">⚙️</div>
-       <h3 class="text-xl font-semibold mb-3 text-gray-100">Eficiencia Mejorada</h3>
-       <p class="text-gray-400 text-sm leading-relaxed">Automatiza tareas repetitivas y optimiza tus flujos de trabajo para una mayor productividad.</p>
-      </div>
-      <div class="p-6 md:p-8 service-card">
-       <div class="benefit-icon text-pink-400">💡</div>
-       <h3 class="text-xl font-semibold mb-3 text-gray-100">Innovación Constante</h3>
-       <p class="text-gray-400 text-sm leading-relaxed">Accede a las últimas tecnologías de IA para mantener tu negocio a la vanguardia.</p>
-      </div>
-      <div class="p-6 md:p-8 service-card">
-       <div class="benefit-icon text-orange-400">📈</div>
-       <h3 class="text-xl font-semibold mb-3 text-gray-100">Crecimiento Escalable</h3>
-       <p class="text-gray-400 text-sm leading-relaxed">Soluciones que se adaptan y crecen con tu empresa, impulsando tu expansión.</p>
-      </div>
-     </div>
-    </div>
-   </section>
-
-   <section id="contacto" class="py-16 md:py-24 bg-161B22">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 section-title">
-     ¡No gastes más tiempo ni plata! Completá el formulario y empezá a usar sistemas simples, potentes y accesibles.
+    <!-- CTA Final con Formulario -->
+    <section id="contacto" class="py-20 bg-slate-800 section-animate">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 text-glow">
+                    Contame tu Caso <span class="holographic-text">(y te devolvemos una propuesta clara)</span>
      </h2>
-     <p class="text-center text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto text-lg">
-      ¿Listo para llevar tu negocio al siguiente nivel con IA? Completa el formulario o envíanos un correo.
-     </p>
-     <form id="contactForm" class="max-w-xl mx-auto bg-0D1117 p-6 md:p-8 rounded-lg shadow-xl border border-30363D">
+                <p class="text-slate-300 max-w-2xl mx-auto text-lg mb-8">
+                    Respondemos en el día hábil. Sin vueltas, sin ruido, solo soluciones.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20contarles%20mi%20problema%20de%20negocio%20para%20que%20me%20ayuden%20con%20IA" target="_blank" class="futuristic-btn font-bold py-4 px-10 rounded-lg text-xl flex items-center">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    Traé tu Problema
+                </a>
+                <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20hablar%20con%20el%20equipo%20de%20Optinex" target="_blank" class="border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white font-bold py-4 px-10 rounded-lg text-xl transition-all duration-300 flex items-center">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    Escribinos por WhatsApp
+                </a>
+            </div>
+            
+            <!-- Formulario Completo -->
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="modern-card p-8 rounded-xl">
       <div class="mb-5">
-       <label for="name" class="block text-gray-300 font-medium mb-2 text-sm">Nombre Completo</label>
-       <input type="text" id="name" name="name" class="form-input placeholder-gray-500" placeholder="Tu Nombre" required>
+                        <label for="name" class="block text-slate-300 font-medium mb-2 text-sm">Nombre Completo</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Tu Nombre" required>
       </div>
       <div class="mb-5">
-       <label for="email" class="block text-gray-300 font-medium mb-2 text-sm">Correo Electrónico</label>
-       <input type="email" id="email" name="email" class="form-input placeholder-gray-500" placeholder="tu@email.com" required>
+                        <label for="email" class="block text-slate-300 font-medium mb-2 text-sm">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
       </div>
-
       <div class="mb-5">
-       <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
+                        <label for="phone" class="block text-slate-300 font-medium mb-2 text-sm">Tu Número de WhatsApp</label>
        <input type="tel" id="phone" name="phone" class="form-input w-full" required>
-       <p class="text-xs text-gray-400 mt-1">Selecciona tu país e ingresa tu número. Debe tener WhatsApp activo.</p>
+                        <p class="text-xs text-slate-400 mt-1">Selecciona tu país e ingresa tu número.</p>
       </div>
       <div class="mb-8">
-       <label for="message" class="block text-gray-300 font-medium mb-2 text-sm">Mensaje</label>
-       <textarea id="message" name="message" rows="5" class="form-input placeholder-gray-500" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+                        <label for="message" class="block text-slate-300 font-medium mb-2 text-sm">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" class="form-input" placeholder="Cuéntanos sobre tu negocio y tus necesidades de automatización." required></textarea>
       </div>
       <div class="text-center">
        <p id="formStatus" class="mb-4 text-sm h-5"></p>
-       <button type="submit" class="cta-button w-full sm:w-auto">
+                        <button type="submit" class="form-cta-button w-full sm:w-auto">
         Enviar Mensaje
        </button>
       </div>
      </form>
+            </div>
+            
+            <!-- Testimonios mini -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-16">
+                <div class="modern-card p-6 rounded-xl">
+                    <p class="text-slate-300 italic mb-4">"En 3 semanas automatizamos el 80% de nuestras consultas de soporte."</p>
+                    <div class="text-sm">
+                        <span class="text-purple-400 font-semibold">+200% eficiencia</span>
+                        <span class="text-slate-500"> • Empresa de Software</span>
+                    </div>
+                </div>
+                <div class="modern-card p-6 rounded-xl">
+                    <p class="text-slate-300 italic mb-4">"El sistema de IA maneja turnos médicos mejor que nuestro call center."</p>
+                    <div class="text-sm">
+                        <span class="text-purple-400 font-semibold">-60% tiempo administrativo</span>
+                        <span class="text-slate-500"> • Clínica Privada</span>
+                    </div>
+                </div>
+            </div>
     </div>
    </section>
 
-   <footer class="footer-bg py-10 text-center">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-     <a href="#inicio" class="inline-block p-1 sm:p-2">
-      <img src="imagenes/logo_optinex_footer.jpg" alt="Optinex Logo Footer" class="w-40 sm:w-44 md:w-48 h-auto mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/192x64/010409/6E44FF?text=OPTINEX&font=inter&fontweight=semibold';this.alt='Logo Optinex Footer no disponible';">
-     </a>
-     <p class="text-gray-400 text-sm">
-      &copy; <span id="currentYear"></span> Optinex. Todos los derechos reservados.
-     </p>
-     <p class="text-gray-500 text-xs mt-2">
-      Soluciones de Inteligencia Artificial para Empresas. Rosario, Argentina.
-     </p>
-     <div class="mt-6 space-x-5">
-      <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300" aria-label="Facebook">
-       <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors duration-300" aria-label="Instagram">
-       <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.03998C9.17441 2.03998 8.80416 2.05223 7.73561 2.10073C6.72811 2.14673 5.98336 2.31598 5.33886 2.56423C4.65736 2.82673 4.06186 3.20098 3.48886 3.77398C2.91586 4.34698 2.54161 4.94248 2.27911 5.62423C2.03086 5.93098 1.86161 6.37673 1.81561 7.08423C1.76711 7.81873 1.75486 8.18898 1.75486 11C1.75486 13.8255 1.76711 14.1957 1.81561 14.9247C1.86161 15.6322 2.03086 16.0725 2.27911 16.3792C2.54161 17.061 2.91586 17.6565 3.48886 18.2295C4.06186 18.8025 4.65736 19.1767 5.33886 19.4392C5.98336 19.6875 6.72811 19.8567 7.73561 19.9027C8.80416 19.9512 9.17441 19.9635 12 19.9635C14.8256 19.9635 15.1958 19.9512 16.2644 19.9027C17.2719 19.8567 18.0166 19.6875 18.6611 19.4392C19.3426 19.1767 19.9381 18.8025 20.5111 18.2295C21.0841 17.6565 21.4584 17.061 21.7209 16.3792C21.9691 16.0725 22.1384 15.6322 22.1844 14.9247C22.2329 14.1957 22.2451 13.8255 22.2451 11C22.2451 8.18898 22.2329 7.81873 22.1844 7.08423C22.1384 6.37673 21.9691 5.93098 21.7209 5.62423C21.4584 4.94248 21.0841 4.34698 20.5111 3.77398C19.9381 3.20098 19.3426 2.82673 18.6611 2.56423C18.0166 2.31598 17.2719 2.14673 16.2644 2.10073C15.1958 2.05223 14.8256 2.03998 12 2.03998ZM12 3.71398C14.7691 3.71398 15.1161 3.72448 16.1596 3.77148C17.0671 3.81448 17.6326 3.97423 18.0384 4.13623C18.5011 4.32298 18.8476 4.54498 19.2264 4.92373C19.6051 5.30248 19.8271 5.64898 20.0139 6.11173C20.1759 6.51748 20.3356 7.08298 20.3786 7.99048C20.4256 9.03398 20.4361 9.38098 20.4361 12.15C20.4361 14.919 20.4256 15.266 20.3786 16.3095C20.3356 17.217 20.1759 17.7825 20.0139 18.1882C19.8271 18.651 19.6051 18.9975 19.2264 19.3762C18.8476 19.755 18.5011 19.977 18.0384 20.1637C17.6326 20.3257 17.0671 20.4855 16.1596 20.5285C15.1161 20.5755 14.7691 20.586 12 20.586C9.23086 20.586 8.88386 20.5755 7.84036 20.5285C6.93286 20.4855 6.36736 20.3257 5.96161 20.1637C5.49886 19.977 5.15236 19.755 4.77361 19.3762C4.39486 18.9975 4.17286 18.651 3.98611 18.1882C3.82411 17.7825 3.66436 17.217 3.62136 16.3095C3.57436 15.266 3.56386 14.919 3.56386 12.15C3.56386 9.38098 3.57436 9.03398 3.62136 7.99048C3.66436 7.08298 3.82411 6.51748 3.98611 6.11173C4.17286 5.64898 4.39486 5.30248 4.77361 4.92373C5.15236 4.54498 5.49886 4.32298 5.96161 4.13623C6.36736 3.97423 6.93286 3.81448 7.84036 3.77148C8.88386 3.72448 9.23086 3.71398 12 3.71398ZM12 7.11148C9.28936 7.11148 7.00036 9.34123 7.00036 12.15C7.00036 14.9587 9.28936 17.1885 12 17.1885C14.7106 17.1885 16.9996 14.9587 16.9996 12.15C16.9996 9.34123 14.7106 7.11148 12 7.11148ZM12 15.516C10.1119 15.516 8.56386 13.9972 8.56386 12.15C8.56386 10.3027 10.1119 8.78398 12 8.78398C13.8881 8.78398 15.4361 10.3027 15.4361 12.15C15.4361 13.9972 13.8881 15.516 12 15.516ZM17.3066 7.69348C17.3066 8.24548 16.8656 8.68648 16.3136 8.68648C15.7616 8.68648 15.3206 8.24548 15.3206 7.69348C15.3206 7.14148 15.7616 6.70048 16.3136 6.70048C16.8656 6.70048 17.3066 7.14148 17.3066 7.69348Z" /></svg>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors duration-300" aria-label="LinkedIn">
-       <svg class="h-5 w-5 inline-block" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      </a>
+    <!-- Footer Futurista -->
+    <footer class="futuristic-footer py-16 text-center relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Logo showcase -->
+            <div class="mb-12">
+                <img src="/imagenes/logo_optinex_footer.jpg" alt="Optinex Logo Footer" class="w-48 h-auto mx-auto icon-bounce" onerror="this.onerror=null;this.src='https://placehold.co/224x56/0f172a/E6EDF3?text=Optinex';">
+      </div>
+
+            <!-- Texto principal -->
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                <span class="text-gradient-brand">El Futuro de la IA</span>
+                <span class="text-white"> es Ahora</span>
+            </h3>
+            
+            <!-- Información de la empresa -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12 text-left max-w-4xl mx-auto">
+                <div class="modern-card p-6 rounded-xl">
+                    <h4 class="font-bold text-white mb-3">
+                        <i class="fas fa-rocket text-blue-500 mr-2"></i>
+                        Innovación
+                    </h4>
+                    <p class="text-slate-300 text-sm">Desarrollamos tecnología de vanguardia que transforma la comunicación empresarial.</p>
+      </div>
+                <div class="modern-card p-6 rounded-xl">
+                    <h4 class="font-bold text-white mb-3">
+                        <i class="fas fa-map-marker-alt text-purple-500 mr-2"></i>
+                        Ubicación
+                    </h4>
+                    <p class="text-slate-300 text-sm">Rosario, Argentina<br>Sirviendo a toda Latinoamérica</p>
+      </div>
+                <div class="modern-card p-6 rounded-xl">
+                    <h4 class="font-bold text-white mb-3">
+                        <i class="fas fa-phone text-green-500 mr-2"></i>
+                        Contacto
+                    </h4>
+                    <p class="text-slate-300 text-sm">WhatsApp: +54 9 341 384-0106<br>Soporte 24/7</p>
+      </div>
+    </div>
+            
+            <!-- Línea separadora con efecto -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-8 opacity-50"></div>
+            
+            <!-- Copyright con efectos -->
+            <div class="text-center">
+                <p class="text-slate-400 text-sm mb-2">
+                    &copy; <span id="currentYear"></span> 
+                    <span class="text-gradient-brand font-semibold">Optinex</span>. 
+                    Todos los derechos reservados.
+                </p>
+                <p class="text-slate-500 text-xs">
+                    Soluciones de Inteligencia Artificial para Empresas
+                </p>
+                
+                <!-- Indicador de tecnología -->
+                <div class="mt-6 flex justify-center items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs text-slate-400">Sistemas Operativos</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                        <span class="text-xs text-slate-400">IA Avanzada</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                        <span class="text-xs text-slate-400">24/7 Activo</span>
+                    </div>
+                </div>
      </div>
     </div>
    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.21/js/utils.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ" defer></script>
+
    <script>
-    // Toggle del menú móvil (sin cambios)
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelectorAll('#mobile-menu a, .dropdown-content a');
-    // ... (resto del código del menú móvil sin cambios) ...
-    if (mobileMenuButton && mobileMenu) {
-     mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenuButton.innerHTML = isOpen
-       ? `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`
-       : `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
-     });
-     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-       if (!mobileMenu.classList.contains('hidden')) {
-        if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').includes('.html')) {
-         mobileMenu.classList.add('hidden');
-         mobileMenuButton.innerHTML = `<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>`;
-        }
-       }
-      });
-     });
-    } else {
-     console.error("No se encontró el botón del menú móvil o el menú.");
-    }
-     
-    // Scroll suave para enlaces ancla (sin cambios)
+    document.addEventListener('DOMContentLoaded', function () {
+        // Año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Intersection Observer para animaciones de scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos los elementos con clase section-animate
+        document.querySelectorAll('.section-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll mejorado para enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
      anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
-       const targetElement = document.querySelector(targetId);
-       if (targetElement) {
         e.preventDefault(); 
-        let navbarHeight = 0;
-        const navbar = document.querySelector('nav.navbar-bg'); 
-        if (navbar && getComputedStyle(navbar).position === 'fixed') {
-         navbarHeight = navbar.offsetHeight;
-        }
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.className = 'fas fa-bars text-xl';
        } else {
-        console.warn(`Elemento ancla '${targetId}' no encontrado en esta página.`);
-       }
-      }
-     });
-    });
-
-    // Año actual en el footer (sin cambios)
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-     currentYearElement.textContent = new Date().getFullYear();
+                    icon.className = 'fas fa-times text-xl';
+                }
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+                });
+            });
     }
 
     // --- SCRIPT PARA EL FORMULARIO DE CONTACTO CON RECAPTCHA v3 ---
-    document.addEventListener('DOMContentLoaded', function () {
      const contactForm = document.getElementById('contactForm');
      const formStatus = document.getElementById('formStatus');
      const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 
-     // --- PASO 3: INICIALIZACIÓN DE intl-tel-input ---
+        // --- INICIALIZACIÓN DE intl-tel-input ---
      const phoneInputField = document.getElementById('phone');
      let phoneInputInstance = null; 
 
@@ -534,7 +1256,7 @@
 
       // Función para limpiar errores de teléfono al interactuar con el campo
       function clearPhoneError() {
-       if (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono')) {
+                if (formStatus && (formStatus.textContent.toLowerCase().includes('número') || formStatus.textContent.toLowerCase().includes('teléfono'))) {
         formStatus.textContent = '';
         formStatus.className = 'mb-4 text-sm h-5'; 
        }
@@ -542,13 +1264,12 @@
       phoneInputField.addEventListener('countrychange', clearPhoneError);
       phoneInputField.addEventListener('input', clearPhoneError);
      }
-     // --- FIN PASO 3: INICIALIZACIÓN ---
 
      if (contactForm && formStatus && submitButton) {
       contactForm.addEventListener('submit', async function(event) {
        event.preventDefault();
 
-       // --- PASO 3: VALIDACIÓN DEL TELÉFONO CON intl-tel-input ---
+                // --- VALIDACIÓN DEL TELÉFONO CON intl-tel-input ---
        if (phoneInputInstance && !phoneInputInstance.isValidNumber()) {
         let errorMsg = "Por favor, ingresa un número de WhatsApp válido para el país seleccionado.";
         const errorCode = phoneInputInstance.getValidationError();
@@ -556,7 +1277,7 @@
         // Asegurarse que intlTelInputUtils esté disponible
         if (typeof intlTelInputUtils !== 'undefined' && errorCode !== 0) { 
          switch (errorCode) {
-          case intlTelInputUtils.validationError.IS_POSSIBLE_LOCAL_ONLY: // Corregido
+                            case intlTelInputUtils.validationError.IS_POSSIBLE_LOCAL_ONLY:
            errorMsg = "El número parece ser local, por favor incluye el código de área si aplica.";
            break;
           case intlTelInputUtils.validationError.INVALID_COUNTRY_CODE:
@@ -580,7 +1301,6 @@
         formStatus.className = 'mb-4 text-sm text-red-400 h-5';
         return; 
        }
-       // --- FIN PASO 3: VALIDACIÓN ---
 
        // Actualizar el valor del input al formato internacional ANTES de crear FormData
        if (phoneInputInstance && phoneInputInstance.isValidNumber()) {
@@ -593,7 +1313,6 @@
        submitButton.classList.add('opacity-70', 'cursor-not-allowed'); 
         
        try {
-        console.log("reCAPTCHA: Iniciando ejecución...");
         const token = await new Promise((resolve, reject) => {
          if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute === 'undefined') {
           console.error("reCAPTCHA: La API de grecaptcha no está cargada.");
@@ -609,25 +1328,20 @@
            });
          });
         });
-        console.log("reCAPTCHA: Token obtenido:", token ? "Sí" : "No");
          
-        const formData = new FormData(contactForm); // FormData ahora tomará el valor actualizado del campo 'phone'
+                    const formData = new FormData(contactForm);
         formData.append('g-recaptcha-response', token); 
          
         const webhookUrl = 'https://hook.eu2.make.com/g7r34wo4fs9rttrlihtnpxq97t2vdsaw';
         const fetchOptions = { method: 'POST', body: formData };
-        console.log("Formulario: Enviando datos al webhook...");
         const response = await fetch(webhookUrl, fetchOptions);
         const responseText = await response.text(); 
-        console.log("Formulario: Respuesta del webhook - Estado:", response.status, "Texto:", responseText);
          
         if (response.ok && responseText === 'Accepted') {
          formStatus.textContent = '¡Mensaje enviado con éxito!';
          formStatus.className = 'mb-4 text-sm text-green-400 h-5'; 
          contactForm.reset(); 
-         // Después de resetear, intl-tel-input debería volver a su estado inicial
-         // (por ejemplo, si initialCountry era "ar", volverá a Argentina)
-         // Si no lo hace, puedes forzarlo con: phoneInputInstance.setCountry("ar");
+                        if(phoneInputInstance) phoneInputInstance.setCountry("ar");
          setTimeout(() => {
           formStatus.textContent = '';
           formStatus.className = 'mb-4 text-sm h-5'; 
@@ -635,7 +1349,6 @@
         } else {
          formStatus.textContent = 'Error al enviar o verificación fallida. Intenta de nuevo.';
          formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
-         console.error('Error del webhook o fallo de reCAPTCHA en backend:', response.status, responseText);
         }
        } catch (error) {
         console.error('Error general en el proceso de envío o reCAPTCHA:', error);
@@ -643,41 +1356,17 @@
          formStatus.textContent = 'Error con la verificación reCAPTCHA. Refresca e intenta de nuevo.';
         } else if (error && error.message && error.message.toLowerCase().includes("networkerror")) {
          formStatus.textContent = 'Error de red. Revisa tu conexión a internet.';
-        }
-        else {
+                    } else {
          formStatus.textContent = 'Error inesperado. Intenta de nuevo más tarde.';
         }
         formStatus.className = 'mb-4 text-sm text-red-400 h-5'; 
        } finally {
         submitButton.disabled = false;
         submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
-        console.log("Formulario: Proceso finalizado, botón rehabilitado.");
-       }
-      });
-     } else {
-      if (!contactForm) console.error("Error crítico: Elemento de formulario con id 'contactForm' no encontrado.");
-      if (!formStatus) console.error("Error crítico: Elemento para mostrar estado con id 'formStatus' no encontrado.");
-      if (contactForm && !submitButton) console.error("Error crítico: Botón de envío no encontrado en 'contactForm'.");
-     }
-    });
-
-    // Scroll automático al formulario al cargar la página (sin cambios)
-    window.addEventListener('load', () => {
-     const targetElement = document.querySelector('#contacto'); 
-     if (targetElement) {
-      const navbarHeight = document.querySelector('nav.navbar-bg')?.offsetHeight || 0; 
-      const offset = 20; 
-      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navbarHeight - offset;
-      window.scrollTo({
-       top: offsetPosition,
-       behavior: 'smooth'
-      });
-     } else {
-      console.error("No se encontró el elemento con el ID 'contacto' para scroll automático.");
+                }
+            });
      }
     });
    </script>
-   <script src="https://www.google.com/recaptcha/api.js?render=6LehWzwrAAAAAATvjIVEB56IunF8mcIi3dbiflMZ"></script>   
  </body>
  </html>
