@@ -714,6 +714,31 @@
             pointer-events: none;
         }
         
+        /* Estilos para el menú móvil */
+        .menu-open {
+            overflow: hidden !important;
+        }
+        
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Mejorar la zona de toque del botón */
+        #mobile-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         /* Optimizaciones móviles */
         @media (max-width: 768px) {
             .modern-card:hover,
@@ -1426,57 +1451,113 @@
             });
         });
         
-        // Menú móvil mejorado
+        // Menú móvil ultra mejorado con múltiples métodos de cierre
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
         if (mobileMenuBtn && mobileMenu) {
+            let isMenuOpen = false;
+            
             // Función para cerrar el menú
             function closeMobileMenu() {
+                if (!isMenuOpen) return;
+                
                 mobileMenu.classList.add('hidden');
                 mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+                isMenuOpen = false;
+                
+                // Remover clase de body si existe
+                document.body.classList.remove('menu-open');
             }
             
             // Función para abrir el menú
             function openMobileMenu() {
+                if (isMenuOpen) return;
+                
                 mobileMenu.classList.remove('hidden');
                 mobileMenuBtn.querySelector('i').className = 'fas fa-times text-xl';
+                isMenuOpen = true;
+                
+                // Añadir clase al body para prevenir scroll
+                document.body.classList.add('menu-open');
             }
             
-            // Toggle del menú al hacer clic en el botón
+            // Toggle del menú al hacer clic en el botón (con prevención de propagación)
             mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 e.stopPropagation();
-                if (mobileMenu.classList.contains('hidden')) {
-                    openMobileMenu();
-                } else {
+                e.stopImmediatePropagation();
+                
+                if (isMenuOpen) {
                     closeMobileMenu();
+                } else {
+                    openMobileMenu();
                 }
             });
             
-            // Cerrar menú al hacer clic fuera de él
-            document.addEventListener('click', (e) => {
+            // Cerrar menú con touch/click fuera de él
+            function handleOutsideClick(e) {
+                if (!isMenuOpen) return;
+                
                 if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     closeMobileMenu();
                 }
+            }
+            
+            // Múltiples eventos para diferentes dispositivos
+            document.addEventListener('click', handleOutsideClick, true);
+            document.addEventListener('touchstart', handleOutsideClick, true);
+            
+            // Evitar que el menú se cierre al interactuar dentro de él
+            mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
             
-            // Evitar que el menú se cierre al hacer clic dentro de él
-            mobileMenu.addEventListener('click', (e) => {
+            mobileMenu.addEventListener('touchstart', (e) => {
                 e.stopPropagation();
             });
             
             // Cerrar menú al hacer clic en un enlace
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    closeMobileMenu();
+                link.addEventListener('click', (e) => {
+                    // Permitir que el enlace funcione, pero cerrar el menú después
+                    setTimeout(() => {
+                        closeMobileMenu();
+                    }, 100);
+                });
+                
+                link.addEventListener('touchend', (e) => {
+                    setTimeout(() => {
+                        closeMobileMenu();
+                    }, 100);
                 });
             });
             
             // Cerrar menú al presionar Escape
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                if (e.key === 'Escape' && isMenuOpen) {
                     closeMobileMenu();
                 }
+            });
+            
+            // Cerrar menú al cambiar orientación del dispositivo
+            window.addEventListener('orientationchange', () => {
+                setTimeout(() => {
+                    if (isMenuOpen) {
+                        closeMobileMenu();
+                    }
+                }, 100);
+            });
+            
+            // Cerrar menú al hacer scroll (opcional, para mejor UX)
+            let scrollTimer = null;
+            window.addEventListener('scroll', () => {
+                if (!isMenuOpen) return;
+                
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    closeMobileMenu();
+                }, 150);
             });
     }
 
