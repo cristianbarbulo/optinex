@@ -757,6 +757,73 @@
                 display: none !important;
             }
             
+            /* ====== FIXES ESPECÍFICOS PARA ANDROID ====== */
+            
+            /* Deshabilitar backdrop-filter que causa problemas en Android */
+            .futuristic-navbar,
+            .modern-card,
+            .metric-card,
+            .light-futuristic-bg {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+            
+            /* Simplificar gradientes complejos que causan lag en Android */
+            .text-gradient-brand,
+            .holographic-text {
+                background: linear-gradient(90deg, #8b5cf6, #ec4899) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                animation: none !important;
+            }
+            
+            /* Deshabilitar animaciones complejas que causan problemas de rendering */
+            .futuristic-btn,
+            .cta-button,
+            .navbar-cta-btn {
+                animation: none !important;
+                background: linear-gradient(90deg, #8b5cf6, #7c3aed) !important;
+            }
+            
+            .futuristic-btn::before,
+            .cta-button::before,
+            .navbar-cta-btn::before {
+                display: none !important;
+            }
+            
+            /* Simplificar efectos de sombra que pueden causar lag */
+            .text-glow {
+                text-shadow: 0 0 5px rgba(139, 92, 246, 0.3) !important;
+            }
+            
+            /* Forzar aceleración de hardware solo donde es necesario */
+            .hero-enhanced,
+            .futuristic-navbar {
+                will-change: transform !important;
+                transform: translateZ(0) !important;
+            }
+            
+            /* Mejorar performance de scroll */
+            body {
+                -webkit-overflow-scrolling: touch !important;
+                overflow-scrolling: touch !important;
+            }
+            
+            /* Deshabilitar efectos de partículas y matrices que consumen recursos */
+            .matrix-overlay,
+            .navbar-particles,
+            .color-particles,
+            .matrix-bg {
+                display: none !important;
+            }
+            
+            /* Simplificar bordes y efectos complejos */
+            .modern-card,
+            .metric-card {
+                border: 1px solid rgba(139, 92, 246, 0.2) !important;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+            }
+            
             /* Logo del footer optimizado para móvil con efectos futuristas */
             .logo-spectacular {
                 animation: logoFloat 6s ease-in-out infinite !important;
@@ -848,6 +915,36 @@
         @keyframes particleMove {
             0% { transform: translateY(0px); }
             100% { transform: translateY(-100px); }
+        }
+        
+        /* ====== ESTILOS ESPECÍFICOS PARA ANDROID ====== */
+        .android-device .futuristic-navbar {
+            background: rgba(5, 10, 20, 0.95) !important;
+            backdrop-filter: none !important;
+        }
+        
+        .android-device .modern-card,
+        .android-device .metric-card {
+            background: rgba(30, 41, 59, 0.9) !important;
+            backdrop-filter: none !important;
+        }
+        
+        .android-device .holographic-text {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            animation: none !important;
+        }
+        
+        .android-device .futuristic-btn,
+        .android-device .cta-button {
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed) !important;
+            animation: none !important;
+        }
+        
+        .android-device .futuristic-btn::before,
+        .android-device .cta-button::before {
+            display: none !important;
         }
     </style>
  </head>
@@ -1417,6 +1514,44 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Año actual en el footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // ====== DETECCIÓN Y FIXES PARA ANDROID ======
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isOldAndroid = /Android [1-4]/i.test(navigator.userAgent);
+        
+        if (isAndroid) {
+            console.log('📱 Android detectado - Aplicando optimizaciones específicas');
+            
+            // Agregar clase para CSS específico de Android
+            document.body.classList.add('android-device');
+            
+            // Deshabilitar smooth scroll en Android antiguo
+            if (isOldAndroid) {
+                document.documentElement.style.scrollBehavior = 'auto';
+            }
+            
+            // Optimizar animaciones para Android
+            const animatedElements = document.querySelectorAll('.animated-text, .icon-bounce, .logo-spectacular');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.style.transform = 'none';
+            });
+            
+            // Simplificar efectos de hover que pueden causar lag
+            const hoverElements = document.querySelectorAll('.modern-card, .metric-card, .futuristic-btn');
+            hoverElements.forEach(el => {
+                el.addEventListener('touchstart', function() {
+                    this.style.transform = 'none';
+                });
+            });
+            
+            // Reducir efectos visuales pesados
+            const heavyEffects = document.querySelectorAll('.matrix-overlay, .particle-bg, .navbar-particles');
+            heavyEffects.forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+        // ====== FIN FIXES ANDROID ======
         
         // Intersection Observer para animaciones de scroll
         const observerOptions = {
