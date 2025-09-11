@@ -992,6 +992,54 @@
             text-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 
                        0 0 20px rgba(139, 92, 246, 0.3) !important;
         }
+        
+        /* ====== FIX ESPECÍFICO PARA LA SECCIÓN PROBLEMÁTICA EN ANDROID ====== */
+        
+        /* Sección "No importa tu industria" específica para Android */
+        .android-device .modern-card {
+            background: rgba(30, 41, 59, 0.95) !important;
+            backdrop-filter: none !important;
+            border: 2px solid rgba(139, 92, 246, 0.6) !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        /* Holographic text específico para Android */
+        .android-device .modern-card .holographic-text {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            animation: none !important;
+            display: inline-block !important;
+        }
+        
+        /* Botón futurista en la card problemática */
+        .android-device .modern-card .futuristic-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
+            border: 2px solid #8b5cf6 !important;
+            color: white !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            animation: none !important;
+            transform: none !important;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
+        }
+        
+        .android-device .modern-card .futuristic-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #ec4899) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5) !important;
+        }
+        
+        /* Asegurar que el contenedor de la card funcione bien */
+        .android-device .modern-card p {
+            color: #e2e8f0 !important;
+        }
+        
+        .android-device .modern-card h3 {
+            color: #ffffff !important;
+        }
     </style>
  </head>
 <body class="bg-slate-900 text-slate-300" style="counter-reset: step-counter;">
@@ -1605,7 +1653,38 @@
                 particleBg.style.animationDuration = '30s';
             }
             
-            console.log('✨ Estilo futurista optimizado para Android aplicado');
+            // FIX ESPECÍFICO para la sección problemática "No importa tu industria"
+            const problematicCard = document.querySelector('.modern-card');
+            if (problematicCard) {
+                // Forzar estilos específicos para esa card
+                problematicCard.style.background = 'rgba(30, 41, 59, 0.95)';
+                problematicCard.style.backdropFilter = 'none';
+                problematicCard.style.border = '2px solid rgba(139, 92, 246, 0.6)';
+                problematicCard.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.2)';
+                
+                // Arreglar el texto holográfico específico
+                const holographicText = problematicCard.querySelector('.holographic-text');
+                if (holographicText) {
+                    holographicText.style.background = 'linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b)';
+                    holographicText.style.webkitBackgroundClip = 'text';
+                    holographicText.style.webkitTextFillColor = 'transparent';
+                    holographicText.style.animation = 'none';
+                    holographicText.style.display = 'inline-block';
+                }
+                
+                // Arreglar el botón futurista específico
+                const futuristicBtn = problematicCard.querySelector('.futuristic-btn');
+                if (futuristicBtn) {
+                    futuristicBtn.style.background = 'linear-gradient(135deg, #8b5cf6, #ec4899)';
+                    futuristicBtn.style.border = '2px solid #8b5cf6';
+                    futuristicBtn.style.color = 'white';
+                    futuristicBtn.style.animation = 'none';
+                    futuristicBtn.style.transform = 'none';
+                    futuristicBtn.style.boxShadow = '0 4px 15px rgba(139, 92, 246, 0.4)';
+                }
+            }
+            
+            console.log('✨ Estilo futurista optimizado para Android aplicado + Fix sección específica');
         }
         // ====== FIN FIXES ANDROID ======
         
