@@ -757,71 +757,98 @@
                 display: none !important;
             }
             
-            /* ====== FIXES ESPECÍFICOS PARA ANDROID ====== */
+            /* ====== ANDROID OPTIMIZADO - MANTIENE ESENCIA FUTURISTA ====== */
             
-            /* Deshabilitar backdrop-filter que causa problemas en Android */
-            .futuristic-navbar,
-            .modern-card,
-            .metric-card,
-            .light-futuristic-bg {
+            /* Reemplazar backdrop-filter con fondos sólidos pero manteniendo el estilo */
+            .futuristic-navbar {
                 backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
+                background: linear-gradient(145deg, rgba(5, 10, 20, 0.98), rgba(15, 23, 42, 0.95)) !important;
+                border-bottom: 2px solid #8b5cf6 !important;
             }
             
-            /* Simplificar gradientes complejos que causan lag en Android */
-            .text-gradient-brand,
-            .holographic-text {
-                background: linear-gradient(90deg, #8b5cf6, #ec4899) !important;
+            .modern-card,
+            .metric-card {
+                backdrop-filter: none !important;
+                background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9)) !important;
+                border: 2px solid rgba(139, 92, 246, 0.4) !important;
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15) !important;
+            }
+            
+            /* MANTENER gradientes de texto pero simplificados */
+            .text-gradient-brand {
+                background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b) !important;
                 -webkit-background-clip: text !important;
                 -webkit-text-fill-color: transparent !important;
-                animation: none !important;
             }
             
-            /* Deshabilitar animaciones complejas que causan problemas de rendering */
+            .holographic-text {
+                background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                animation: none !important; /* Solo quitar la animación, mantener colores */
+            }
+            
+            /* MANTENER botones futuristas pero sin animaciones pesadas */
             .futuristic-btn,
             .cta-button,
             .navbar-cta-btn {
+                background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b) !important;
                 animation: none !important;
-                background: linear-gradient(90deg, #8b5cf6, #7c3aed) !important;
+                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3) !important;
+                border: 1px solid rgba(139, 92, 246, 0.5) !important;
             }
             
             .futuristic-btn::before,
             .cta-button::before,
             .navbar-cta-btn::before {
-                display: none !important;
+                display: none !important; /* Solo quitar efectos de overlay pesados */
             }
             
-            /* Simplificar efectos de sombra que pueden causar lag */
+            /* MANTENER text-glow pero optimizado */
             .text-glow {
-                text-shadow: 0 0 5px rgba(139, 92, 246, 0.3) !important;
+                text-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 
+                           0 0 20px rgba(139, 92, 246, 0.3) !important;
             }
             
-            /* Forzar aceleración de hardware solo donde es necesario */
-            .hero-enhanced,
-            .futuristic-navbar {
-                will-change: transform !important;
-                transform: translateZ(0) !important;
+            /* MANTENER efectos de hover simplificados */
+            .modern-card:hover,
+            .metric-card:hover {
+                transform: translateY(-3px) !important; /* Movimiento sutil */
+                box-shadow: 0 12px 30px rgba(139, 92, 246, 0.2) !important;
             }
             
-            /* Mejorar performance de scroll */
+            /* Optimizar scroll pero mantener suavidad */
             body {
                 -webkit-overflow-scrolling: touch !important;
-                overflow-scrolling: touch !important;
+                scroll-behavior: smooth !important;
             }
             
-            /* Deshabilitar efectos de partículas y matrices que consumen recursos */
+            /* Solo ocultar efectos MUY pesados, mantener el resto */
             .matrix-overlay,
-            .navbar-particles,
-            .color-particles,
-            .matrix-bg {
-                display: none !important;
+            .navbar-particles {
+                opacity: 0.3 !important; /* Reducir en lugar de eliminar */
             }
             
-            /* Simplificar bordes y efectos complejos */
+            .particle-bg {
+                opacity: 0.05 !important; /* Muy sutil pero presente */
+            }
+            
+            /* MANTENER bordes futuristas pero optimizados */
             .modern-card,
             .metric-card {
-                border: 1px solid rgba(139, 92, 246, 0.2) !important;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+                border-radius: 12px !important;
+                position: relative !important;
+            }
+            
+            .modern-card::after,
+            .metric-card::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #8b5cf6, #ec4899, transparent) !important;
             }
             
             /* Logo del footer optimizado para móvil con efectos futuristas */
@@ -917,34 +944,53 @@
             100% { transform: translateY(-100px); }
         }
         
-        /* ====== ESTILOS ESPECÍFICOS PARA ANDROID ====== */
+        /* ====== ESTILOS ESPECÍFICOS PARA ANDROID - FUTURISTA OPTIMIZADO ====== */
         .android-device .futuristic-navbar {
-            background: rgba(5, 10, 20, 0.95) !important;
+            background: linear-gradient(145deg, rgba(5, 10, 20, 0.98), rgba(15, 23, 42, 0.95)) !important;
             backdrop-filter: none !important;
+            border-bottom: 2px solid #8b5cf6 !important;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2) !important;
         }
         
         .android-device .modern-card,
         .android-device .metric-card {
-            background: rgba(30, 41, 59, 0.9) !important;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9)) !important;
             backdrop-filter: none !important;
+            border: 2px solid rgba(139, 92, 246, 0.4) !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15) !important;
         }
         
         .android-device .holographic-text {
-            background: linear-gradient(90deg, #8b5cf6, #ec4899) !important;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             animation: none !important;
         }
         
+        .android-device .text-gradient-brand {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        
         .android-device .futuristic-btn,
-        .android-device .cta-button {
-            background: linear-gradient(90deg, #8b5cf6, #7c3aed) !important;
+        .android-device .cta-button,
+        .android-device .navbar-cta-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b) !important;
             animation: none !important;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3) !important;
+            border: 1px solid rgba(139, 92, 246, 0.5) !important;
         }
         
         .android-device .futuristic-btn::before,
-        .android-device .cta-button::before {
+        .android-device .cta-button::before,
+        .android-device .navbar-cta-btn::before {
             display: none !important;
+        }
+        
+        .android-device .text-glow {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 
+                       0 0 20px rgba(139, 92, 246, 0.3) !important;
         }
     </style>
  </head>
@@ -1520,36 +1566,46 @@
         const isOldAndroid = /Android [1-4]/i.test(navigator.userAgent);
         
         if (isAndroid) {
-            console.log('📱 Android detectado - Aplicando optimizaciones específicas');
+            console.log('📱 Android detectado - Aplicando optimizaciones manteniendo estilo futurista');
             
             // Agregar clase para CSS específico de Android
             document.body.classList.add('android-device');
             
-            // Deshabilitar smooth scroll en Android antiguo
+            // Deshabilitar smooth scroll solo en Android muy antiguo
             if (isOldAndroid) {
                 document.documentElement.style.scrollBehavior = 'auto';
+                console.log('📱 Android antiguo detectado - Optimizaciones extra aplicadas');
             }
             
-            // Optimizar animaciones para Android
-            const animatedElements = document.querySelectorAll('.animated-text, .icon-bounce, .logo-spectacular');
+            // MANTENER animaciones pero simplificarlas
+            const animatedElements = document.querySelectorAll('.animated-text');
             animatedElements.forEach(el => {
-                el.style.animation = 'none';
-                el.style.transform = 'none';
+                // Reducir duración en lugar de eliminar
+                el.style.animationDuration = '0.5s';
+                el.style.animationIterationCount = '1';
             });
             
-            // Simplificar efectos de hover que pueden causar lag
-            const hoverElements = document.querySelectorAll('.modern-card, .metric-card, .futuristic-btn');
-            hoverElements.forEach(el => {
-                el.addEventListener('touchstart', function() {
-                    this.style.transform = 'none';
-                });
+            // MANTENER efectos de logo pero optimizados
+            const logoElements = document.querySelectorAll('.logo-spectacular');
+            logoElements.forEach(el => {
+                el.style.animationDuration = '8s'; // Más lento, menos intensivo
             });
             
-            // Reducir efectos visuales pesados
-            const heavyEffects = document.querySelectorAll('.matrix-overlay, .particle-bg, .navbar-particles');
+            // Optimizar efectos pesados pero mantenerlos
+            const heavyEffects = document.querySelectorAll('.matrix-overlay, .navbar-particles');
             heavyEffects.forEach(el => {
-                el.style.display = 'none';
+                el.style.opacity = '0.3'; // Reducir en lugar de ocultar
+                el.style.animationDuration = '20s'; // Más lento
             });
+            
+            // Partículas muy sutiles
+            const particleBg = document.querySelector('.particle-bg');
+            if (particleBg) {
+                particleBg.style.opacity = '0.05';
+                particleBg.style.animationDuration = '30s';
+            }
+            
+            console.log('✨ Estilo futurista optimizado para Android aplicado');
         }
         // ====== FIN FIXES ANDROID ======
         
