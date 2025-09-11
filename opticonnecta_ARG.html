@@ -1248,10 +1248,15 @@
             }
             
             /* Asegurar que el contenedor de precios esté centrado */
-            #pricing-content {
+            #pricing-content:not(.hidden) {
                 display: flex;
                 justify-content: center;
                 width: 100%;
+            }
+            
+            /* Asegurar que hidden funcione correctamente en móviles */
+            #pricing-content.hidden {
+                display: none !important;
             }
             
             #pricing {
@@ -1280,7 +1285,7 @@
             }
             
             /* Arreglar contenedor de precios en móvil */
-            #pricing-content {
+            #pricing-content:not(.hidden) {
                 padding: 0 0.5rem;
             }
             
@@ -2915,13 +2920,28 @@
         const pricingArrow = document.getElementById('pricing-arrow');
 
         if (pricingToggler && pricingContent && pricingArrow) {
-            pricingToggler.addEventListener('click', () => {
+            // Función para toggle del pricing
+            function togglePricing(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 // Alternar la visibilidad del contenido
                 pricingContent.classList.toggle('hidden');
                 
                 // Rotar la flecha
                 pricingArrow.classList.toggle('rotate-180');
-            });
+                
+                // Log para debug en móviles
+                console.log('Pricing toggle:', pricingContent.classList.contains('hidden') ? 'cerrado' : 'abierto');
+            }
+            
+            // Agregar múltiples eventos para mejor compatibilidad móvil
+            pricingToggler.addEventListener('click', togglePricing);
+            pricingToggler.addEventListener('touchend', togglePricing);
+            
+            // Asegurar que el estado inicial sea correcto
+            pricingContent.classList.add('hidden');
+            pricingArrow.classList.remove('rotate-180');
         }
         // --- FIN: CÓDIGO AÑADIDO ---
 
