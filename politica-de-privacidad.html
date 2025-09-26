@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Optinex</title>
+    <meta name="description" content="Política de Privacidad de Optinex. Información sobre el tratamiento de datos personales, uso de APIs de Meta (Facebook, Instagram, Messenger), derechos de los usuarios y contacto.">
+    <link rel="canonical" href="https://optinexia.com.ar/politica-de-privacidad">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/imagenes/favacon.png?v=2" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #0D1117;
+            --bg-soft: #161B22;
+            --text: #E6EDF3;
+            --muted: #9AA4B2;
+            --border: #30363D;
+            --brand-1: #8b5cf6;
+            --brand-2: #ec4899;
+            --brand-3: #f59e0b;
+        }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+        .text-gradient-brand {
+            background: linear-gradient(90deg, var(--brand-1), var(--brand-2), var(--brand-3));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .card {
+            background: linear-gradient(145deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 16px;
+        }
+        .content p,
+        .content li { text-align: justify; }
+        .content h2 { scroll-margin-top: 100px; }
+        .accent-text { color: #a78bfa; }
+        .divider { height: 1px; background: var(--border); }
+        .updated-badge { color: var(--muted); }
+        .link { color: #c4b5fd; text-decoration: underline; }
+        .link:hover { color: #e9d5ff; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const el = document.getElementById('updated-date');
+            if (el) {
+                const date = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
+                el.textContent = date;
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="border-b border-slate-800/80 bg-[#0D1117]/80 backdrop-blur">
+        <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="/imagenes/favacon.png?v=2" alt="Optinex" class="w-8 h-8" onerror="this.style.display='none'">
+                <span class="text-xl font-extrabold tracking-tight">Optinex</span>
+            </div>
+            <nav class="text-sm text-slate-300 hidden sm:block">
+                <a href="/" class="hover:text-white transition">Inicio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-10">
+        <div class="mb-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-3"><span class="text-gradient-brand">Política de Privacidad de Optinex</span></h1>
+            <p class="updated-badge text-sm">Última actualización: <span id="updated-date"></span></p>
+        </div>
+
+        <section class="card p-6 sm:p-8 content">
+            <div class="space-y-8">
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">1. Introducción y datos de la empresa</h2>
+                    <p>
+                        Esta Política de Privacidad describe cómo <strong>Optinex</strong> (en adelante, “Optinex”, “nosotros” o “nuestro”),
+                        disponible en <a class="link" href="https://optinexia.com.ar" target="_blank" rel="noopener">optinexia.com.ar</a>,
+                        recopila, utiliza, comparte y protege los datos personales relacionados con nuestros sitios web, servicios y
+                        soluciones de <em>automatización y comunicación omnicanal</em>, incluyendo integraciones con <strong>Meta</strong>
+                        (Facebook, Instagram, Messenger) para brindar funcionalidades solicitadas por nuestros clientes.
+                    </p>
+                    <p class="mt-4">
+                        El propósito general de nuestras aplicaciones y servicios es permitir a empresas y emprendedores gestionar y automatizar
+                        interacciones con sus clientes, incluyendo mensajería, atención y soporte, campañas y análisis.
+                    </p>
+                    <p class="mt-3">
+                        Versión pública de esta política: <a class="link" href="https://optinexia.com.ar/politica-de-privacidad" target="_blank" rel="noopener">optinexia.com.ar/politica-de-privacidad</a>.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">2. Datos personales que podemos recopilar</h2>
+                    <h3 class="text-lg font-semibold mb-2">2.1. Datos proporcionados por el usuario</h3>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Nombre y apellido.</li>
+                        <li>Correo electrónico y datos de contacto (teléfono, empresa, cargo).</li>
+                        <li>Mensajes o información remitida voluntariamente mediante formularios o canales de soporte.</li>
+                        <li>Preferencias, solicitudes de demostración y respuestas a encuestas.</li>
+                    </ul>
+                    <h3 class="text-lg font-semibold mt-4 mb-2">2.2. Datos técnicos y de uso</h3>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Dirección IP, identificadores de dispositivo y del navegador, sistema operativo.</li>
+                        <li>Información de navegación, URLs de referencia/salida, páginas visitadas y tiempos de interacción.</li>
+                        <li>Eventos de sitio y métricas de rendimiento.</li>
+                        <li>Cookies, <em>pixels</em> y tecnologías similares (ver sección de Cookies).</li>
+                    </ul>
+                    <h3 class="text-lg font-semibold mt-4 mb-2">2.3. Datos provenientes de integraciones con Meta (Facebook, Instagram y Messenger)</h3>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Acceso a conversaciones y mensajes de páginas/perfiles empresariales conectados, únicamente con autorización explícita del titular/administrador.</li>
+                        <li>Nombre de usuario, ID de página/perfil, y metadatos necesarios para el funcionamiento de la integración.</li>
+                        <li>Contenido de mensajes entrantes/salientes y adjuntos requeridos para ejecutar automatizaciones o brindar soporte.</li>
+                    </ul>
+                    <p class="mt-3 text-slate-300">
+                        <strong>No almacenamos contraseñas</strong> de Facebook o Instagram. El acceso se realiza mediante tokens OAuth y permisos
+                        autorizados por el usuario/administrador según las políticas de Meta.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">3. Finalidades del tratamiento</h2>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Brindar, mantener y mejorar nuestros servicios y funcionalidades.</li>
+                        <li>Configurar integraciones y automatizaciones solicitadas por el usuario.</li>
+                        <li>Atender consultas, proveer soporte técnico y servicio al cliente.</li>
+                        <li>Comunicaciones operativas y administrativas, incluyendo notificaciones de servicio.</li>
+                        <li>Análisis interno, seguridad, monitoreo de calidad y rendimiento.</li>
+                        <li>Cumplimiento de obligaciones legales y contractuales.</li>
+                        <li>Envío de comunicaciones comerciales cuando corresponda y con base legal válida.</li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">4. Base legal y consentimiento</h2>
+                    <p>
+                        Tratamos datos personales con base en el consentimiento del titular, la ejecución de contratos, el interés legítimo
+                        y/o el cumplimiento de obligaciones legales aplicables. Cuando la base sea el consentimiento, este podrá ser
+                        retirado en cualquier momento, sin efectos retroactivos, mediante los canales de contacto indicados.
+                    </p>
+                    <p class="mt-3">
+                        Asimismo, cumplimos con las <strong>políticas de privacidad de Meta/Facebook</strong> y sus estándares de uso de datos en el
+                        contexto de nuestras integraciones, utilizando únicamente los permisos y datos estrictamente necesarios para brindar
+                        las funcionalidades solicitadas por el usuario.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">5. Compartición de datos y terceros</h2>
+                    <p>
+                        No vendemos ni comercializamos datos personales. Podemos compartir datos con <em>encargados de tratamiento</em> o
+                        proveedores tecnológicos que prestan servicios a Optinex, tales como hosting, infraestructura, herramientas de
+                        analítica, mensajería, envío de correo transaccional, y APIs externas (incluyendo Meta para la operación de las
+                        integraciones). Estos terceros sólo acceden a la información necesaria para prestar sus servicios y se obligan a
+                        protegerla adecuadamente.
+                    </p>
+                    <p class="mt-3">
+                        Asimismo, podremos compartir información cuando sea requerido por ley, autoridad competente o para hacer valer
+                        nuestros términos y proteger derechos, seguridad y propiedad de Optinex, sus usuarios o terceros.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">6. Cookies y tecnologías similares</h2>
+                    <p>
+                        Utilizamos cookies, <em>pixels</em> (por ejemplo, <strong>Meta Pixel</strong>) y tecnologías similares para mejorar la
+                        experiencia, entender el uso del sitio, medir campañas y optimizar el rendimiento. Puede gestionar o bloquear las
+                        cookies desde la configuración de su navegador. Al continuar navegando en nuestros sitios, usted consiente el uso
+                        de estas tecnologías conforme a esta política.
+                    </p>
+                    <p class="mt-3">
+                        Puede administrar sus <strong>preferencias de anuncios</strong> en Facebook visitando <a class="link" href="https://www.facebook.com/settings" target="_blank" rel="noopener">facebook.com/settings</a> y ajustando la configuración de publicidad personalizada.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">7. Derechos de los usuarios (Ley 25.326 - Argentina)</h2>
+                    <p>
+                        Los titulares de datos personales tienen derecho a <strong>acceder</strong> a sus datos, así como a solicitar su
+                        <strong>rectificación</strong>, <strong>actualización</strong> y <strong>supresión</strong> cuando corresponda.
+                        Para ejercer estos derechos, puede escribirnos a <a class="link" href="mailto:contacto@optinexia.com.ar">contacto@optinexia.com.ar</a>.
+                    </p>
+                    <p class="mt-3 text-slate-300">
+                        La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley 25.326, tiene la
+                        atribución de atender denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre
+                        protección de datos personales.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">8. Seguridad de la información</h2>
+                    <p>
+                        Implementamos medidas de seguridad técnicas y organizativas razonables para proteger la información personal
+                        contra accesos no autorizados, pérdida, alteración o divulgación. Ningún método de transmisión o almacenamiento es
+                        100% infalible; por ello, trabajamos continuamente para mejorar nuestras prácticas de seguridad.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">9. Responsable de datos y contacto</h2>
+                    <p>
+                        Responsable del tratamiento: <strong>Optinex</strong>.
+                        Correo de contacto: <a class="link" href="mailto:contacto@optinexia.com.ar">contacto@optinexia.com.ar</a>.
+                        Sitio web: <a class="link" href="https://optinexia.com.ar" target="_blank" rel="noopener">optinexia.com.ar</a>.
+                        Formulario de contacto: <a class="link" href="/contacto">optinexia.com.ar/contacto</a>.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">10. Integraciones con Meta (Facebook, Instagram y Messenger)</h2>
+                    <p>
+                        Nuestras integraciones con Meta acceden <strong>únicamente</strong> a los datos y permisos expresamente
+                        autorizados por el usuario/administrador, con el fin exclusivo de brindar las funcionalidades solicitadas
+                        (automatizaciones, lectura y envío de mensajes en nombre de la página/perfil conectado, respuestas automáticas,
+                        asignación de conversaciones, métricas operativas, entre otros usos previstos por la integración).
+                    </p>
+                    <ul class="list-disc pl-6 space-y-1 mt-2">
+                        <li>No almacenamos contraseñas de Facebook o Instagram.</li>
+                        <li>El acceso se gestiona mediante OAuth y tokens de acceso provistos por Meta.</li>
+                        <li>Los datos obtenidos a través de las APIs de Meta no se venden ni comercializan.</li>
+                        <li>Los datos se conservan únicamente el tiempo necesario para prestar el servicio solicitado.</li>
+                        <li>Puede solicitar la eliminación de sus datos enviando un correo a <a class="link" href="mailto:contacto@optinexia.com.ar">contacto@optinexia.com.ar</a>.</li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">11. Conservación y eliminación de los datos</h2>
+                    <p>
+                        Conservamos los datos personales durante el tiempo necesario para cumplir con las finalidades informadas y por los
+                        plazos exigidos por la normativa aplicable. Los usuarios pueden solicitar la eliminación de su información
+                        contactándonos a <a class="link" href="mailto:contacto@optinexia.com.ar">contacto@optinexia.com.ar</a>.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">12. Transferencias internacionales</h2>
+                    <p>
+                        Algunos proveedores o subprocesadores pueden encontrarse fuera de la República Argentina. En tales casos,
+                        adoptaremos medidas para asegurar un nivel adecuado de protección, incluyendo cláusulas contractuales y
+                        salvaguardas razonables conforme a la normativa vigente.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">13. Menores de edad</h2>
+                    <p>
+                        Nuestros servicios no están dirigidos a menores de 13 años (o la edad mínima exigida por la legislación local). Si
+                        tomamos conocimiento de que se han recolectado datos de un menor sin la debida autorización, procederemos a
+                        eliminarlos razonablemente pronto.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">14. Cambios en esta política</h2>
+                    <p>
+                        Podremos actualizar esta Política de Privacidad para reflejar cambios en nuestras prácticas, servicios o
+                        requisitos legales. Publicaremos la versión vigente en nuestro sitio web y, cuando corresponda, notificaremos por
+                        canales razonables. La fecha de última actualización figura al inicio de este documento.
+                    </p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section>
+                    <h2 class="text-2xl font-bold mb-3">15. Ley y jurisdicción aplicables</h2>
+                    <p>
+                        Esta Política se rige por las leyes de la República Argentina. Cualquier controversia vinculada a su validez,
+                        interpretación o cumplimiento será sometida a los <strong>Tribunales ordinarios de la ciudad de Rosario, Provincia de Santa Fe, República Argentina</strong>,
+                        sin perjuicio de los derechos irrenunciables que pudieran corresponder al usuario conforme a la normativa vigente.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <div class="mt-10 text-center text-sm text-slate-400">
+            <p>© <span id="year"></span> Optinex. Todos los derechos reservados.</p>
+        </div>
+    </main>
+
+    <script>
+        (function(){
+            var y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
+        })();
+    </script>
+</body>
+</html>
+
+

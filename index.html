@@ -45,8 +45,10 @@
         }
         .text-gradient-brand {
             background: linear-gradient(90deg, #8b5cf6, #ec4899, #f97316, #f59e0b);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
     }
     .cta-button {
             background: linear-gradient(90deg, #8b5cf6, #7c3aed);
@@ -98,6 +100,7 @@
         .holographic-text {
             background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6, #8b5cf6);
             background-size: 400% 400%;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: holographicShift 3s ease-in-out infinite;
@@ -777,12 +780,14 @@
             /* MANTENER gradientes de texto pero simplificados */
             .text-gradient-brand {
                 background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b) !important;
+                background-clip: text !important;
                 -webkit-background-clip: text !important;
                 -webkit-text-fill-color: transparent !important;
             }
             
             .holographic-text {
                 background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981) !important;
+                background-clip: text !important;
                 -webkit-background-clip: text !important;
                 -webkit-text-fill-color: transparent !important;
                 animation: none !important; /* Solo quitar la animación, mantener colores */
@@ -962,6 +967,7 @@
         
         .android-device .holographic-text {
             background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981) !important;
+            background-clip: text !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             animation: none !important;
@@ -969,6 +975,7 @@
         
         .android-device .text-gradient-brand {
             background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b) !important;
+            background-clip: text !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
         }
@@ -1008,6 +1015,7 @@
         /* Holographic text específico para Android */
         .android-device .modern-card .holographic-text {
             background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b) !important;
+            background-clip: text !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             animation: none !important;
@@ -1090,6 +1098,16 @@
                     <div class="nav-underline"></div>
                     <div class="absolute inset-0 bg-green-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
+                <div class="relative group">
+                    <a href="#" class="nav-link-futuristic relative group">
+                        <span class="nav-text relative z-10">Legales</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <div class="absolute right-0 mt-2 w-56 rounded-md bg-slate-800 border border-slate-700 py-2 shadow-xl hidden group-hover:block">
+                        <a href="/politica-de-privacidad" class="block px-4 py-2 text-sm text-slate-200 hover:bg-slate-700/50">Política de Privacidad</a>
+                        <a href="/condiciones-del-servicio" class="block px-4 py-2 text-sm text-slate-200 hover:bg-slate-700/50">Condiciones del Servicio</a>
+                    </div>
+                </div>
                 <a href="https://wa.me/5493413840106?text=Hola%2C%20quiero%20hablar%20con%20el%20equipo%20de%20Optinex" target="_blank" class="navbar-whatsapp font-bold py-2 px-4 rounded-lg flex items-center">
                     <i class="fab fa-whatsapp mr-2"></i>
                     <span>WhatsApp</span>
@@ -1122,6 +1140,16 @@
                 <a href="opticonnecta_ARG.html" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">OptiConnecta</a>
                 <a href="#casos" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">Casos</a>
                 <a href="#contacto" class="block text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-purple-500/20">Contacto</a>
+                <details class="group">
+                    <summary class="cursor-pointer text-white py-3 px-4 rounded-lg hover:bg-purple-500/20 flex items-center justify-between">
+                        <span>Legales</span>
+                        <i class="fas fa-chevron-down transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="pl-4 pb-2 space-y-1">
+                        <a href="/politica-de-privacidad" class="block text-white/90 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-purple-500/10">Política de Privacidad</a>
+                        <a href="/condiciones-del-servicio" class="block text-white/90 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-purple-500/10">Condiciones del Servicio</a>
+                    </div>
+                </details>
                 <a href="#contacto" class="block bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center py-4 px-6 rounded-lg font-bold mt-6 hover:from-purple-500 hover:to-pink-500 transition-all duration-300">Traé tu Problema</a>
      </div>
     </div>
@@ -1300,7 +1328,7 @@
       </div>
             
             <div class="text-center mt-12">
-                <p class="text-slate-500 text-xs mb-4">Casos reales; datos anonimizados.</p>
+            <p class="text-slate-500 text-xs mb-4">Casos reales; datos anonimizados.</p>
                 <a href="#casos" class="text-purple-400 hover:text-purple-300 font-semibold">
                     Ver casos detallados →
                 </a>
@@ -1580,6 +1608,11 @@
                 </p>
                 <p class="text-slate-500 text-xs">
                     Soluciones de Inteligencia Artificial para Empresas
+                </p>
+                <p class="text-slate-400 text-xs mt-3">
+                    <a href="/politica-de-privacidad" class="underline hover:text-slate-200">Política de Privacidad</a>
+                    <span class="mx-2">•</span>
+                    <a href="/condiciones-del-servicio" class="underline hover:text-slate-200">Condiciones del Servicio</a>
                 </p>
                 
                 <!-- Indicador de tecnología -->
